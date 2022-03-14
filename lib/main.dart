@@ -1,4 +1,5 @@
 import 'package:fanex_flutter/common/common.dart';
+import 'package:fanex_flutter/features/create_contest/ui/create_contest_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Fanex App',
       theme: AppTheme.lightTheme,
       themeMode: ThemeMode.light,
-      home: const Scaffold(),
+      home: const CreateContestScreen(),
     );
   }
 }

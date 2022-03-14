@@ -1,7 +1,9 @@
 class AppSizes {
   static const double appBarHeight = 60.0;
+  static const double textFieldHeight = 48.0;
+  static const double buttonHeight = 44.0;
 
-  static const double cardCornerRadius = 8.0;
+  static const double cardCornerRadius = 6.0;
 
   static const double dimen30 = 30.0;
   static const double dimen24 = 24.0;
@@ -22,5 +24,5 @@ class AppSizes {
   static const double bodyText1 = 16.0;
   static const double bodyText2 = 14.0;
   static const double caption = 12.0;
-  static const double button = 15.0;
+  static const double button = 16.0;
 }
