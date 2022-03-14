@@ -1,4 +1,5 @@
 import 'package:fanex_flutter/common/common.dart';
+import 'package:fanex_flutter/widgets/custom_spinner.dart';
 import 'package:fanex_flutter/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +15,11 @@ class _CreateContestScreenState extends State<CreateContestScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: AppSizes.elevation0,
-        title: Text('Create Contest', style: AppTheme.lightTheme.textTheme.headline5,),
+        elevation: AppSizes.elevation1,
+        title: Text(
+          'Create Contest',
+          style: AppTheme.lightTheme.textTheme.headline5,
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -27,15 +31,15 @@ class _CreateContestScreenState extends State<CreateContestScreen> {
                 'Enter Contest Title',
                 style: AppTheme.lightTheme.textTheme.headline5,
               ),
-              CustomTextField(hintText: 'Enter Contest Title'),
+              const CustomTextField(hintText: 'Enter Contest Title'),
               const SizedBox(
                 height: AppSizes.dimen8,
               ),
               Text(
-                'Select a Category',
+                'Select Category',
                 style: AppTheme.lightTheme.textTheme.headline5,
               ),
-              CustomTextField(hintText: 'Select a Category'),
+              CustomSpinner(),
               const SizedBox(
                 height: AppSizes.dimen8,
               ),
@@ -43,15 +47,15 @@ class _CreateContestScreenState extends State<CreateContestScreen> {
                 'Select Match',
                 style: AppTheme.lightTheme.textTheme.headline5,
               ),
-              CustomTextField(hintText: 'Select Match'),
+              const CustomTextField(hintText: 'Select Match'),
               const SizedBox(
                 height: AppSizes.dimen8,
               ),
               Text(
-                'Select Statistical category',
+                'Select Statistical Category',
                 style: AppTheme.lightTheme.textTheme.headline5,
               ),
-              CustomTextField(hintText: 'Select Statistical Category'),
+              const CustomTextField(hintText: 'Select Statistical Category'),
               const SizedBox(
                 height: AppSizes.dimen8,
               ),
@@ -66,7 +70,7 @@ class _CreateContestScreenState extends State<CreateContestScreen> {
                     child: CustomTextField(hintText: 'Cash or Coins'),
                   ),
                   SizedBox(width: AppSizes.dimen12),
-                  Flexible(child: const CustomTextField(hintText: 'Amount')),
+                  Flexible(child: CustomTextField(hintText: 'Amount')),
                 ],
               ),
               const SizedBox(
@@ -76,22 +80,25 @@ class _CreateContestScreenState extends State<CreateContestScreen> {
                 'Message',
                 style: AppTheme.lightTheme.textTheme.headline5,
               ),
-              CustomTextField(hintText: 'Write Message'),
-
+              const CustomTextField(hintText: 'Write Message'),
+              const SizedBox(
+                height: AppSizes.dimen8,
+              ),
+              const CustomTextField(hintText: 'Invite Friends'),
               const SizedBox(
                 height: AppSizes.dimen16,
               ),
-
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  minimumSize: const Size.fromHeight(AppSizes.buttonHeight), // fromHeight use double.infinity as width and 40 is the height
+                  primary: AppColors.green,
+                  minimumSize: const Size.fromHeight(AppSizes
+                      .buttonHeight), // fromHeight use double.infinity as width and 40 is the height
                 ),
                 onPressed: () {
                   // Finish button press
                 },
-                child: Text('Finish'),
+                child: const Text('Finish'),
               )
-
             ],
           ),
         ),
