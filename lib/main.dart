@@ -1,3 +1,4 @@
+import 'package:fanex_flutter/common/common.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,10 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Fanex App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: AppTheme.lightTheme,
+      themeMode: ThemeMode.light,
       home: const Scaffold(),
     );
   }
