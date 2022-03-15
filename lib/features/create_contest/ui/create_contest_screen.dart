@@ -1,6 +1,6 @@
 import 'package:fanex_flutter/common/common.dart';
-import 'package:fanex_flutter/widgets/custom_spinner.dart';
-import 'package:fanex_flutter/widgets/custom_text_field.dart';
+import 'package:fanex_flutter/common/strings.dart';
+import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class CreateContestScreen extends StatefulWidget {
@@ -88,17 +88,7 @@ class _CreateContestScreenState extends State<CreateContestScreen> {
               const SizedBox(
                 height: AppSizes.dimen16,
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: AppColors.green,
-                  minimumSize: const Size.fromHeight(AppSizes
-                      .buttonHeight), // fromHeight use double.infinity as width and 40 is the height
-                ),
-                onPressed: () {
-                  // Finish button press
-                },
-                child: const Text('Finish'),
-              )
+              CustomFullButton(title: AppStrings.finishButtonText, onPressed: () {})
             ],
           ),
         ),

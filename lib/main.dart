@@ -1,6 +1,7 @@
 import 'package:fanex_flutter/common/common.dart';
-import 'package:fanex_flutter/features/create_contest/ui/create_contest_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:fanex_flutter/features/screens.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,12 +13,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: AppColors.transparent, // status bar color
+    ));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Fanex App',
       theme: AppTheme.lightTheme,
       themeMode: ThemeMode.light,
-      home: const CreateContestScreen(),
+      home: const WelcomeScreen(),
     );
   }
 }
