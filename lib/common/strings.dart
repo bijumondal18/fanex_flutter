@@ -3,7 +3,7 @@ class AppStrings {
   static const String usernameHint = "Username";
   static const String passwordHint = "Password";
   static const String rememberPasswordText = "Remember me";
-  static const String forgetPasswordButtonText = "Forget password";
+  static const String forgetPasswordButtonText = "Forget password ?";
   static const String finishButtonText = "Finish";
   static const String loginButtonText = "Login";
   static const String doneButtonText = "Done";

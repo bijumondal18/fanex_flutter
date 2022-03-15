@@ -3,6 +3,8 @@ import 'package:fanex_flutter/common/strings.dart';
 import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
+/// ----------create contest screen-------------------- ///
+
 class CreateContestScreen extends StatefulWidget {
   const CreateContestScreen({Key? key}) : super(key: key);
 
