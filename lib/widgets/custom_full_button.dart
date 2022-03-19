@@ -19,7 +19,7 @@ class CustomFullButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         title,
-        style: AppTheme.lightTheme.textTheme.button,
+        style: Theme.of(context).textTheme.button,
       ),
     );
   }

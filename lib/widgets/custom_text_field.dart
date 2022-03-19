@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
   final String hintText;
+  final bool obscureText;
+  final TextEditingController controller;
+  final Icon icon;
 
-  const CustomTextField({Key? key, required this.hintText}) : super(key: key);
+  const CustomTextField({Key? key, required this.hintText, required this.obscureText, required this.controller, required this.icon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +16,13 @@ class CustomTextField extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: AppSizes.textFieldHeight,
       child: TextField(
+        controller: controller,
+        obscureText: obscureText,
         cursorColor: AppColors.black,
         decoration: InputDecoration(
+          prefixIcon: icon,
+          iconColor: AppColors.lightGrey,
+          prefixIconColor: AppColors.lightGrey,
           hintText: hintText,
           hintStyle: AppTheme.lightTheme.textTheme.bodyText1,
           filled: true,

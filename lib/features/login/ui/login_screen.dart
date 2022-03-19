@@ -9,6 +9,8 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController usernameController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -24,23 +26,34 @@ class LoginScreen extends StatelessWidget {
                   child: Image.asset('assets/images/fanex-logo.png',
                       fit: BoxFit.contain),
                 ),
-                const CustomTextField(hintText: AppStrings.usernameHint),
+                CustomTextField(
+                  hintText: AppStrings.usernameHint,
+                  obscureText: false,
+                  controller: usernameController,
+                  icon: const Icon(Icons.person),
+                ),
                 const SizedBox(height: AppSizes.dimen8),
-                const CustomTextField(hintText: AppStrings.passwordHint),
-                const SizedBox(height: AppSizes.dimen16),
+                CustomTextField(
+                    hintText: AppStrings.passwordHint,
+                    obscureText: true,
+                    controller: passwordController,
+                    icon: const Icon(Icons.lock)),
+                const SizedBox(height: AppSizes.dimen30),
                 Align(
                   alignment: Alignment.topRight,
                   child: Text(
                     AppStrings.forgetPasswordButtonText,
-                    style: AppTheme.lightTheme.textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyText1,
                   ),
                 ),
                 const SizedBox(height: AppSizes.dimen30),
                 CustomFullButton(
-                    title: AppStrings.loginButtonText, onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const CustomBottomNavigationBar()));
-                })
+                    title: AppStrings.loginButtonText.toUpperCase(),
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) =>
+                              const CustomBottomNavigationBar()));
+                    })
               ],
             ),
           ),

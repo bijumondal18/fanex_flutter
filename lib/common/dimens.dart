@@ -24,5 +24,5 @@ class AppSizes {
   static const double bodyText1 = 15.0;
   static const double bodyText2 = 13.0;
   static const double caption = 11.0;
-  static const double button = 15.0;
+  static const double button = 16.0;
 }

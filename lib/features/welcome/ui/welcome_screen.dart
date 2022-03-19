@@ -11,6 +11,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: SafeArea(
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -21,15 +22,15 @@ class WelcomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(
-                width: 200,
-                height: 200,
+                width: 250,
+                height: 160,
                 child: Image.asset('assets/images/fanex-logo.png',
                     fit: BoxFit.contain),
               ),
               CustomFullButton(
                   title: AppStrings.loginButtonText.toUpperCase(),
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) => const LoginScreen()));
                   })
             ],

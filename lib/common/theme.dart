@@ -10,7 +10,7 @@ class AppTheme {
         brightness: Brightness.light,
         backgroundColor: AppColors.white,
         appBarTheme: const AppBarTheme(
-            backgroundColor: AppColors.white,
+          backgroundColor: AppColors.transparent,
             elevation: AppSizes.elevation0,
             centerTitle: true,
             foregroundColor: AppColors.black),
