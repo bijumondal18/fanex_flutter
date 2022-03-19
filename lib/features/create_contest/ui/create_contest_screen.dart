@@ -13,16 +13,15 @@ class CreateContestScreen extends StatefulWidget {
 }
 
 class _CreateContestScreenState extends State<CreateContestScreen> {
-
   TextEditingController contestTitleController = TextEditingController();
   TextEditingController cashOrCoinsController = TextEditingController();
   TextEditingController amountController = TextEditingController();
   TextEditingController writeMessageController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: AppSizes.elevation1,
         title: Text(
           'Create Contest',
           style: AppTheme.lightTheme.textTheme.headline5,
@@ -38,7 +37,12 @@ class _CreateContestScreenState extends State<CreateContestScreen> {
                 'Enter Contest Title',
                 style: AppTheme.lightTheme.textTheme.headline5,
               ),
-               CustomTextField(hintText: 'Enter Contest Title',obscureText: false,controller: contestTitleController, icon: const Icon(Icons.message),),
+              CustomTextField(
+                hintText: 'Enter Contest Title',
+                obscureText: false,
+                controller: contestTitleController,
+                icon: const Icon(Icons.message),
+              ),
               const SizedBox(
                 height: AppSizes.dimen8,
               ),
@@ -72,12 +76,23 @@ class _CreateContestScreenState extends State<CreateContestScreen> {
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children:  [
+                children: [
                   Flexible(
-                    child: CustomTextField(hintText: 'Cash or Coins',obscureText: false,controller: cashOrCoinsController,icon: const Icon(Icons.message),),
+                    child: CustomTextField(
+                      hintText: 'Cash or Coins',
+                      obscureText: false,
+                      controller: cashOrCoinsController,
+                      icon: const Icon(Icons.message),
+                    ),
                   ),
                   const SizedBox(width: AppSizes.dimen12),
-                  Flexible(child: CustomTextField(hintText: 'Amount',obscureText: false,controller: amountController,icon: const Icon(Icons.message),)),
+                  Flexible(
+                      child: CustomTextField(
+                    hintText: 'Amount',
+                    obscureText: false,
+                    controller: amountController,
+                    icon: const Icon(Icons.message),
+                  )),
                 ],
               ),
               const SizedBox(
@@ -87,7 +102,12 @@ class _CreateContestScreenState extends State<CreateContestScreen> {
                 'Message',
                 style: AppTheme.lightTheme.textTheme.headline5,
               ),
-               CustomTextField(hintText: 'Write Message',obscureText: false,controller: writeMessageController,icon: const Icon(Icons.message),),
+              CustomTextField(
+                hintText: 'Write Message',
+                obscureText: false,
+                controller: writeMessageController,
+                icon: const Icon(Icons.message),
+              ),
               const SizedBox(
                 height: AppSizes.dimen8,
               ),
@@ -95,7 +115,8 @@ class _CreateContestScreenState extends State<CreateContestScreen> {
               const SizedBox(
                 height: AppSizes.dimen16,
               ),
-              CustomFullButton(title: AppStrings.finishButtonText, onPressed: () {})
+              CustomFullButton(
+                  title: AppStrings.finishButtonText, onPressed: () {})
             ],
           ),
         ),
