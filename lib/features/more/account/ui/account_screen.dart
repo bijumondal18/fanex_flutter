@@ -8,8 +8,24 @@ class AccountScreen extends StatefulWidget {
 }
 
 class _AccountScreenState extends State<AccountScreen> {
+
+  final List<String> items = [
+    'Profile',
+    'Wallet',
+    'Friend requests',
+    'Follow Fanex',
+    'Friends',
+    'Change pin/password',
+    'Transaction history'
+  ];
+
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Account'),
+      ),
+    );
   }
 }
