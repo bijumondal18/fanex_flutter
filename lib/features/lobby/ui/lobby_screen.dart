@@ -21,7 +21,6 @@ class _LobbyScreenState extends State<LobbyScreen> {
       child: Scaffold(
         ///Appbar
         appBar: AppBar(
-          elevation: AppSizes.elevation0,
           actions: const [
             Padding(
               padding: EdgeInsets.only(right: AppSizes.dimen16),
@@ -31,7 +30,13 @@ class _LobbyScreenState extends State<LobbyScreen> {
             )
           ],
           bottom: const TabBar(
-            tabs: [
+            labelColor: AppColors.orange,
+            labelStyle: TextStyle(fontSize: AppSizes.headline6,fontWeight: FontWeight.w800),
+            unselectedLabelStyle: TextStyle(fontSize: AppSizes.bodyText2,fontWeight: FontWeight.w400),
+            unselectedLabelColor: AppColors.darkGrey,
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorColor: AppColors.orange,
+            tabs:  [
               Tab(
                 text: 'Lobby',
               ),
