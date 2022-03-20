@@ -10,6 +10,10 @@ class LobbyFragment extends StatefulWidget {
 class _LobbyFragmentState extends State<LobbyFragment> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Scaffold(
+      body: Center(
+        child: Text('Lobby fragment'),
+      ),
+    );
   }
 }

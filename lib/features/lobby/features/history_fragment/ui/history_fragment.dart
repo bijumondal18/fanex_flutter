@@ -10,6 +10,10 @@ class HistoryFragment extends StatefulWidget {
 class _HistoryFragmentState extends State<HistoryFragment> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Scaffold(
+      body: Center(
+        child: Text('History fragment'),
+      ),
+    );
   }
 }

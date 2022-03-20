@@ -10,6 +10,10 @@ class UpcomingFragment extends StatefulWidget {
 class _UpcomingFragmentState extends State<UpcomingFragment> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Scaffold(
+      body: Center(
+        child: Text('upcoming fragment'),
+      ),
+    );
   }
 }
