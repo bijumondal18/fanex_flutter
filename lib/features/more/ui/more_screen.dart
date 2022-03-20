@@ -47,7 +47,7 @@ class _MoreScreenState extends State<MoreScreen> {
                             style: AppTheme.lightTheme.textTheme.headline4,
                           ),
                           content: Text('Are you sure you want to logout?',
-                              style: AppTheme.lightTheme.textTheme.headline6),
+                              style: AppTheme.lightTheme.textTheme.bodyText1),
                           actions: [
                             TextButton(
                                 onPressed: () {
@@ -56,7 +56,7 @@ class _MoreScreenState extends State<MoreScreen> {
                                 child: Text(
                                   'Cancel',
                                   style:
-                                      AppTheme.lightTheme.textTheme.bodyText1,
+                                      AppTheme.lightTheme.textTheme.headline6,
                                 )),
                             TextButton(
                                 onPressed: () {
@@ -65,7 +65,7 @@ class _MoreScreenState extends State<MoreScreen> {
                                 child: Text(
                                   'Confirm',
                                   style:
-                                      AppTheme.lightTheme.textTheme.bodyText1,
+                                      AppTheme.lightTheme.textTheme.headline6,
                                 )),
                           ],
                         ));
