@@ -4,9 +4,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:io';
 
 class MoreDetailsScreen extends StatelessWidget {
-
-  const MoreDetailsScreen({Key? key, required int index})
-      : super(key: key);
+  const MoreDetailsScreen({Key? key, required int index}) : super(key: key);
 
   String initialUrl(index) {
     String initialUrl = '';
@@ -15,16 +13,16 @@ class MoreDetailsScreen extends StatelessWidget {
         initialUrl = FanexURLs.howToPlayUrl;
         break;
       case 2:
-        initialUrl = 'https://fanex.in/contact';
+        initialUrl = FanexURLs.contactUsUrl;
         break;
       case 3:
-        initialUrl = 'https://fanex.in/rules-score';
+        initialUrl = FanexURLs.rulesScoreUrl;
         break;
       case 4:
-        initialUrl = 'https://fanex.in/terms';
+        initialUrl = FanexURLs.termsServiceUrl;
         break;
       case 5:
-        initialUrl = 'https://fanex.in/privacy_policy';
+        initialUrl = FanexURLs.privacyPolicyUrl;
         break;
     }
     return initialUrl;
