@@ -1,4 +1,5 @@
 import 'package:fanex_flutter/features/more/account/features/change_password/ui/change_password_screen.dart';
+import 'package:fanex_flutter/features/more/account/features/follow_fanex/ui/follow_fanex_screen.dart';
 import 'package:fanex_flutter/features/more/account/features/friend_request/ui/friend_request_screen.dart';
 import 'package:fanex_flutter/features/more/account/features/friends/ui/friends_screen.dart';
 import 'package:fanex_flutter/features/more/account/features/transaction_history/ui/transaction_history_screen.dart';
@@ -57,6 +58,13 @@ class _AccountScreenState extends State<AccountScreen> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const FriendRequestScreen()));
+                  break;
+
+                case 3:
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FollowFanexScreen()));
                   break;
 
                 case 4:
