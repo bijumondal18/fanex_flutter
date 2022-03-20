@@ -1,21 +1,33 @@
+import 'package:fanex_flutter/api/urls.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:io';
 
-class MoreDetailsScreen extends StatefulWidget {
-  const MoreDetailsScreen({Key? key, required int index}) : super(key: key);
+class MoreDetailsScreen extends StatelessWidget {
 
-  @override
-  State<MoreDetailsScreen> createState() => _MoreDetailsScreenState();
-}
+  const MoreDetailsScreen({Key? key, required int index})
+      : super(key: key);
 
-class _MoreDetailsScreenState extends State<MoreDetailsScreen> {
-  @override
-  void initState() {
-    if (Platform.isAndroid) {
-      WebView.platform = SurfaceAndroidWebView();
+  String initialUrl(index) {
+    String initialUrl = '';
+    switch (index) {
+      case 1:
+        initialUrl = FanexURLs.howToPlayUrl;
+        break;
+      case 2:
+        initialUrl = 'https://fanex.in/contact';
+        break;
+      case 3:
+        initialUrl = 'https://fanex.in/rules-score';
+        break;
+      case 4:
+        initialUrl = 'https://fanex.in/terms';
+        break;
+      case 5:
+        initialUrl = 'https://fanex.in/privacy_policy';
+        break;
     }
-    super.initState();
+    return initialUrl;
   }
 
   @override
@@ -24,8 +36,8 @@ class _MoreDetailsScreenState extends State<MoreDetailsScreen> {
       appBar: AppBar(
         title: const Text('More Details Screen'),
       ),
-      body: const WebView(
-        initialUrl: 'https://fanex.in/how-to-play',
+      body: WebView(
+        initialUrl: initialUrl(1),
         javascriptMode: JavascriptMode.unrestricted,
       ),
     );
