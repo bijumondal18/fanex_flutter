@@ -21,14 +21,16 @@ class WelcomeScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              ///Fanex Logo
               SizedBox(
                 width: 250,
                 height: 160,
                 child: Image.asset('assets/images/fanex-logo.png',
                     fit: BoxFit.contain),
               ),
+              ///Get Started Button
               CustomFullButton(
-                  title: AppStrings.loginButtonText.toUpperCase(),
+                  title: AppStrings.getStartedButtonText.toUpperCase(),
                   onPressed: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) => const LoginScreen()));

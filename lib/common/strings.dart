@@ -1,11 +1,17 @@
 
 class AppStrings {
   static const String usernameHint = "Username";
+  static const String mobileNumberHint = "Mobile Number";
+  static const String registeredMobileNumberHint = "Registered Mobile Number";
   static const String passwordHint = "Password";
   static const String rememberPasswordText = "Remember me";
   static const String forgetPasswordButtonText = "Forget password ?";
+  static const String resetPasswordButtonText = "Reset password";
+  static const String changePasswordButtonText = "Change password";
+  static const String signupButtonText = "Not a member yet? Sign Up";
   static const String finishButtonText = "Finish";
   static const String loginButtonText = "Login";
+  static const String getStartedButtonText = "Get Started";
   static const String doneButtonText = "Done";
   static const String createContestButtonText = "Create Contest";
   static const String error = "Error";
