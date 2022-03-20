@@ -21,12 +21,12 @@ class _CreateContestScreenState extends State<CreateContestScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      ///Appbar
       appBar: AppBar(
-        title: Text(
-          'Create Contest',
-          style: AppTheme.lightTheme.textTheme.headline5,
-        ),
+        title: const Text('Create Contest'),
       ),
+
+      ///Content
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(AppSizes.dimen12),

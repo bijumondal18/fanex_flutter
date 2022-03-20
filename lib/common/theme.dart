@@ -10,9 +10,13 @@ class AppTheme {
         brightness: Brightness.light,
         backgroundColor: AppColors.white,
         appBarTheme: const AppBarTheme(
-          backgroundColor: AppColors.white,
+            backgroundColor: AppColors.white,
             elevation: AppSizes.elevation1,
             centerTitle: true,
+            titleTextStyle: TextStyle(
+                color: AppColors.darkGrey,
+                fontSize: AppSizes.headline6,
+                fontWeight: FontWeight.w500),
             foregroundColor: AppColors.black),
         scaffoldBackgroundColor: AppColors.scaffold,
         visualDensity: VisualDensity.adaptivePlatformDensity,
