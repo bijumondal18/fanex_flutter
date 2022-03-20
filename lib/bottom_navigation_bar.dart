@@ -2,6 +2,8 @@ import 'package:fanex_flutter/common/common.dart';
 import 'package:fanex_flutter/features/create_contest/ui/create_contest_screen.dart';
 import 'package:fanex_flutter/features/lobby/ui/lobby_screen.dart';
 import 'package:fanex_flutter/features/more/ui/more_screen.dart';
+import 'package:fanex_flutter/features/rankings/ui/ranking_screen.dart';
+import 'package:fanex_flutter/features/rewards/ui/reward_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'common/palette.dart';
@@ -18,9 +20,10 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int currentIndex = 0;
   final List pages = [
     const LobbyScreen(),
+    const RewardScreen(),
     const CreateContestScreen(),
-    const CreateContestScreen(),
-    MoreScreen()
+    const RankingScreen(),
+    const MoreScreen()
   ];
 
   void onTap(int index) {
@@ -34,6 +37,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     return Scaffold(
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        elevation: 5,
         onTap: onTap,
         currentIndex: currentIndex,
         backgroundColor: AppColors.white,
@@ -57,6 +61,11 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             label: 'Create',
             icon: Icon(Icons.add_box_outlined),
             activeIcon: Icon(Icons.add_box_rounded),),
+
+          BottomNavigationBarItem(
+            label: 'Rankings',
+            icon: Icon(Icons.request_page_outlined),
+            activeIcon: Icon(Icons.request_page),),
 
           BottomNavigationBarItem(
             label: 'More',

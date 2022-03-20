@@ -29,14 +29,16 @@ class _LobbyScreenState extends State<LobbyScreen> {
               ),
             )
           ],
+
+          ///Tab Bar (eg. Lobby, Upcoming, Live and History)
           bottom: const TabBar(
             labelColor: AppColors.orange,
-            labelStyle: TextStyle(fontSize: AppSizes.headline6,fontWeight: FontWeight.w800),
-            unselectedLabelStyle: TextStyle(fontSize: AppSizes.bodyText2,fontWeight: FontWeight.w400),
+            // labelStyle: TextStyle(fontSize: AppSizes.headline6,fontWeight: FontWeight.w800),
+            // unselectedLabelStyle: TextStyle(fontSize: AppSizes.bodyText2,fontWeight: FontWeight.w400),
             unselectedLabelColor: AppColors.darkGrey,
-            indicatorSize: TabBarIndicatorSize.label,
+            indicatorSize: TabBarIndicatorSize.tab,
             indicatorColor: AppColors.orange,
-            tabs:  [
+            tabs: [
               Tab(
                 text: 'Lobby',
               ),
