@@ -15,13 +15,13 @@ class AccountScreen extends StatefulWidget {
 
 class _AccountScreenState extends State<AccountScreen> {
   final List<String> items = [
-    'Profile',
-    'Wallet',
-    'Friend requests',
+    'My Profile',
+    'My Wallet',
+    'Friend Requests',
     'Follow Fanex',
     'Friends',
-    'Change pin/password',
-    'Transaction history'
+    'Change Pin/Password',
+    'Transaction History'
   ];
 
   @override

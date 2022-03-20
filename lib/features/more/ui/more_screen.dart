@@ -33,47 +33,53 @@ class _MoreScreenState extends State<MoreScreen> {
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
-              if (index == 0) {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const AccountScreen()));
-              } else if (index == 6) {
-                showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                          title: Text(
-                            'Logout',
-                            style: AppTheme.lightTheme.textTheme.headline4,
-                          ),
-                          content: Text('Are you sure you want to logout?',
-                              style: AppTheme.lightTheme.textTheme.bodyText1),
-                          actions: [
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Text(
-                                  'Cancel',
-                                  style:
-                                      AppTheme.lightTheme.textTheme.headline6,
-                                )),
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Text(
-                                  'Confirm',
-                                  style:
-                                      AppTheme.lightTheme.textTheme.headline6,
-                                )),
-                          ],
-                        ));
-              } else {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => MoreDetailsScreen(index: index)));
+              switch (index) {
+                case 0:
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AccountScreen()));
+                  break;
+
+                case 6:
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                            title: Text(
+                              'Logout',
+                              style: AppTheme.lightTheme.textTheme.headline4,
+                            ),
+                            content: Text('Are you sure you want to logout?',
+                                style: AppTheme.lightTheme.textTheme.bodyText1),
+                            actions: [
+                              TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text(
+                                    'Cancel',
+                                    style:
+                                        AppTheme.lightTheme.textTheme.headline6,
+                                  )),
+                              TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text(
+                                    'Confirm',
+                                    style:
+                                        AppTheme.lightTheme.textTheme.headline6,
+                                  )),
+                            ],
+                          ));
+                  break;
+
+                default:
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              MoreDetailsScreen(index: index)));
               }
             },
             child: ListTile(
