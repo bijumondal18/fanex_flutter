@@ -13,6 +13,9 @@ class LoginScreen extends StatelessWidget {
     TextEditingController usernameController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
     return Scaffold(
+      appBar: AppBar(
+        elevation: AppSizes.elevation0,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(

@@ -3,7 +3,9 @@ import 'package:fanex_flutter/features/lobby/features/history_fragment/ui/histor
 import 'package:fanex_flutter/features/lobby/features/live_fragment/ui/live_fragment.dart';
 import 'package:fanex_flutter/features/lobby/features/lobby_fragment/ui/lobby_fragment.dart';
 import 'package:fanex_flutter/features/lobby/features/upcoming_fragment/ui/upcoming_fragment.dart';
+import 'package:fanex_flutter/widgets/custom_header.dart';
 import 'package:flutter/material.dart';
+import 'package:getwidget/components/carousel/gf_carousel.dart';
 
 ///----------------------------------Lobby screen--------------------------- ///
 class LobbyScreen extends StatefulWidget {
@@ -14,54 +16,79 @@ class LobbyScreen extends StatefulWidget {
 }
 
 class _LobbyScreenState extends State<LobbyScreen> {
+  final List<String> imageList = [
+    "https://cdn.pixabay.com/photo/2017/12/03/18/04/christmas-balls-2995437_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2017/12/13/00/23/christmas-3015776_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2019/12/19/10/55/christmas-market-4705877_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2019/12/20/00/03/road-4707345_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2019/12/22/04/18/x-mas-4711785__340.jpg",
+    "https://cdn.pixabay.com/photo/2016/11/22/07/09/spruce-1848543__340.jpg"
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 4,
+    return Container(
+      color: AppColors.white,
       child: Scaffold(
-        ///Appbar
-        appBar: AppBar(
-          actions: const [
-            Padding(
-              padding: EdgeInsets.only(right: AppSizes.dimen16),
-              child: CircleAvatar(
-                backgroundColor: AppColors.orange,
-              ),
-            )
-          ],
+        body: Container(
+          color: AppColors.header,
+          child: SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  ///header
+                  const CustomHeader(),
 
-          ///Tab Bar (eg. Lobby, Upcoming, Live and History)
-          bottom: const TabBar(
-            labelColor: AppColors.orange,
-            // labelStyle: TextStyle(fontSize: AppSizes.headline6,fontWeight: FontWeight.w800),
-            // unselectedLabelStyle: TextStyle(fontSize: AppSizes.bodyText2,fontWeight: FontWeight.w400),
-            unselectedLabelColor: AppColors.darkGrey,
-            indicatorSize: TabBarIndicatorSize.tab,
-            indicatorColor: AppColors.orange,
-            tabs: [
-              Tab(
-                text: 'Lobby',
+                  ///image slider
+                  GFCarousel(
+                      activeIndicator: AppColors.orange,
+                      autoPlayAnimationDuration: Duration(seconds: 2),
+                      height: 140,
+                      autoPlay: true,
+                      items: imageList.map((url) {
+                        return Image.network(
+                          url,
+                          fit: BoxFit.cover,
+                          width: MediaQuery.of(context).size.width,
+                        );
+                      }).toList()),
+
+                  ///tabbar
+                ],
               ),
-              Tab(
-                text: 'Upcoming',
-              ),
-              Tab(
-                text: 'Live',
-              ),
-              Tab(
-                text: 'History',
-              )
-            ],
+            ),
           ),
         ),
-        body: const TabBarView(
-          children: [
-            LobbyFragment(),
-            UpcomingFragment(),
-            LiveFragment(),
-            HistoryFragment()
-          ],
-        ),
+
+        /*  bottom: const TabBar(
+              labelColor: AppColors.orange,
+              unselectedLabelColor: AppColors.darkGrey,
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicatorColor: AppColors.orange,
+              tabs: [
+                Tab(
+                  text: 'Lobby',
+                ),
+                Tab(
+                  text: 'Upcoming',
+                ),
+                Tab(
+                  text: 'Live',
+                ),
+                Tab(
+                  text: 'History',
+                )
+              ],
+            ),
+          ),
+          body: const TabBarView(
+            children: [
+              LobbyFragment(),
+              UpcomingFragment(),
+              LiveFragment(),
+              HistoryFragment()
+            ],
+          ),*/
       ),
     );
   }

@@ -1,5 +1,4 @@
 import 'package:fanex_flutter/common/common.dart';
-import 'package:fanex_flutter/common/strings.dart';
 import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
