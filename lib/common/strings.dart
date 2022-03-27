@@ -11,6 +11,10 @@ class AppStrings {
   static const String signupButtonText = "Not a member yet? Sign Up";
   static const String finishButtonText = "Finish";
   static const String loginButtonText = "Login";
+  static const String logoutButtonText = "Logout";
+  static const String cancelButtonText = "Cancel";
+  static const String submitButtonText = "Submit";
+  static const String confirmButtonText = "Confirm";
   static const String getStartedButtonText = "Get Started";
   static const String doneButtonText = "Done";
   static const String createContestButtonText = "Create Contest";

@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:fanex_flutter/common/common.dart';
 
-/// ----------login screen-------------------- ///
+import '../../../common/route.dart';
+
+/// ----------Login Screen-------------------- ///
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -73,9 +76,11 @@ class LoginScreen extends StatelessWidget {
                 CustomFullButton(
                     title: AppStrings.loginButtonText.toUpperCase(),
                     onPressed: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) =>
-                              const CustomBottomNavigationBar()));
+                      Navigator.pushReplacement(
+                        context,
+                        CustomPageRoute(
+                            widget: const CustomBottomNavigationBar()),
+                      );
                     }),
                 const SizedBox(
                   height: AppSizes.dimen16,

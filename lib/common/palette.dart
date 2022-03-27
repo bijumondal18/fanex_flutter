@@ -10,5 +10,5 @@ class AppColors {
   static const textFieldBg = Color(0xFFF3F3F3);
   static const transparent = Color(0xFFFFFF);
   static const orange = Color(0xF7FC7732);
-  static const green = Color(0xFF179C18);
+  static const green = Color(0xFF087809);
 }

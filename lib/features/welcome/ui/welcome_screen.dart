@@ -3,7 +3,9 @@ import 'package:fanex_flutter/features/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:fanex_flutter/widgets/widgets.dart';
 
-/// ----------welcome screen-------------------- ///
+import '../../../common/route.dart';
+
+/// ----------Welcome Screen-------------------- ///
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -34,8 +36,10 @@ class WelcomeScreen extends StatelessWidget {
               CustomFullButton(
                   title: AppStrings.getStartedButtonText.toUpperCase(),
                   onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => const LoginScreen()));
+                    Navigator.pushReplacement(
+                      context,
+                      CustomPageRoute(widget: const LoginScreen()),
+                    );
                   })
             ],
           ),

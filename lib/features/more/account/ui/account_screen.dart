@@ -1,3 +1,4 @@
+import 'package:fanex_flutter/common/route.dart';
 import 'package:fanex_flutter/features/more/account/features/change_password/ui/change_password_screen.dart';
 import 'package:fanex_flutter/features/more/account/features/follow_fanex/ui/follow_fanex_screen.dart';
 import 'package:fanex_flutter/features/more/account/features/friend_request/ui/friend_request_screen.dart';
@@ -33,74 +34,64 @@ class _AccountScreenState extends State<AccountScreen> {
       appBar: AppBar(
         title: const Text('Account'),
       ),
-      body: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        itemBuilder: (context, index) {
-          return InkWell(
-            onTap: () {
-              switch (index) {
-                case 0:
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ProfileScreen()));
-                  break;
+      body: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+        return ListView.builder(
+          physics: const BouncingScrollPhysics(),
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+                switch (index) {
+                  case 0:
+                    Navigator.push(context,
+                        CustomPageRoute(widget: const ProfileScreen()));
+                    break;
 
-                case 1:
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const WalletScreen()));
-                  break;
+                  case 1:
+                    Navigator.push(
+                        context, CustomPageRoute(widget: const WalletScreen()));
+                    break;
 
-                case 2:
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const FriendRequestScreen()));
-                  break;
+                  case 2:
+                    Navigator.push(context,
+                        CustomPageRoute(widget: const FriendRequestScreen()));
+                    break;
 
-                case 3:
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const FollowFanexScreen()));
-                  break;
+                  case 3:
+                    Navigator.push(context,
+                        CustomPageRoute(widget: const FollowFanexScreen()));
+                    break;
 
-                case 4:
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const FriendsListScreen()));
-                  break;
+                  case 4:
+                    Navigator.push(context,
+                        CustomPageRoute(widget: const FriendsListScreen()));
+                    break;
 
-                case 5:
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ChangePasswordScreen()));
-                  break;
+                  case 5:
+                    Navigator.push(context,
+                        CustomPageRoute(widget: const ChangePasswordScreen()));
+                    break;
 
-                case 6:
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              const TransactionHistoryScreen()));
-                  break;
-              }
-            },
-            child: ListTile(
-              title: Text(items[index]),
-              trailing: const Icon(
-                Icons.arrow_forward_ios_rounded,
-                size: 18,
+                  case 6:
+                    Navigator.push(
+                        context,
+                        CustomPageRoute(
+                            widget: const TransactionHistoryScreen()));
+                    break;
+                }
+              },
+              child: ListTile(
+                title: Text(items[index]),
+                trailing: const Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  size: 18,
+                ),
               ),
-            ),
-          );
-        },
-        itemCount: 7,
-      ),
+            );
+          },
+          itemCount: 7,
+        );
+      }),
     );
   }
 }

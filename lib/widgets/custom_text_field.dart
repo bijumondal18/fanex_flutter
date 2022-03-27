@@ -7,7 +7,13 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final Icon icon;
 
-  const CustomTextField({Key? key, required this.hintText, required this.obscureText, required this.controller, required this.icon}) : super(key: key);
+  const CustomTextField(
+      {Key? key,
+      required this.hintText,
+      required this.obscureText,
+      required this.controller,
+      required this.icon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +30,7 @@ class CustomTextField extends StatelessWidget {
           iconColor: AppColors.lightGrey,
           prefixIconColor: AppColors.lightGrey,
           hintText: hintText,
-          hintStyle: AppTheme.lightTheme.textTheme.bodyText1,
+          hintStyle: Theme.of(context).textTheme.bodyText1,
           filled: true,
           fillColor: AppColors.textFieldBg,
           border: OutlineInputBorder(
