@@ -30,34 +30,26 @@ class _LobbyScreenState extends State<LobbyScreen> {
     return Container(
       color: AppColors.white,
       child: Scaffold(
-        body: Container(
-          color: AppColors.header,
-          child: SafeArea(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  ///header
-                  const CustomHeader(),
+        body: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            return Container(
+              color: AppColors.header,
+              child: SafeArea(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      ///header
+                      const CustomHeader(),
 
-                  ///image slider
-                  GFCarousel(
-                      activeIndicator: AppColors.orange,
-                      autoPlayAnimationDuration: Duration(seconds: 2),
-                      height: 140,
-                      autoPlay: true,
-                      items: imageList.map((url) {
-                        return Image.network(
-                          url,
-                          fit: BoxFit.cover,
-                          width: MediaQuery.of(context).size.width,
-                        );
-                      }).toList()),
+                      ///image slider
 
-                  ///tabbar
-                ],
+                      ///tabbar
+                    ],
+                  ),
+                ),
               ),
-            ),
-          ),
+            );
+          },
         ),
 
         /*  bottom: const TabBar(
