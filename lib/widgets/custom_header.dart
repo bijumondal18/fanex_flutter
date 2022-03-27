@@ -9,13 +9,10 @@ class CustomHeader extends StatefulWidget {
 }
 
 class _CustomHeaderState extends State<CustomHeader> {
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: AppSizes.appBarHeight,
-      color: AppColors.header,
-      child: Container(
+    return  Container(
         margin: const EdgeInsets.only(
             left: AppSizes.dimen16, right: AppSizes.dimen16),
         child: Row(
@@ -26,11 +23,10 @@ class _CustomHeaderState extends State<CustomHeader> {
             const SizedBox(width: AppSizes.dimen8),
             Text(
               'Kart07'.toUpperCase(),
-              style: AppTheme.lightTheme.textTheme.headline5,
+              style: Theme.of(context).textTheme.headline4,
             )
           ],
         ),
-      ),
     );
   }
 }
