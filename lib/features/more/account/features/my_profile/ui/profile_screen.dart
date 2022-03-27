@@ -1,3 +1,4 @@
+import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -10,10 +11,8 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Profile'),
-      ),
+    return const Scaffold(
+      appBar: CustomDefaultAppBar(title: 'My Profile'),
     );
   }
 }

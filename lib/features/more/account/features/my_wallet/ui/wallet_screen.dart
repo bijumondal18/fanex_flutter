@@ -1,3 +1,4 @@
+import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class WalletScreen extends StatefulWidget {
@@ -10,10 +11,8 @@ class WalletScreen extends StatefulWidget {
 class _WalletScreenState extends State<WalletScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Wallet'),
-      ),
+    return const Scaffold(
+      appBar: CustomDefaultAppBar(title: 'My Wallet'),
     );
   }
 }

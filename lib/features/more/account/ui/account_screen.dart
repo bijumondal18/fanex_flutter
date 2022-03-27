@@ -4,6 +4,7 @@ import 'package:fanex_flutter/features/more/account/features/follow_fanex/ui/fol
 import 'package:fanex_flutter/features/more/account/features/friend_request/ui/friend_request_screen.dart';
 import 'package:fanex_flutter/features/more/account/features/friends/ui/friends_screen.dart';
 import 'package:fanex_flutter/features/more/account/features/transaction_history/ui/transaction_history_screen.dart';
+import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:fanex_flutter/common/common.dart';
 
@@ -31,66 +32,70 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Account'),
-      ),
+      appBar: const CustomDefaultAppBar(title: 'Account'),
       body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
-        return ListView.builder(
-          physics: const BouncingScrollPhysics(),
-          itemBuilder: (context, index) {
-            return InkWell(
-              onTap: () {
-                switch (index) {
-                  case 0:
-                    Navigator.push(context,
-                        CustomPageRoute(widget: const ProfileScreen()));
-                    break;
+        return ListView.separated(
+            physics: const BouncingScrollPhysics(),
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  switch (index) {
+                    case 0:
+                      Navigator.push(context,
+                          CustomPageRoute(widget: const ProfileScreen()));
+                      break;
 
-                  case 1:
-                    Navigator.push(
-                        context, CustomPageRoute(widget: const WalletScreen()));
-                    break;
+                    case 1:
+                      Navigator.push(context,
+                          CustomPageRoute(widget: const WalletScreen()));
+                      break;
 
-                  case 2:
-                    Navigator.push(context,
-                        CustomPageRoute(widget: const FriendRequestScreen()));
-                    break;
+                    case 2:
+                      Navigator.push(context,
+                          CustomPageRoute(widget: const FriendRequestScreen()));
+                      break;
 
-                  case 3:
-                    Navigator.push(context,
-                        CustomPageRoute(widget: const FollowFanexScreen()));
-                    break;
+                    case 3:
+                      Navigator.push(context,
+                          CustomPageRoute(widget: const FollowFanexScreen()));
+                      break;
 
-                  case 4:
-                    Navigator.push(context,
-                        CustomPageRoute(widget: const FriendsListScreen()));
-                    break;
+                    case 4:
+                      Navigator.push(context,
+                          CustomPageRoute(widget: const FriendsListScreen()));
+                      break;
 
-                  case 5:
-                    Navigator.push(context,
-                        CustomPageRoute(widget: const ChangePasswordScreen()));
-                    break;
+                    case 5:
+                      Navigator.push(
+                          context,
+                          CustomPageRoute(
+                              widget: const ChangePasswordScreen()));
+                      break;
 
-                  case 6:
-                    Navigator.push(
-                        context,
-                        CustomPageRoute(
-                            widget: const TransactionHistoryScreen()));
-                    break;
-                }
-              },
-              child: ListTile(
-                title: Text(items[index]),
-                trailing: const Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  size: 18,
+                    case 6:
+                      Navigator.push(
+                          context,
+                          CustomPageRoute(
+                              widget: const TransactionHistoryScreen()));
+                      break;
+                  }
+                },
+                child: ListTile(
+                  visualDensity:
+                      const VisualDensity(horizontal: 0, vertical: -4),
+                  title: Text(items[index]),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    size: 18,
+                  ),
                 ),
-              ),
-            );
-          },
-          itemCount: 7,
-        );
+              );
+            },
+            itemCount: 7,
+            separatorBuilder: (BuildContext context, int index) {
+              return const Divider();
+            });
       }),
     );
   }

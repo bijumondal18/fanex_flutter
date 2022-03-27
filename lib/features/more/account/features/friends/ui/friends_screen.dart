@@ -1,3 +1,4 @@
+import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class FriendsListScreen extends StatelessWidget {
@@ -5,10 +6,8 @@ class FriendsListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Friends'),
-      ),
+    return const Scaffold(
+      appBar: CustomDefaultAppBar(title: 'Friends')
     );
   }
 }

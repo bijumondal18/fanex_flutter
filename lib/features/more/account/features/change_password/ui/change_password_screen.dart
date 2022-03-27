@@ -1,4 +1,5 @@
 import 'package:fanex_flutter/common/common.dart';
+import 'package:fanex_flutter/widgets/custom_default_appbar.dart';
 import 'package:fanex_flutter/widgets/custom_full_button.dart';
 import 'package:fanex_flutter/widgets/custom_text_field.dart';
 import 'package:flutter/foundation.dart';
@@ -16,53 +17,67 @@ class ChangePasswordScreen extends StatelessWidget {
     TextEditingController confirmPasswordController = TextEditingController();
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Change Pin/Password'),
-      ),
-      body: Container(
-        margin: const EdgeInsets.all(AppSizes.dimen16),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              headerIcon(context),
-              const SizedBox(
-                height: AppSizes.dimen30,
+      ///appbar
+      appBar: const CustomDefaultAppBar(title: 'Change Password'),
+
+      /// main content
+      body: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Container(
+            margin: const EdgeInsets.all(AppSizes.dimen16),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  ///header icon
+                  headerIcon(context),
+                  const SizedBox(
+                    height: AppSizes.dimen30,
+                  ),
+
+                  ///current password field
+                  CustomTextField(
+                      hintText: 'Current Password',
+                      obscureText: true,
+                      controller: currentPasswordController,
+                      icon: const Icon(Icons.vpn_key_rounded)),
+                  const SizedBox(
+                    height: AppSizes.dimen12,
+                  ),
+
+                  ///new password field
+                  CustomTextField(
+                      hintText: 'New Password',
+                      obscureText: true,
+                      controller: newPasswordController,
+                      icon: const Icon(Icons.vpn_key_rounded)),
+                  const SizedBox(
+                    height: AppSizes.dimen12,
+                  ),
+
+                  ///confirm password field
+                  CustomTextField(
+                      hintText: 'Confirm Password',
+                      obscureText: true,
+                      controller: confirmPasswordController,
+                      icon: const Icon(Icons.vpn_key_rounded)),
+                  const SizedBox(
+                    height: AppSizes.dimen30,
+                  ),
+
+                  ///change password button
+                  CustomFullButton(
+                      title: 'Change Password'.toUpperCase(),
+                      onPressed: () {
+                        ///Todo change password api call here...
+                        if (kDebugMode) {
+                          print('change password button pressed');
+                        }
+                      })
+                ],
               ),
-              CustomTextField(
-                  hintText: 'Current Password',
-                  obscureText: true,
-                  controller: currentPasswordController,
-                  icon: const Icon(Icons.vpn_key_rounded)),
-              const SizedBox(
-                height: AppSizes.dimen12,
-              ),
-              CustomTextField(
-                  hintText: 'New Password',
-                  obscureText: true,
-                  controller: newPasswordController,
-                  icon: const Icon(Icons.vpn_key_rounded)),
-              const SizedBox(
-                height: AppSizes.dimen12,
-              ),
-              CustomTextField(
-                  hintText: 'Confirm Password',
-                  obscureText: true,
-                  controller: confirmPasswordController,
-                  icon: const Icon(Icons.vpn_key_rounded)),
-              const SizedBox(
-                height: AppSizes.dimen30,
-              ),
-              CustomFullButton(
-                  title: 'Change Password'.toUpperCase(),
-                  onPressed: () {
-                    ///Todo change password api call here...
-                    if (kDebugMode) {
-                      print('change password button pressed');
-                    }
-                  })
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }

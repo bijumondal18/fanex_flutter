@@ -1,3 +1,4 @@
+import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class TransactionHistoryScreen extends StatelessWidget {
@@ -5,10 +6,8 @@ class TransactionHistoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Transaction History'),
-      ),
+    return const Scaffold(
+      appBar: CustomDefaultAppBar(title: 'Transaction History'),
     );
   }
 }

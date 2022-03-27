@@ -1,3 +1,4 @@
+import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class FriendRequestScreen extends StatelessWidget {
@@ -5,10 +6,7 @@ class FriendRequestScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Friend Requests'),
-      ),
-    );
+    return const Scaffold(
+        appBar: CustomDefaultAppBar(title: 'Friend Requests'));
   }
 }

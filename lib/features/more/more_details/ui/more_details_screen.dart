@@ -1,4 +1,5 @@
 import 'package:fanex_flutter/api/urls.dart';
+import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:io';
@@ -31,9 +32,7 @@ class MoreDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('More Details Screen'),
-      ),
+      appBar: const CustomDefaultAppBar(title: 'More Details'),
       body: WebView(
         initialUrl: initialUrl(1),
         javascriptMode: JavascriptMode.unrestricted,

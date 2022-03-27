@@ -1,5 +1,6 @@
 import 'package:fanex_flutter/common/common.dart';
 import 'package:fanex_flutter/features/more/account/features/follow_fanex/widgets/follow_card_item.dart';
+import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -9,9 +10,7 @@ class FollowFanexScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Follow Fanex'),
-      ),
+      appBar: const CustomDefaultAppBar(title: 'Follow Fanex'),
       body: SingleChildScrollView(
         child: Column(
           children: [
