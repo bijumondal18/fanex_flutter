@@ -27,81 +27,91 @@ class _MoreScreenState extends State<MoreScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('More'),
+        title: const Text(
+          'More',
+          style:
+              TextStyle(color: AppColors.white, fontSize: AppSizes.headline5),
+        ),
+        backgroundColor: AppColors.header,
       ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          return ListView.separated(
-            padding: EdgeInsets.zero,
-            physics: const BouncingScrollPhysics(),
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: () {
-                  switch (index) {
-                    case 0:
-                      Navigator.push(context,
-                          CustomPageRoute(widget: const AccountScreen()));
-                      break;
+          return Padding(
+            padding: const EdgeInsets.only(top: AppSizes.dimen8),
+            child: ListView.builder(
+              padding: EdgeInsets.zero,
+              physics: const BouncingScrollPhysics(),
+              itemBuilder: (context, index) {
+                return InkWell(
+                  onTap: () {
+                    switch (index) {
+                      case 0:
+                        Navigator.push(context,
+                            CustomPageRoute(widget: const AccountScreen()));
+                        break;
 
-                    case 6:
-                      showDialog(
-                          context: context,
-                          builder: (context) => AlertDialog(
-                                title: Text(
-                                  AppStrings.logoutButtonText,
-                                  style: Theme.of(context).textTheme.headline4,
-                                ),
-                                content: Text(
-                                    'Are you sure you want to logout?',
-                                    style:
-                                        Theme.of(context).textTheme.bodyText1),
-                                actions: [
-                                  TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text(
-                                        AppStrings.cancelButtonText,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headline6,
-                                      )),
-                                  TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text(
-                                        AppStrings.confirmButtonText,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headline6,
-                                      )),
-                                ],
-                              ));
-                      break;
+                      case 6:
+                        showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                                  title: Text(
+                                    AppStrings.logoutButtonText,
+                                    style: Theme.of(context).textTheme.headline4,
+                                  ),
+                                  content: Text(
+                                      'Are you sure you want to logout?',
+                                      style:
+                                          Theme.of(context).textTheme.bodyText1),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text(
+                                          AppStrings.cancelButtonText,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headline6,
+                                        )),
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text(
+                                          AppStrings.confirmButtonText,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headline6,
+                                        )),
+                                  ],
+                                ));
+                        break;
 
-                    default:
-                      Navigator.push(
-                          context,
-                          CustomPageRoute(
-                              widget: MoreDetailsScreen(index: index)));
-                  }
-                },
-                child: ListTile(
-                  visualDensity:
-                      const VisualDensity(horizontal: 0, vertical: -4),
-                  title: Text(items[index]),
-                  trailing: const Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    size: 18,
+                      default:
+                        Navigator.push(
+                            context,
+                            CustomPageRoute(
+                                widget: MoreDetailsScreen(index: index)));
+                    }
+                  },
+                  child: Column(
+                    children: [
+                      ListTile(
+                        visualDensity:
+                            const VisualDensity(horizontal: 0, vertical: -4),
+                        title: Text(items[index]),
+                        trailing: const Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          size: 18,
+                        ),
+                      ),
+                      const Divider()
+                    ],
                   ),
-                ),
-              );
-            },
-            itemCount: 7,
-            separatorBuilder: (BuildContext context, int index) {
-              return const Divider();
-            },
+                );
+              },
+              itemCount: 7,
+            ),
           );
         },
       ),

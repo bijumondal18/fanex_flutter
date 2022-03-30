@@ -1,14 +1,21 @@
 
 class AppStrings {
   static const String usernameHint = "Username";
+  static const String usernameRegisterHint = "Username (max 8 character)";
   static const String mobileNumberHint = "Mobile Number";
+  static const String firstNameHint = "First Name";
+  static const String lastNameHint = "Last Name";
   static const String registeredMobileNumberHint = "Registered Mobile Number";
   static const String passwordHint = "Password";
+  static const String referralCodeHint = "Referral Code (optional)";
+  static const String createPasswordHint = "Create Password";
   static const String rememberPasswordText = "Remember me";
   static const String forgetPasswordButtonText = "Forget password ?";
   static const String resetPasswordButtonText = "Reset password";
   static const String changePasswordButtonText = "Change password";
-  static const String signupButtonText = "Not a member yet? Sign Up";
+  static const String signupButtonText = "Sign Up";
+  static const String notAMemberButtonText = "Not a member yet? Sign Up";
+  static const String alreadyAMemberButtonText = "Already have an account? Sign In";
   static const String finishButtonText = "Finish";
   static const String loginButtonText = "Login";
   static const String logoutButtonText = "Logout";

@@ -1,5 +1,7 @@
 import 'package:fanex_flutter/bottom_navigation_bar.dart';
 import 'package:fanex_flutter/features/login/features/forget_password/ui/forget_password_screen.dart';
+import 'package:fanex_flutter/features/login/features/signup/ui/signup_screen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:fanex_flutter/common/common.dart';
@@ -17,6 +19,7 @@ class LoginScreen extends StatelessWidget {
     TextEditingController passwordController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColors.white,
         elevation: AppSizes.elevation0,
       ),
       body: SafeArea(
@@ -87,13 +90,27 @@ class LoginScreen extends StatelessWidget {
                 ),
 
                 ///SignUp Button
-                Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    AppStrings.signupButtonText,
-                    style: Theme.of(context).textTheme.bodyText1,
+                InkWell(
+                  onTap: (){
+                    Navigator.push(
+                      context,
+                      CustomPageRoute(
+                          widget: const SignUpScreen()),
+                    );
+                    if (kDebugMode) {
+                      print('go to sign up screen');
+                    }
+                  },
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      AppStrings.notAMemberButtonText,
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
                   ),
                 ),
+
+                const SizedBox(height: AppSizes.dimen24),
               ],
             ),
           ),

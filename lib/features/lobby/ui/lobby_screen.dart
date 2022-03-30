@@ -1,12 +1,7 @@
 import 'package:fanex_flutter/common/common.dart';
-import 'package:fanex_flutter/features/lobby/features/history_fragment/ui/history_fragment.dart';
-import 'package:fanex_flutter/features/lobby/features/live_fragment/ui/live_fragment.dart';
-import 'package:fanex_flutter/features/lobby/features/lobby_fragment/ui/lobby_fragment.dart';
-import 'package:fanex_flutter/features/lobby/features/upcoming_fragment/ui/upcoming_fragment.dart';
 import 'package:fanex_flutter/widgets/carousel_slider.dart';
 import 'package:fanex_flutter/widgets/custom_header.dart';
 import 'package:flutter/material.dart';
-import 'package:getwidget/components/carousel/gf_carousel.dart';
 
 ///------------Lobby screen--------- ///
 

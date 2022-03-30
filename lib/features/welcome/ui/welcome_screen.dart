@@ -14,6 +14,7 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColors.white,
         elevation: AppSizes.elevation0,
       ),
       body: SafeArea(

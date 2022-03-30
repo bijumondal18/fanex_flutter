@@ -11,17 +11,17 @@ class AppTheme {
         brightness: Brightness.light,
         backgroundColor: AppColors.white,
         appBarTheme: AppBarTheme(
-            backgroundColor: AppColors.white,
+            backgroundColor: AppColors.header,
             elevation: AppSizes.elevation1,
             centerTitle: true,
             titleTextStyle: GoogleFonts.lato(
               textStyle: const TextStyle(
-                color: AppColors.darkGrey,
-                fontSize: AppSizes.headline6,
+                color: AppColors.white,
+                fontSize: AppSizes.headline5,
                 fontWeight: FontWeight.w600,
               ),
             ),
-            foregroundColor: AppColors.black),
+            foregroundColor: AppColors.white),
         scaffoldBackgroundColor: AppColors.scaffold,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: TextTheme(
