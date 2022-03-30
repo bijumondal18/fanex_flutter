@@ -1,5 +1,6 @@
 class AppSizes {
   static const double appBarHeight = 60.0;
+  static const double mainHeaderHeight = 80.0;
   static const double textFieldHeight = 48.0;
   static const double buttonHeight = 44.0;
 

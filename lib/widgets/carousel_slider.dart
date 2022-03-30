@@ -34,8 +34,6 @@ class _CarouselSliderState extends State<CarouselSlider> {
     return Container(
       alignment: Alignment.centerLeft,
       width: MediaQuery.of(context).size.width,
-      margin: const EdgeInsets.only(
-          left: AppSizes.dimen16, right: AppSizes.dimen16),
       child: Column(
         children: [
           SizedBox(
@@ -53,8 +51,7 @@ class _CarouselSliderState extends State<CarouselSlider> {
               itemBuilder: (BuildContext context, index) {
                 return Container(
                   decoration: BoxDecoration(
-                      borderRadius:
-                          BorderRadius.circular(AppSizes.cardCornerRadius),
+                      borderRadius: BorderRadius.zero,
                       image: DecorationImage(
                           image: NetworkImage(
                             imageList[index],

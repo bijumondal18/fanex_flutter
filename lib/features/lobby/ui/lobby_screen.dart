@@ -15,58 +15,57 @@ class LobbyScreen extends StatefulWidget {
 class _LobbyScreenState extends State<LobbyScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-          return SafeArea(
-            child: SingleChildScrollView(
-              child: Column(
-                children: const [
-                  ///header
-                  CustomHeader(),
+    return Container(
+      color: AppColors.header,
+      child: SafeArea(
+        child: Scaffold(
+          appBar: const CustomHeader(),
+          body: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+              return SingleChildScrollView(
+                child: Column(
+                  children: const [
+                    ///image slider
+                    CarouselSlider(),
 
-                  SizedBox(height: AppSizes.dimen16),
-
-                  ///image slider
-                  CarouselSlider(),
-
-                  ///tabbar
-                ],
-              ),
-            ),
-          );
-        },
-      ),
-
-      /*  bottom: const TabBar(
-              labelColor: AppColors.orange,
-              unselectedLabelColor: AppColors.darkGrey,
-              indicatorSize: TabBarIndicatorSize.tab,
-              indicatorColor: AppColors.orange,
-              tabs: [
-                Tab(
-                  text: 'Lobby',
+                    ///tabbar
+                  ],
                 ),
-                Tab(
-                  text: 'Upcoming',
-                ),
-                Tab(
-                  text: 'Live',
-                ),
-                Tab(
-                  text: 'History',
-                )
-              ],
-            ),
+              );
+            },
           ),
-          body: const TabBarView(
-            children: [
-              LobbyFragment(),
-              UpcomingFragment(),
-              LiveFragment(),
-              HistoryFragment()
-            ],
-          ),*/
+
+          /*  bottom: const TabBar(
+                  labelColor: AppColors.orange,
+                  unselectedLabelColor: AppColors.darkGrey,
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  indicatorColor: AppColors.orange,
+                  tabs: [
+                    Tab(
+                      text: 'Lobby',
+                    ),
+                    Tab(
+                      text: 'Upcoming',
+                    ),
+                    Tab(
+                      text: 'Live',
+                    ),
+                    Tab(
+                      text: 'History',
+                    )
+                  ],
+                ),
+              ),
+              body: const TabBarView(
+                children: [
+                  LobbyFragment(),
+                  UpcomingFragment(),
+                  LiveFragment(),
+                  HistoryFragment()
+                ],
+              ),*/
+        ),
+      ),
     );
   }
 }
