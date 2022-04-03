@@ -18,25 +18,33 @@ class FollowFanexScreen extends StatelessWidget {
               height: AppSizes.dimen16,
             ),
             FollowCardItem(
-                title: 'Follow us on Facebook',
-                icon: const Icon(Icons.facebook),
-                onpressed: () {
-                  if (kDebugMode) {
-                    print('facebook share button pressed');
-                  }
-                }),
+              title: 'Follow us on Facebook',
+              icon: const Icon(Icons.facebook),
+              onPressed: () {
+                if (kDebugMode) {
+                  print('facebook share button pressed');
+                }
+              },
+              cardBgColor: AppColors.facebook,
+            ),
             FollowCardItem(
-                title: 'Follow us on Instagram',
-                icon: const Icon(Icons.indeterminate_check_box_rounded),
-                onpressed: () {}),
+              title: 'Follow us on Instagram',
+              icon: const Icon(Icons.indeterminate_check_box_rounded),
+              onPressed: () {},
+              cardBgColor: AppColors.instagram,
+            ),
             FollowCardItem(
-                title: 'Follow us on Twitter',
-                icon: const Icon(Icons.transfer_within_a_station),
-                onpressed: () {}),
+              title: 'Follow us on Twitter',
+              icon: const Icon(Icons.transfer_within_a_station),
+              onPressed: () {},
+              cardBgColor: AppColors.twitter,
+            ),
             FollowCardItem(
-                title: 'Follow us on Youtube',
-                icon: const Icon(Icons.youtube_searched_for),
-                onpressed: () {}),
+              title: 'Follow us on Youtube',
+              icon: const Icon(Icons.youtube_searched_for),
+              onPressed: () {},
+              cardBgColor: AppColors.youtube,
+            ),
           ],
         ),
       ),

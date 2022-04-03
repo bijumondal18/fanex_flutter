@@ -44,8 +44,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         type: BottomNavigationBarType.fixed,
         selectedItemColor: AppColors.orange,
         unselectedItemColor: AppColors.lightGrey,
-        selectedFontSize: AppSizes.bodyText1,
-        unselectedFontSize: AppSizes.bodyText1,
+        selectedFontSize: AppSizes.bodyText2,
+        unselectedFontSize: AppSizes.bodyText2,
         items: const [
           BottomNavigationBarItem(
               label: 'Lobby',

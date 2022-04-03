@@ -11,4 +11,8 @@ class AppColors {
   static const transparent = Color(0xFFFFFF);
   static const orange = Color(0xF7FC7732);
   static const green = Color(0xFF087809);
+  static const facebook = Color(0xFF3b5998);
+  static const twitter = Color(0xFF00ACEE);
+  static const instagram = Color(0xFF833AB4);
+  static const youtube = Color(0xFFc4302b);
 }
