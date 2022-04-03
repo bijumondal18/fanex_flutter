@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../../common/dimens.dart';
 import '../../../../../../common/palette.dart';
@@ -6,7 +7,7 @@ import '../../../../../../common/theme.dart';
 
 class FollowCardItem extends StatelessWidget {
   final String title;
-  final Icon icon;
+  final FaIcon icon;
   final VoidCallback onPressed;
   final Color cardBgColor;
 
@@ -34,7 +35,7 @@ class FollowCardItem extends StatelessWidget {
         child: Row(
           children: [
             Padding(
-              padding: const EdgeInsets.all(AppSizes.dimen12),
+              padding: const EdgeInsets.all(AppSizes.dimen8),
               child: CircleAvatar(
                 maxRadius: 28,
                 minRadius: 28,

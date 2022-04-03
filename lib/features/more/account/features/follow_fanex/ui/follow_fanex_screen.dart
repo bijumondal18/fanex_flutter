@@ -3,6 +3,7 @@ import 'package:fanex_flutter/features/more/account/features/follow_fanex/widget
 import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class FollowFanexScreen extends StatelessWidget {
   const FollowFanexScreen({Key? key}) : super(key: key);
@@ -19,7 +20,10 @@ class FollowFanexScreen extends StatelessWidget {
             ),
             FollowCardItem(
               title: 'Follow us on Facebook',
-              icon: const Icon(Icons.facebook),
+              icon: const FaIcon(
+                FontAwesomeIcons.facebook,
+                color: AppColors.facebook,
+              ),
               onPressed: () {
                 if (kDebugMode) {
                   print('facebook share button pressed');
@@ -29,20 +33,41 @@ class FollowFanexScreen extends StatelessWidget {
             ),
             FollowCardItem(
               title: 'Follow us on Instagram',
-              icon: const Icon(Icons.indeterminate_check_box_rounded),
-              onPressed: () {},
+              icon: const FaIcon(
+                FontAwesomeIcons.instagram,
+                color: AppColors.instagram,
+              ),
+              onPressed: () {
+                if (kDebugMode) {
+                  print('Instagram share button pressed');
+                }
+              },
               cardBgColor: AppColors.instagram,
             ),
             FollowCardItem(
               title: 'Follow us on Twitter',
-              icon: const Icon(Icons.transfer_within_a_station),
-              onPressed: () {},
+              icon: const FaIcon(
+                FontAwesomeIcons.twitter,
+                color: AppColors.twitter,
+              ),
+              onPressed: () {
+                if (kDebugMode) {
+                  print('Twitter share button pressed');
+                }
+              },
               cardBgColor: AppColors.twitter,
             ),
             FollowCardItem(
               title: 'Follow us on Youtube',
-              icon: const Icon(Icons.youtube_searched_for),
-              onPressed: () {},
+              icon: const FaIcon(
+                FontAwesomeIcons.youtube,
+                color: AppColors.youtube,
+              ),
+              onPressed: () {
+                if (kDebugMode) {
+                  print('Youtube share button pressed');
+                }
+              },
               cardBgColor: AppColors.youtube,
             ),
           ],
