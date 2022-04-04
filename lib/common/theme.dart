@@ -24,6 +24,12 @@ class AppTheme {
             foregroundColor: AppColors.white),
         scaffoldBackgroundColor: AppColors.scaffold,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        tabBarTheme: const TabBarTheme(
+          labelColor: AppColors.orange,
+          unselectedLabelColor: AppColors.grey,
+          indicator: UnderlineTabIndicator(
+              borderSide: BorderSide(color: AppColors.orange)),
+        ),
         textTheme: TextTheme(
           headline1: GoogleFonts.lato(
             textStyle: const TextStyle(

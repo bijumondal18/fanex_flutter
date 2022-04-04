@@ -99,7 +99,7 @@ class _MoreScreenState extends State<MoreScreen> {
                       ListTile(
                         visualDensity:
                             const VisualDensity(horizontal: 0, vertical: -4),
-                        title: Text(items[index]),
+                        title: Text(items[index], style: Theme.of(context).textTheme.bodyText1,),
                         trailing: const Icon(
                           Icons.arrow_forward_ios_rounded,
                           size: 18,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../../common/dimens.dart';
 import '../../../../../../common/palette.dart';
@@ -6,30 +7,35 @@ import '../../../../../../common/theme.dart';
 
 class FollowCardItem extends StatelessWidget {
   final String title;
-  final Icon icon;
-  final VoidCallback onpressed;
+  final FaIcon icon;
+  final VoidCallback onPressed;
+  final Color cardBgColor;
 
   const FollowCardItem(
       {Key? key,
       required this.title,
       required this.icon,
-      required this.onpressed})
+      required this.onPressed,
+      required this.cardBgColor})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(AppSizes.dimen16),
+      margin: const EdgeInsets.only(
+          left: AppSizes.dimen16,
+          right: AppSizes.dimen16,
+          bottom: AppSizes.dimen12),
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-          color: AppColors.orange,
+          color: cardBgColor,
           borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius)),
       child: InkWell(
-        onTap: onpressed,
+        onTap: onPressed,
         child: Row(
           children: [
             Padding(
-              padding: const EdgeInsets.all(AppSizes.dimen12),
+              padding: const EdgeInsets.all(AppSizes.dimen8),
               child: CircleAvatar(
                 maxRadius: 28,
                 minRadius: 28,
@@ -40,7 +46,10 @@ class FollowCardItem extends StatelessWidget {
             const SizedBox(width: AppSizes.dimen8),
             Text(
               title,
-              style: AppTheme.lightTheme.textTheme.headline5,
+              style: const TextStyle(
+                  fontSize: AppSizes.bodyText1,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.white),
             )
           ],
         ),
