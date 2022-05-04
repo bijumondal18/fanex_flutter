@@ -31,7 +31,15 @@ class AppStrings {
   static const String textBalanceCount = "0";
   static const String minimumWithdrawCount = "300";
   static const String textDeposit = "Deposit";
+  static const String textWinnings = "Winnings";
+  static const String textWithdrawLimit = "Your minimum withdraw limit is";
+  static const String textMaximumLimit = "Your maximum withdraw limit is";
+  static const String maximumLimitCount = "5,000";
   static const String networkError = "No internet connection.";
+  static const String verificationAadhar = "You must upload your Aadhar card to complete\nverification.";
   static const String serverError = "Server not responding! Please try later.";
   static const String requestingWithdrawalText = "All deposits must be wagered \nbefore requesting a withdrawal";
+  static const String transactionHistoryText = "Transaction History";
+  static const String verifyAccountText = "Verify your account";
+  static const String notCompletedText = "Not Completed";
 }

@@ -1,4 +1,5 @@
 import 'package:fanex_flutter/common/common.dart';
+import 'package:fanex_flutter/common/strings.dart';
 import 'package:fanex_flutter/widgets/custom_addcash_withdraw_button.dart';
 import 'package:flutter/material.dart';
 
@@ -104,7 +105,7 @@ class _WalletScreenState extends State<WalletScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Winnings",
+                          AppStrings.textWinnings,
                           style: TextStyle(
                               fontSize: AppSizes.headline5,
                               fontWeight: FontWeight.bold,
@@ -135,7 +136,7 @@ class _WalletScreenState extends State<WalletScreen> {
                       const Padding(
                         padding: EdgeInsets.all(AppSizes.dimen8),
                         child: Text(
-                          'Your minimum withdraw limit is',
+                          AppStrings.textWithdrawLimit,
                           style: TextStyle(
                               fontSize: AppSizes.headline5,
                               color: AppColors.black),
@@ -174,7 +175,7 @@ class _WalletScreenState extends State<WalletScreen> {
                       Padding(
                         padding: EdgeInsets.all(AppSizes.dimen8),
                         child: Text(
-                          "Your maximum withdraw limit is",
+                          AppStrings.textMaximumLimit,
                           style: TextStyle(
                               fontSize: AppSizes.headline5,
                               //fontWeight: FontWeight.bold,
@@ -191,7 +192,7 @@ class _WalletScreenState extends State<WalletScreen> {
                           Padding(
                             padding: EdgeInsets.only(right: 5),
                             child: Text(
-                              '5,000',
+                              AppStrings.maximumLimitCount,
                               style: TextStyle(
                                   fontSize: AppSizes.headline5,
                                   //fontWeight: FontWeight.bold,
@@ -209,15 +210,15 @@ class _WalletScreenState extends State<WalletScreen> {
               margin: const EdgeInsets.all(AppSizes.dimen12),
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(6),
+                borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius),
                 color: AppColors.lightGrey,
               ),
               child: Column(
                 children: const [
                   Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(AppSizes.dimen8),
                     child: Text(
-                      "You must upload your Aadhar card to complete\nverification.",
+                      AppStrings.verificationAadhar,
                       style: TextStyle(
                           fontSize: AppSizes.headline6,
                           color: AppColors.youtube),
@@ -237,21 +238,21 @@ class _WalletScreenState extends State<WalletScreen> {
       margin: const EdgeInsets.all(AppSizes.dimen12),
       decoration: BoxDecoration(
         color: AppColors.lightGrey,
-        borderRadius: BorderRadius.circular(6),
+        borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius),
       ),
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(AppSizes.dimen8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Transaction History',
+            AppStrings.transactionHistoryText,
             style: TextStyle(
                 color: AppColors.white,
                 fontSize: AppSizes.headline5,
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(AppSizes.dimen8),
             child: Icon(Icons.arrow_forward_ios),
           ),
         ],
@@ -271,9 +272,9 @@ class _WalletScreenState extends State<WalletScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(AppSizes.dimen8),
             child: Text(
-              'Verify your account',
+              AppStrings.verifyAccountText,
               style: TextStyle(
                   color: AppColors.white,
                   fontSize: AppSizes.headline5,
@@ -281,11 +282,11 @@ class _WalletScreenState extends State<WalletScreen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 9),
+            padding: const EdgeInsets.only(right: AppSizes.dimen9),
             child: Row(
               children: [
                 Text(
-                  "Not Completed",
+                  AppStrings.notCompletedText,
                   style: TextStyle(
                       fontSize: AppSizes.dimen16,
                       color: AppColors.white),
