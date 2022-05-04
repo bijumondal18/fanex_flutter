@@ -27,6 +27,11 @@ class AppStrings {
   static const String createContestButtonText = "Create Contest";
   static const String error = "Error";
   static const String success = "Success";
+  static const String textWalletBalance = "Wallet Balance";
+  static const String textBalanceCount = "0";
+  static const String minimumWithdrawCount = "300";
+  static const String textDeposit = "Deposit";
   static const String networkError = "No internet connection.";
   static const String serverError = "Server not responding! Please try later.";
+  static const String requestingWithdrawalText = "All deposits must be wagered \nbefore requesting a withdrawal";
 }

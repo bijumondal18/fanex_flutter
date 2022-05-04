@@ -3,6 +3,7 @@ class AppSizes {
   static const double mainHeaderHeight = 80.0;
   static const double textFieldHeight = 48.0;
   static const double buttonHeight = 44.0;
+  static const double largeButtonHeight = 50.0;
 
   static const double cardCornerRadius = 6.0;
 
@@ -12,6 +13,10 @@ class AppSizes {
   static const double dimen12 = 12.0;
   static const double dimen8 = 8.0;
   static const double dimen4 = 4.0;
+  static const double dimen5 = 5.0;
+
+  static const double dimen2 = 2.0;
+
 
   static const double elevation0 = 0.0;
   static const double elevation1 = 1.0;
