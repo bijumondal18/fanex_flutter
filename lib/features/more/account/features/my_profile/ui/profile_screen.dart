@@ -1,7 +1,6 @@
 import 'package:custom_switch/custom_switch.dart';
 import 'package:fanex_flutter/common/common.dart';
 import 'package:fanex_flutter/widgets/custom_edit_add_button.dart';
-import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -31,266 +30,266 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ],
       ),
       body: SingleChildScrollView(
-        child: Container(
-          height: 800,
-          child: Column(
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 125,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Stack(
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: 90,
-                          child: CircleAvatar(
-                            backgroundImage: AssetImage("assets/images/fanex-logo.png"),
-                            radius: 40,
-                          ),
+        child: Column(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Stack(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 90,
+                        child: const CircleAvatar(
+                          backgroundImage: AssetImage("assets/images/fanex-logo.png"),
+                          radius: 40,
                         ),
-                        Positioned(
-                          bottom: 0,
-                          right: 125,
-                          child: Transform.scale(
-                            scale: 0.9,
-                            child: FloatingActionButton(
-                              child: Icon(Icons.camera_alt),
-                                backgroundColor: AppColors.green,
-                                mini: true,
-                                onPressed: () {}),
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        right: 125,
+                        child: Transform.scale(
+                          scale: 0.9,
+                          child: FloatingActionButton(
+                            elevation: 0,
+                            child: const Icon(Icons.camera_alt),
+                              backgroundColor: AppColors.green,
+                              mini: true,
+                              onPressed: () {}),
+                        ),
+                      )
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen8),
+                    child: Text(AppStrings.profileUserName, style: Theme.of(context).textTheme.bodyText1,),
+                  )
+                ],
+              ),
+            ),
+            Container(
+                width: MediaQuery.of(context).size.width,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen12, horizontal: AppSizes.dimen12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(AppStrings.cashWonText, style: Theme.of(context).textTheme.bodyText1,),
+                        Row(
+                          children: const [
+                            Icon(Icons.currency_rupee, color: AppColors.orange,size: AppSizes.bodyText1,),
+                            Text(
+                              AppStrings.cashWon,
+                              style: TextStyle(
+                                  fontSize: AppSizes.bodyText1,
+                                  color: AppColors.orange),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  const Divider()
+                ],
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen12, horizontal: AppSizes.dimen12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(AppStrings.coinsWonText, style: Theme.of(context).textTheme.bodyText1,),
+                        Row(
+                          children: [
+                            SvgPicture.asset(
+                              'assets/icons/coins-icon.svg',
+                              width: 12,
+                              height: 12,
+                            ),
+                            const SizedBox(width: AppSizes.dimen4,),
+                            const Text(AppStrings.coinsWon, style: TextStyle(fontSize: AppSizes.bodyText1,color: AppColors.orange),)
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  const Divider()
+                ],
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen12, horizontal: AppSizes.dimen12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(AppStrings.coinsEarnedText, style: Theme.of(context).textTheme.bodyText1,),
+                        Row(
+                          children: [
+                            SvgPicture.asset(
+                              'assets/icons/coins-icon.svg',
+                              width: 12,
+                              height: 12,
+                            ),
+                            const SizedBox(width: AppSizes.dimen4,),
+                            const Text(AppStrings.coinsEarned, style: TextStyle(fontSize: AppSizes.bodyText1,color: AppColors.orange),)
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  const Divider()
+                ],
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen8, horizontal: AppSizes.dimen12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(AppStrings.profileFirstName, style: Theme.of(context).textTheme.bodyText1,),
+                        const CustomEditAddButton(hintText: "Edit",)
+                      ],
+                    ),
+                  ),
+                  const Divider()
+                ],
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen8, horizontal: AppSizes.dimen12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(AppStrings.profileLastName, style: Theme.of(context).textTheme.bodyText1,),
+                        const CustomEditAddButton(hintText: "Edit")
+                      ],
+                    ),
+                  ),
+                  const Divider()
+                ],
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen12, horizontal: AppSizes.dimen12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(AppStrings.phoneNumber, style: Theme.of(context).textTheme.bodyText1,),
+                      ],
+                    ),
+                  ),
+                  const Divider()
+                ],
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen8, horizontal: AppSizes.dimen12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text(AppStrings.addEmailText, style: TextStyle(fontSize: AppSizes.bodyText1, color: AppColors.grey),),
+                        CustomEditAddButton(hintText:"Add"),
+                      ],
+                    ),
+                  ),
+                  const Divider()
+                ],
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen8, horizontal: AppSizes.dimen12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(AppStrings.favouritePlayerText, style: Theme.of(context).textTheme.bodyText1,),
+                        InkWell(
+                            onTap: () {},
+                            child: const Icon(Icons.arrow_forward_ios_outlined, color: AppColors.grey,))
+                      ],
+                    ),
+                  ),
+                  const Divider()
+                ],
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen12, horizontal: AppSizes.dimen12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(AppStrings.referralCodeText, style: Theme.of(context).textTheme.bodyText1,),
+                        const Text(AppStrings.referralCode, style: TextStyle(fontSize: AppSizes.bodyText1,color: AppColors.orange),),
+                      ],
+                    ),
+                  ),
+                  const Divider()
+                ],
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen4, horizontal: AppSizes.dimen12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(AppStrings.pushNotificationsText, style: Theme.of(context).textTheme.bodyText1,),
+                        Transform.scale(
+                          scale: 0.8,
+                          child: CustomSwitch(
+                            value: isSwitched,
+                            activeColor: AppColors.green,
                           ),
                         )
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen8),
-                      child: Text(AppStrings.profileUserName, style: Theme.of(context).textTheme.bodyText1,),
-                    )
-                  ],
-                ),
+                  ),
+                  const Divider()
+                ],
               ),
-              Container(
-                  width: MediaQuery.of(context).size.width,
-                height: 64,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen12, horizontal: AppSizes.dimen12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Cash won since inception", style: Theme.of(context).textTheme.bodyText1,),
-                          Icon(Icons.currency_rupee, color: AppColors.orange,size: AppSizes.bodyText1,)
-                        ],
-                      ),
-                    ),
-                    Divider()
-                  ],
-                ),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 64,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen12, horizontal: AppSizes.dimen12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Coins won since inception", style: Theme.of(context).textTheme.bodyText1,),
-                          Row(
-                            children: [
-                              SvgPicture.asset(
-                                'assets/icons/coins-icon.svg',
-                                width: 12,
-                                height: 12,
-                              ),
-                              SizedBox(width: AppSizes.dimen4,),
-                              Text("0", style: TextStyle(fontSize: AppSizes.bodyText1,color: AppColors.orange),)
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                    Divider()
-                  ],
-                ),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 64,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen12, horizontal: AppSizes.dimen12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Coins earned since inception", style: Theme.of(context).textTheme.bodyText1,),
-                          Row(
-                            children: [
-                              SvgPicture.asset(
-                                'assets/icons/coins-icon.svg',
-                                width: 12,
-                                height: 12,
-                              ),
-                              SizedBox(width: AppSizes.dimen4,),
-                              Text("0", style: TextStyle(fontSize: AppSizes.bodyText1,color: AppColors.orange),)
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                    Divider()
-                  ],
-                ),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 64,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen8, horizontal: AppSizes.dimen12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(AppStrings.profileFirstName, style: Theme.of(context).textTheme.bodyText1,),
-                          CustomEditAddButton(hintText: "Edit",)
-                        ],
-                      ),
-                    ),
-                    Divider()
-                  ],
-                ),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 64,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen8, horizontal: AppSizes.dimen12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(AppStrings.profileFirstName, style: Theme.of(context).textTheme.bodyText1,),
-                          CustomEditAddButton(hintText: "Edit")
-                        ],
-                      ),
-                    ),
-                    Divider()
-                  ],
-                ),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 64,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen12, horizontal: AppSizes.dimen12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(AppStrings.phoneNumber, style: Theme.of(context).textTheme.bodyText1,),
-                        ],
-                      ),
-                    ),
-                    Divider()
-                  ],
-                ),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 64,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen8, horizontal: AppSizes.dimen12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Add Email", style: TextStyle(fontSize: AppSizes.bodyText1, color: AppColors.grey),),
-                          CustomEditAddButton(hintText:"Add"),
-                        ],
-                      ),
-                    ),
-                    Divider()
-                  ],
-                ),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 64,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen8, horizontal: AppSizes.dimen12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Favourite Player", style: Theme.of(context).textTheme.bodyText1,),
-                          InkWell(
-                              onTap: () {},
-                              child: Icon(Icons.arrow_forward_ios_outlined, color: AppColors.green,))
-                        ],
-                      ),
-                    ),
-                    Divider()
-                  ],
-                ),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 64,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen12, horizontal: AppSizes.dimen12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("My Referral Code", style: Theme.of(context).textTheme.bodyText1,),
-                          Text("SITABRA9", style: TextStyle(fontSize: AppSizes.bodyText1,color: AppColors.orange),),
-                        ],
-                      ),
-                    ),
-                    Divider()
-                  ],
-                ),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 64,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen4, horizontal: AppSizes.dimen12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Push Notifications", style: Theme.of(context).textTheme.bodyText1,),
-                          Transform.scale(
-                            scale: 0.8,
-                            child: CustomSwitch(
-                              value: isSwitched,
-                              activeColor: AppColors.green,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Divider()
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(
+              height: 80,
+            )
+          ],
         ),
       ),
     );

@@ -33,6 +33,17 @@ class AppStrings {
   static const String profileUserName = "SITABRA9";
   static const String profileLastName = "Das";
   static const String phoneNumber = "9933166969";
+  static const String referralCode = "SITABRA9";
+  static const String coinsWon = "0";
+  static const String coinsEarned = "0";
+  static const String cashWon = "0";
+  static const String addEmailText = "Add Email";
+  static const String favouritePlayerText = "Favourite Player";
+  static const String referralCodeText = "My Referral Code";
+  static const String pushNotificationsText = "Push Notifications";
+  static const String cashWonText = "Cash won since inception";
+  static const String coinsWonText = "Coins won since inception";
+  static const String coinsEarnedText = "Coins earned since inception";
 
 
 }
