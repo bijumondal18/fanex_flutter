@@ -67,7 +67,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen8),
-                      child: Text("SITABRA9", style: Theme.of(context).textTheme.bodyText1,),
+                      child: Text(AppStrings.profileUserName, style: Theme.of(context).textTheme.bodyText1,),
                     )
                   ],
                 ),
@@ -159,7 +159,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Sitabra", style: Theme.of(context).textTheme.bodyText1,),
+                          Text(AppStrings.profileFirstName, style: Theme.of(context).textTheme.bodyText1,),
                           CustomEditAddButton(hintText: "Edit",)
                         ],
                       ),
@@ -178,7 +178,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Das", style: Theme.of(context).textTheme.bodyText1,),
+                          Text(AppStrings.profileFirstName, style: Theme.of(context).textTheme.bodyText1,),
                           CustomEditAddButton(hintText: "Edit")
                         ],
                       ),
@@ -197,7 +197,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("9933166969l", style: Theme.of(context).textTheme.bodyText1,),
+                          Text(AppStrings.phoneNumber, style: Theme.of(context).textTheme.bodyText1,),
                         ],
                       ),
                     ),

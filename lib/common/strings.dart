@@ -29,4 +29,10 @@ class AppStrings {
   static const String success = "Success";
   static const String networkError = "No internet connection.";
   static const String serverError = "Server not responding! Please try later.";
+  static const String profileFirstName = "Sitabra";
+  static const String profileUserName = "SITABRA9";
+  static const String profileLastName = "Das";
+  static const String phoneNumber = "9933166969";
+
+
 }
