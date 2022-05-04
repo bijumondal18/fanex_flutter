@@ -63,6 +63,7 @@ class _CarouselSliderState extends State<CarouselSlider> {
           ),
           const SizedBox(height: AppSizes.dimen8),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
               children: map(
             imageList,
             (index, image) {
