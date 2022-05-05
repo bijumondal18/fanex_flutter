@@ -21,12 +21,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
       appBar: AppBar(
         leading: IconButton(onPressed: () {
           Navigator.pop(context);
-        },
-            icon: const Icon(Icons.arrow_back_ios_rounded, color: AppColors.white,size: 20,)
-        ),
+          },
+            icon: const Icon(
+              Icons.arrow_back_ios_rounded,
+              color: AppColors.white,
+              size: AppSizes.appBarIconButton,
+            )),
         actions: [
           IconButton(onPressed: () {},
-              icon:  const Icon(Icons.refresh_rounded, color: AppColors.white,size: 20,))
+              icon: const Icon(
+                Icons.refresh_rounded,
+                color: AppColors.white,
+                size: AppSizes.appBarIconButton,
+              )),
         ],
       ),
       body: SingleChildScrollView(
@@ -37,30 +44,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Stack(
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 90,
-                        child: const CircleAvatar(
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 90,
+                    child: Stack(
+                      alignment: AlignmentDirectional.center,
+                      children: [
+                        const CircleAvatar(
                           backgroundImage: AssetImage("assets/images/fanex-logo.png"),
                           radius: 40,
                         ),
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        right: 125,
-                        child: Transform.scale(
-                          scale: 0.9,
-                          child: FloatingActionButton(
-                            elevation: 0,
-                            child: const Icon(Icons.camera_alt),
-                              backgroundColor: AppColors.green,
-                              mini: true,
-                              onPressed: () {}),
+                        Positioned(
+                          bottom: 0,
+                          right: 125,
+                          child: Transform.scale(
+                            scale: 0.9,
+                            child: FloatingActionButton(
+                                elevation: 0,
+                                child: const Icon(Icons.camera_alt),
+                                backgroundColor: AppColors.green,
+                                mini: true,
+                                onPressed: () {}),
+                          ),
                         ),
-                      )
-                    ],
+                      ],
+                    )
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen8),

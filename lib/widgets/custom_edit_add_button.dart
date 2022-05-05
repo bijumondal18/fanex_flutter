@@ -21,7 +21,7 @@ class CustomEditAddButton extends StatelessWidget {
           ),
           child: Transform.scale(
               scale: 1.3,
-              child: Text(hintText, style: TextStyle(fontSize: AppSizes.caption),))),
+              child: Text(hintText, style: const TextStyle(fontSize: AppSizes.caption),))),
     );
   }
   
