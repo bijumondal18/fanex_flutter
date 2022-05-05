@@ -10,38 +10,51 @@ class FriendsListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: AppSizes.elevation0,
-          title: const Text('Friends'),
-          bottom: const PreferredSize(
-            preferredSize: Size(double.infinity, AppSizes.appBarHeight),
-            child: ColoredBox(
-              color: Colors.white,
-              child: TabBar(
-                tabs: [
-                  Tab(
-                    text: 'User Base',
+    return NotificationListener<OverscrollIndicatorNotification>(
+      onNotification: (overScroll) {
+        overScroll.disallowIndicator();
+        return false;
+      },
+      child: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            elevation: AppSizes.elevation0,
+            title: const Text('Friends'),
+            bottom: const PreferredSize(
+              preferredSize: Size(double.infinity, AppSizes.appBarHeight),
+              child: ColoredBox(
+                color: Colors.white,
+                child: TabBar(
+                  labelColor: AppColors.white,
+                  indicator: BoxDecoration(
+                    color: AppColors.orange,
                   ),
-                  Tab(
-                    text: 'Following',
-                  ),
-                  Tab(
-                    text: 'Blocked',
-                  ),
-                ],
+                  unselectedLabelColor: AppColors.lightGrey,
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  indicatorColor: AppColors.orange,
+                  tabs: [
+                    Tab(
+                      text: 'User Base',
+                    ),
+                    Tab(
+                      text: 'Following',
+                    ),
+                    Tab(
+                      text: 'Blocked',
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-        body: const TabBarView(
-          children: [
-            UserBaseScreen(),
-            FollowingScreen(),
-            BlockedScreen(),
-          ],
+          body: const TabBarView(
+            children: [
+              UserBaseScreen(),
+              FollowingScreen(),
+              BlockedScreen(),
+            ],
+          ),
         ),
       ),
     );
