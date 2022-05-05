@@ -39,5 +39,12 @@ class AppStrings {
   static const String addEmailText = "Add Email";
   static const String favouritePlayerText = "Favourite Player";
   static const String pushNotificationsText = "Push Notifications";
+  static const String prizeAmountText = "Prize Amount";
+  static const String prizeAmount = "500";
+  static const String dateText = "11-02-2021";
+  static const String chakraStartText = "Chakra starts on";
+  static const String chakraEndText = "Chakra ends on";
+  static const String friendsFollowingText = "Number of friends following the User";
+  static const String averageFinishingPositionText = "Average finishing position in completed Contests\n(excludes any User created Contests)";
 
 }
