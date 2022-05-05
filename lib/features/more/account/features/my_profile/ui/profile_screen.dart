@@ -25,14 +25,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
             icon: const Icon(
               Icons.arrow_back_ios_rounded,
               color: AppColors.white,
-              size: AppSizes.appBarIconButton,
+              size: 20,
             )),
         actions: [
           IconButton(onPressed: () {},
               icon: const Icon(
                 Icons.refresh_rounded,
                 color: AppColors.white,
-                size: AppSizes.appBarIconButton,
+                size: 20,
               )),
         ],
       ),
@@ -72,7 +72,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen8),
-                    child: Text(AppStrings.profileUserName, style: Theme.of(context).textTheme.bodyText1,),
+                    child: Text(AppStrings.firstNameHint, style: Theme.of(context).textTheme.bodyText1,),
                   )
                 ],
               ),
@@ -88,7 +88,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       children: [
                         Text(AppStrings.cashWonText, style: Theme.of(context).textTheme.bodyText1,),
                         Row(
-                          children: const [
+                          children:  [
                             Icon(Icons.currency_rupee, color: AppColors.orange,size: AppSizes.bodyText1,),
                             Text(
                               AppStrings.cashWon,
@@ -123,7 +123,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               height: 12,
                             ),
                             const SizedBox(width: AppSizes.dimen4,),
-                            const Text(AppStrings.coinsWon, style: TextStyle(fontSize: AppSizes.bodyText1,color: AppColors.orange),)
+                             Text(AppStrings.coinsWon, style: TextStyle(fontSize: AppSizes.bodyText1,color: AppColors.orange),)
                           ],
                         )
                       ],
@@ -151,7 +151,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               height: 12,
                             ),
                             const SizedBox(width: AppSizes.dimen4,),
-                            const Text(AppStrings.coinsEarned, style: TextStyle(fontSize: AppSizes.bodyText1,color: AppColors.orange),)
+                             Text(AppStrings.coinsEarned, style: TextStyle(fontSize: AppSizes.bodyText1,color: AppColors.orange),)
                           ],
                         )
                       ],
@@ -170,7 +170,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(AppStrings.profileFirstName, style: Theme.of(context).textTheme.bodyText1,),
+                        Text(AppStrings.firstNameHint, style: Theme.of(context).textTheme.bodyText1,),
                         const CustomEditAddButton(hintText: "Edit",)
                       ],
                     ),
@@ -188,7 +188,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(AppStrings.profileLastName, style: Theme.of(context).textTheme.bodyText1,),
+                        Text(AppStrings.lastNameHint, style: Theme.of(context).textTheme.bodyText1,),
                         const CustomEditAddButton(hintText: "Edit")
                       ],
                     ),
@@ -206,7 +206,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(AppStrings.phoneNumber, style: Theme.of(context).textTheme.bodyText1,),
+                        Text(AppStrings.mobileNumberHint, style: Theme.of(context).textTheme.bodyText1,),
                       ],
                     ),
                   ),
@@ -222,7 +222,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen8, horizontal: AppSizes.dimen12),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
+                      children:  [
                         Text(AppStrings.addEmailText, style: TextStyle(fontSize: AppSizes.bodyText1, color: AppColors.grey),),
                         CustomEditAddButton(hintText:"Add"),
                       ],
@@ -261,8 +261,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(AppStrings.referralCodeText, style: Theme.of(context).textTheme.bodyText1,),
-                        const Text(AppStrings.referralCode, style: TextStyle(fontSize: AppSizes.bodyText1,color: AppColors.orange),),
+                        Text(AppStrings.referralCodeHint, style: Theme.of(context).textTheme.bodyText1,),
+                         Text(AppStrings.referralCodeHint, style: TextStyle(fontSize: AppSizes.bodyText1,color: AppColors.orange),),
                       ],
                     ),
                   ),

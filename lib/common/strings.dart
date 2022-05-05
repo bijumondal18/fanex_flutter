@@ -30,4 +30,14 @@ class AppStrings {
   static const String networkError = "No internet connection.";
   static const String serverError = "Server not responding! Please try later.";
   static const String SearchText = "Search Here";
+  static const String cashWonText = "Cash won since inception";
+  static const String cashWon = "0";
+  static const String coinsWonText = "Coins won since inception";
+  static const String coinsWon = "0";
+  static const String coinsEarnedText = "Coins earned since inception";
+  static const String coinsEarned = "0";
+  static const String addEmailText = "Add Email";
+  static const String favouritePlayerText = "Favourite Player";
+  static const String pushNotificationsText = "Push Notifications";
+
 }
