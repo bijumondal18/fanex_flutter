@@ -85,7 +85,7 @@ class _WalletScreenState extends State<WalletScreen> {
                               AppStrings.requestingWithdrawalText,
                               style: TextStyle(
                                   color: AppColors.white,
-                                  fontSize: AppSizes.dimen16),
+                                  fontSize: AppSizes.dimen12),
                             ),
                           ],
                         ),
@@ -125,7 +125,7 @@ class _WalletScreenState extends State<WalletScreen> {
             Container(
               margin: const EdgeInsets.all(AppSizes.dimen12),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(6),
+                borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius),
                 color: AppColors.lightGrey,
               ),
               child: Column(
@@ -213,18 +213,19 @@ class _WalletScreenState extends State<WalletScreen> {
                 borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius),
                 color: AppColors.lightGrey,
               ),
-              child: Column(
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.all(AppSizes.dimen8),
-                    child: Text(
+              child: Padding(
+                padding: const EdgeInsets.all(AppSizes.dimen8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
                       AppStrings.verificationAadhar,
                       style: TextStyle(
                           fontSize: AppSizes.headline6,
                           color: AppColors.youtube),
-                    ),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             )
           ],
@@ -235,6 +236,7 @@ class _WalletScreenState extends State<WalletScreen> {
 
   Widget _buttonTransactionHistory(){
     return Container(
+      height: AppSizes.dimen55,
       margin: const EdgeInsets.all(AppSizes.dimen12),
       decoration: BoxDecoration(
         color: AppColors.lightGrey,
@@ -247,7 +249,7 @@ class _WalletScreenState extends State<WalletScreen> {
           Text(
             AppStrings.transactionHistoryText,
             style: TextStyle(
-                color: AppColors.white,
+                color: AppColors.black,
                 fontSize: AppSizes.headline5,
             ),
           ),
@@ -267,7 +269,7 @@ class _WalletScreenState extends State<WalletScreen> {
         color: AppColors.green,
         borderRadius: BorderRadius.circular(6),
       ),
-      height: 60,
+      height: AppSizes.dimen55,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

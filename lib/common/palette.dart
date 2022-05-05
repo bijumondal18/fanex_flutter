@@ -12,7 +12,7 @@ class AppColors {
   static const transparent = Color(0xFFFFFFF);
   static const orange = Color(0xF7FC7732);
   static const amber = Color(0xF7E8A73E);
-  static const green = Color(0xFF087809);
+  static const green = Color(0xFF23842D);
   static const facebook = Color(0xFF3b5998);
   static const twitter = Color(0xFF00ACEE);
   static const instagram = Color(0xFF833AB4);
