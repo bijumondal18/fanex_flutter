@@ -1,6 +1,7 @@
 import 'package:fanex_flutter/common/common.dart';
 import 'package:fanex_flutter/features/more/account/features/friends/Common/Common.dart';
 import 'package:fanex_flutter/widgets/custom_add_friend_button.dart';
+import 'package:fanex_flutter/widgets/custom_rankings_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -97,31 +98,11 @@ class _ChakraScreenState extends State<ChakraScreen> {
                 ),
               ],
             ),
-            Container(
-              height: AppSizes.appBarHeight,
-              width: MediaQuery.of(context).size.width,
-              child: Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(AppSizes.dimen4),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(Icons.attach_money_rounded, color: AppColors.green,),
-                          Text(AppStrings.cashWonText, style: Theme.of(context).textTheme.headline6,),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Icon(Icons.currency_rupee, color: AppColors.orange,size: AppSizes.headline6,),
-                          Text(AppStrings.prizeAmount,style: TextStyle(fontSize: AppSizes.headline6,color: AppColors.orange),)
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              ),
+            CustomRankingsContainer(
+              textDetails: AppStrings.cashWonText,
+              countDetails: AppStrings.prizeAmount,
+              iconTrailing: Icons.currency_rupee,
+              iconLeading: Icons.attach_money_rounded,
             ),
             Container(
                 height: AppSizes.appBarHeight,
@@ -184,56 +165,17 @@ class _ChakraScreenState extends State<ChakraScreen> {
                   ),
                 )
             ),
-            Container(
-                height: AppSizes.appBarHeight,
-                width: MediaQuery.of(context).size.width,
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(AppSizes.dimen4),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.stacked_bar_chart,color: AppColors.green,),
-                            Text(AppStrings.coinsEarnedText, style: Theme.of(context).textTheme.headline6,),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            SvgPicture.asset(
-                              'assets/icons/coins-icon.svg',
-                              width: AppSizes.headline6,
-                              height: AppSizes.headline6,
-                            ),
-                            Text(AppStrings.prizeAmount,style: TextStyle(fontSize: AppSizes.headline6,color: AppColors.orange),)
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                )
+            CustomRankingsContainer(
+                textDetails: AppStrings.coinsWonText,
+                countDetails: AppStrings.prizeAmount,
+                iconLeading: Icons.stacked_bar_chart,
+                iconTrailing: Icons.brightness_low_outlined
             ),
-            Container(
-                height: AppSizes.appBarHeight,
-                width: MediaQuery.of(context).size.width,
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(AppSizes.dimen4),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.group_rounded,color: AppColors.green,),
-                            Text(AppStrings.friendsFollowingText, style: Theme.of(context).textTheme.headline6,),
-                          ],
-                        ),
-                        Text(AppStrings.prizeAmount,style: TextStyle(fontSize: AppSizes.headline6,color: AppColors.orange),)
-                      ],
-                    ),
-                  ),
-                )
+            CustomRankingsContainer(
+                textDetails: AppStrings.friendsFollowingText,
+                countDetails: AppStrings.prizeAmount,
+                iconLeading: Icons.stacked_bar_chart,
+                iconTrailing: null,
             ),
           ],
         ),

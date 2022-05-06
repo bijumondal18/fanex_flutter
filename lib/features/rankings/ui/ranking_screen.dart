@@ -20,7 +20,7 @@ class _RankingScreenState extends State<RankingScreen> {
       child: Scaffold(
         appBar: AppBar(
           elevation: AppSizes.elevation0,
-          title: const Text('Friends'),
+          title: const Text('Rankings'),
           bottom: const PreferredSize(
             preferredSize: Size(double.infinity, AppSizes.appBarHeight),
             child: ColoredBox(
@@ -34,7 +34,7 @@ class _RankingScreenState extends State<RankingScreen> {
                     text: 'Chakra',
                   ),
                   Tab(
-                    text: 'Username',
+                    text: AppStrings.usernameHint,
                   ),
                 ],
               ),
