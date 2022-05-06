@@ -1,3 +1,4 @@
+import 'package:fanex_flutter/widgets/Custom_sort_button.dart';
 import 'package:fanex_flutter/widgets/custom_full_button.dart';
 import 'package:fanex_flutter/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class _AddCashFragmentState extends State<AddCashFragment> {
       backgroundColor: AppColors.white.withOpacity(0.85),
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.clear),
+          icon: const Icon(Icons.clear),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -28,87 +29,118 @@ class _AddCashFragmentState extends State<AddCashFragment> {
         elevation: AppSizes.elevation0,
         title: const Text('Add Cash'),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(AppSizes.dimen8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text('Current Balance',
-                    style: TextStyle(fontSize: 18, color: AppColors.orange)),
-                Row(
-                  children: const [
-                    Icon(Icons.currency_rupee,
-                        size: 18, color: AppColors.orange),
-                    Text('16,076',
-                        style: TextStyle(fontSize: 18, color: AppColors.orange))
-                  ],
-                )
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(AppSizes.dimen8),
-            child: Text(
-              'Add cash to your account',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.all(AppSizes.dimen12),
-            decoration: const BoxDecoration(color: AppColors.white),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                _CheckBoxContain(context, 'text1'),
-                _CheckBoxContain(context, 'text1'),
-                _CheckBoxContain(context, 'text1'),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(AppSizes.dimen8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text('Ammount to add',
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: AppColors.green,
-                        fontWeight: FontWeight.bold)),
-                CustomTextField(
-                  hintText: 'Amount',
-                  obscureText: false,
-                  controller: _controller,
-                  icon: Icon(Icons.currency_rupee,
-                      size: 18, color: AppColors.black),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(AppSizes.dimen3),
-                  child: Row(
-                    children: [
-                      Text('*Minimum deposit limit',style: TextStyle(fontSize: 12,color: Colors.red),),
-                      Icon(Icons.currency_rupee,color: Colors.red,size: 12,),
-                      Text('25',style: TextStyle(fontSize: 12,color: Colors.red),),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(AppSizes.dimen8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text('Current Balance',
+                      style: TextStyle(fontSize: 18, color: AppColors.orange)),
+                  Row(
+                    children: const [
+                      Icon(Icons.currency_rupee,
+                          size: 18, color: AppColors.orange),
+                      Text('16,076',
+                          style:
+                              TextStyle(fontSize: 18, color: AppColors.orange))
                     ],
-                  ),
-                ),Padding(
-                  padding: const EdgeInsets.all(AppSizes.dimen3),
-                  child: Row(
-                    children: [
-                      Text('*Maximum deposit limit',style: TextStyle(fontSize: 12,color: Colors.red),),
-                      Icon(Icons.currency_rupee,color: Colors.red,size: 12,),
-                      Text('1,000',style: TextStyle(fontSize: 12,color: Colors.red),),
-                    ],
-                  ),
-                ),
-                CustomFullButton(title: 'ADD CASH', onPressed: (){}),
-              ],
+                  )
+                ],
+              ),
             ),
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.all(AppSizes.dimen8),
+              child: Text(
+                'Add cash to your account',
+                style: Theme.of(context).textTheme.headline6,
+              ),
+            ),
+            _checkBoxContainers(context),
+            Padding(
+              padding: const EdgeInsets.all(AppSizes.dimen8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text('Amount to add',
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: AppColors.green,
+                          fontWeight: FontWeight.bold)),
+                  CustomTextField1(
+                    hintText: 'Amount',
+                    controller: _controller,
+                    icon: const Icon(Icons.currency_rupee,
+                        size: 18, color: AppColors.black),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(AppSizes.dimen3),
+                    child: Row(
+                      children: const [
+                        Text(
+                          '*Minimum deposit limit',
+                          style: TextStyle(fontSize: 12, color: Colors.red),
+                        ),
+                        Icon(
+                          Icons.currency_rupee,
+                          color: Colors.red,
+                          size: 12,
+                        ),
+                        Text(
+                          '25',
+                          style: TextStyle(fontSize: 12, color: Colors.red),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(AppSizes.dimen3),
+                    child: Row(
+                      children: const [
+                        Text(
+                          '*Maximum deposit limit',
+                          style: TextStyle(fontSize: 12, color: Colors.red),
+                        ),
+                        Icon(
+                          Icons.currency_rupee,
+                          color: Colors.red,
+                          size: 12,
+                        ),
+                        Text(
+                          '1,000',
+                          style: TextStyle(fontSize: 12, color: Colors.red),
+                        ),
+                      ],
+                    ),
+                  ),
+                  MoneyButton(controller: _controller,),
+                  CustomFullButton(title: 'ADD CASH', onPressed: () {}),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 60,
+                    margin:
+                        const EdgeInsets.symmetric(vertical: AppSizes.dimen8),
+                    decoration: BoxDecoration(
+                        color: AppColors.white,
+                        border: Border.all(color: AppColors.orange),
+                        borderRadius:
+                            BorderRadius.circular(AppSizes.cardCornerRadius)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'All deposits must be wagered before requesting a withdrawal',
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -130,4 +162,119 @@ Widget _CheckBoxContain(BuildContext context, String title) {
       )
     ],
   );
+}
+
+Widget _checkBoxContainers(BuildContext context) {
+  return Container(
+    margin: const EdgeInsets.all(AppSizes.dimen12),
+    decoration: BoxDecoration(
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius)),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        _CheckBoxContain(context, 'text1'),
+        _CheckBoxContain(context, 'text1'),
+        _CheckBoxContain(context, 'text1'),
+      ],
+    ),
+  );
+}
+
+Widget _moneyButtons(
+    BuildContext context, Function()? buttonOnPressed(String)) {
+  return Padding(
+
+    padding: const EdgeInsets.all(AppSizes.dimen12),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        CommonBlockButton(
+            titleColor: AppColors.black,
+            title: '₹100',
+            buttonRadius: AppSizes.cardCornerRadius,
+            buttonHeight: AppSizes.buttonHeight,
+            buttonWidth: MediaQuery.of(context).size.width * 0.28,
+            buttonOnPressed: buttonOnPressed('100')!,
+            buttonColor: AppColors.white),
+        //const SizedBox(width: AppSizes.dimen12,),
+        CommonBlockButton(
+            titleColor: AppColors.black,
+            title: '₹200',
+            buttonRadius: AppSizes.cardCornerRadius,
+            buttonHeight: AppSizes.buttonHeight,
+            buttonWidth: MediaQuery.of(context).size.width * 0.28,
+            buttonOnPressed: buttonOnPressed('200')!,
+            buttonColor: AppColors.white),
+        //const SizedBox(width: AppSizes.dimen12,),
+        CommonBlockButton(
+            titleColor: AppColors.black,
+            title: '₹500',
+            buttonRadius: AppSizes.cardCornerRadius,
+            buttonHeight: AppSizes.buttonHeight,
+            buttonWidth: MediaQuery.of(context).size.width * 0.28,
+            buttonOnPressed: buttonOnPressed('500')!,
+            buttonColor: AppColors.white),
+      ],
+    ),
+  );
+}
+class MoneyButton extends StatefulWidget {
+  final TextEditingController controller;
+  const MoneyButton({Key? key,required this.controller}) : super(key: key);
+
+  @override
+  State<MoneyButton> createState() => _MoneyButtonState();
+}
+
+class _MoneyButtonState extends State<MoneyButton> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(AppSizes.dimen12),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          CommonBlockButton(
+              titleColor: AppColors.black,
+              title: '₹100',
+              buttonRadius: AppSizes.cardCornerRadius,
+              buttonHeight: AppSizes.buttonHeight,
+              buttonWidth: MediaQuery.of(context).size.width * 0.28,
+              buttonOnPressed: (){
+                setState(() {
+                  widget.controller.text='100';
+                });
+              },
+              buttonColor: AppColors.white),
+          //const SizedBox(width: AppSizes.dimen12,),
+          CommonBlockButton(
+              titleColor: AppColors.black,
+              title: '₹200',
+              buttonRadius: AppSizes.cardCornerRadius,
+              buttonHeight: AppSizes.buttonHeight,
+              buttonWidth: MediaQuery.of(context).size.width * 0.28,
+              buttonOnPressed: (){
+                setState(() {
+                  widget.controller.text='200';
+                });
+              },
+              buttonColor: AppColors.white),
+          //const SizedBox(width: AppSizes.dimen12,),
+          CommonBlockButton(
+              titleColor: AppColors.black,
+              title: '₹500',
+              buttonRadius: AppSizes.cardCornerRadius,
+              buttonHeight: AppSizes.buttonHeight,
+              buttonWidth: MediaQuery.of(context).size.width * 0.28,
+              buttonOnPressed:(){
+                setState(() {
+                  widget.controller.text='500';
+                });
+              },
+              buttonColor: AppColors.white),
+        ],
+      ),
+    );
+  }
 }

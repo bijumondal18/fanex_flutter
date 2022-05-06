@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 import '../../../../../../common/common.dart';
@@ -10,16 +8,18 @@ class CommonBlockButton extends StatelessWidget {
   final double buttonHeight;
   final double buttonWidth;
   final Color buttonColor;
+  final Color titleColor;
   final VoidCallback buttonOnPressed;
 
   const CommonBlockButton(
       {Key? key,
-        required this.title,
-        required this.buttonRadius,
-        required this.buttonHeight,
-        required this.buttonWidth,
-        required this.buttonOnPressed,
-        required this.buttonColor})
+      required this.title,
+      required this.buttonRadius,
+      required this.buttonHeight,
+      required this.buttonWidth,
+      required this.buttonOnPressed,
+      required this.buttonColor,
+      required this.titleColor})
       : super(key: key);
 
   @override
@@ -35,14 +35,13 @@ class CommonBlockButton extends StatelessWidget {
           ),
           child: Center(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: AppSizes.dimen12),
-                child: Text(
-                  title,
-                  style: TextStyle(fontSize: AppSizes.smallbutton,color: AppColors.white),
-                ),
-              ))),
+            padding: const EdgeInsets.symmetric(horizontal: AppSizes.dimen12),
+            child: Text(
+              title,
+              style:  TextStyle(
+                  fontSize: AppSizes.smallbutton, color: titleColor),
+            ),
+          ))),
     );
   }
 }
-
-

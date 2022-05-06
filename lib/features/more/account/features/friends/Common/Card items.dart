@@ -1,6 +1,7 @@
 import 'package:fanex_flutter/common/common.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../widgets/Custom_sort_button.dart';
 import '../Models/models.dart';
 import 'Common.dart';
 class CardItem extends StatefulWidget {
@@ -49,6 +50,7 @@ class _CardItemState extends State<CardItem> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CommonBlockButton(
+                titleColor: AppColors.white,
                 title: widget.title1,
                 buttonRadius: AppSizes.cardCornerRadius,
                 buttonHeight: AppSizes.smallbuttonHeight,
@@ -60,6 +62,7 @@ class _CardItemState extends State<CardItem> {
                 height: AppSizes.dimen4,
               ),
               CommonBlockButton(
+                  titleColor: AppColors.white,
                   title: '${widget.title2}',
                   buttonRadius: AppSizes.cardCornerRadius,
                   buttonHeight: AppSizes.smallbuttonHeight,
@@ -99,6 +102,7 @@ class _CardItemState extends State<CardItem> {
             ],
           ),
               CommonBlockButton(
+                titleColor: AppColors.white,
                   title: widget.title1,
                   buttonRadius: AppSizes.cardCornerRadius,
                   buttonHeight: AppSizes.smallbuttonHeight,
