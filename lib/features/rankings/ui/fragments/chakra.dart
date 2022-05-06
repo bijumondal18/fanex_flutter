@@ -153,7 +153,8 @@ class _ChakraScreenState extends State<ChakraScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(AppStrings.averageFinishingPositionText,
-                                style: TextStyle(fontSize: AppSizes.bodyText2,),textAlign: TextAlign.center,),
+                                style: TextStyle(fontSize: AppSizes.bodyText2,),textAlign: TextAlign.center,
+                              ),
                              SizedBox(
                                  child: LinearProgressIndicator(value: 0.27,minHeight: AppSizes.dimen8,color: AppColors.orange,)
                              ),
