@@ -82,8 +82,8 @@ class _RewardScreenState extends State<RewardScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Image.network("https://www.freepnglogos.com/uploads/facebook-logo-icon/facebook-logo-icon-facebook-logo-png-transparent-svg-vector-bie-supply-15.png",fit: BoxFit.cover,),
-                  Image.network("https://www.iconpacks.net/icons/2/free-twitter-logo-icon-2429-thumb.png",fit: BoxFit.cover,),
+                  Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe_8LgbSgdtd9CV7geEhpeBJdL5RZouXCDog&usqp=CAU",fit: BoxFit.cover,height: 40,),
+                  Image.network("https://img.icons8.com/fluency/344/twitter.png",fit: BoxFit.cover,),
                   Image.network("https://www.freepnglogos.com/uploads/logo-ig-png/logo-ig-instagram-windows-phone-all-you-need-know-9.png",fit: BoxFit.cover,),
 
                 ],

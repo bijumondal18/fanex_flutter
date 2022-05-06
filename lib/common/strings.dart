@@ -38,8 +38,28 @@ class AppStrings {
   static const String networkError = "No internet connection.";
   static const String verificationAadhar = "You must upload your Aadhar card to complete\nverification.";
   static const String serverError = "Server not responding! Please try later.";
+
   static const String requestingWithdrawalText = "All deposits must be wagered \nbefore requesting a withdrawal";
   static const String transactionHistoryText = "Transaction History";
   static const String verifyAccountText = "Verify your account";
   static const String notCompletedText = "Not Completed";
+
+  static const String SearchText = "Search Here";
+  static const String cashWonText = "Cash won since inception";
+  static const String cashWon = "0";
+  static const String coinsWonText = "Coins won since inception";
+  static const String coinsWon = "0";
+  static const String coinsEarnedText = "Coins earned since inception";
+  static const String coinsEarned = "0";
+  static const String addEmailText = "Add Email";
+  static const String favouritePlayerText = "Favourite Player";
+  static const String pushNotificationsText = "Push Notifications";
+  static const String prizeAmountText = "Prize Amount";
+  static const String prizeAmount = "500";
+  static const String dateText = "11-02-2021";
+  static const String chakraStartText = "Chakra starts on";
+  static const String chakraEndText = "Chakra ends on";
+  static const String friendsFollowingText = "Number of friends following the User";
+  static const String averageFinishingPositionText = "Average finishing position in completed Contests\n(excludes any User created Contests)";
+
 }

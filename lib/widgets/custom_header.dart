@@ -2,6 +2,10 @@ import 'package:fanex_flutter/common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../common/route.dart';
+import '../features/Notification/UI/Notification_Screen.dart';
+import '../features/Notification/Ui/Notification_screen.dart';
+
 class CustomHeader extends StatefulWidget implements PreferredSizeWidget {
   const CustomHeader({Key? key}) : super(key: key);
 
@@ -51,7 +55,12 @@ class _CustomHeaderState extends State<CustomHeader> {
                   ],
                 ),
               ],
-            )
+            ),
+            IconButton(onPressed: (){Navigator.push(
+              context,
+              CustomPageRoute(
+                  widget: const NotificationScreen()),
+            );}, icon: const Icon(Icons.notification_important,color: AppColors.orange,))
           ],
         ),
       ),
@@ -75,10 +84,10 @@ class _CustomHeaderState extends State<CustomHeader> {
           const SizedBox(
             width: AppSizes.dimen4,
           ),
-          Text(
-            '116,070'.toUpperCase(),
-            style: const TextStyle(
-                color: AppColors.white, fontSize: AppSizes.headline5),
+          const Text(
+            '116,070',
+            style: TextStyle(
+                color: AppColors.white, fontSize: AppSizes.bodyText2),
           ),
         ],
       ),
@@ -97,7 +106,7 @@ class _CustomHeaderState extends State<CustomHeader> {
           Icon(
             Icons.add,
             color: AppColors.white,
-            size: 22,
+            size: 19,
           ),
           SizedBox(
             width: AppSizes.dimen4,
@@ -105,7 +114,7 @@ class _CustomHeaderState extends State<CustomHeader> {
           Text(
             'Add Cash',
             style:
-                TextStyle(color: AppColors.white, fontSize: AppSizes.headline5),
+            TextStyle(color: AppColors.white, fontSize: AppSizes.bodyText2),
           ),
         ],
       ),
