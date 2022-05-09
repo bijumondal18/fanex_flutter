@@ -1,7 +1,11 @@
+import 'package:fanex_flutter/features/create_contest/ui/create_contest_screen.dart';
+import 'package:fanex_flutter/features/more/account/features/friends/ui/friends_screen.dart';
+import 'package:fanex_flutter/features/more/account/features/my_profile/ui/profile_screen.dart';
 import 'package:fanex_flutter/widgets/custom_default_appbar.dart';
 import 'package:fanex_flutter/widgets/custom_rewards_container.dart';
 import 'package:flutter/material.dart';
 import 'package:fanex_flutter/common/common.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class RewardScreen extends StatefulWidget {
 
@@ -18,27 +22,56 @@ class _RewardScreenState extends State<RewardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomDefaultAppBar(
-        title: 'Rewards',
+      appBar: AppBar(
+        elevation: AppSizes.elevation0,
+        title: Text('Rewards'),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            CustomRewardsContainer(
-                textDetails: "Verify Email Address",
-                imageUrls: "https://thumbs.dreamstime.com/b/gold-coin-flat-style-crown-symbol-game-coin-gold-crown-symbol-icon-games-reward-coins-gold-metal-gold-coin-vector-190814016.jpg"
+            InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfileScreen(),
+                ));
+              },
+              child: CustomRewardsContainer(
+                  textDetails: "Verify Email Address",
+                  imageUrls: "https://thumbs.dreamstime.com/b/gold-coin-flat-style-crown-symbol-game-coin-gold-crown-symbol-icon-games-reward-coins-gold-metal-gold-coin-vector-190814016.jpg"
+              ),
             ),
-            CustomRewardsContainer(
-                textDetails: "Create Profile Picture",
-                imageUrls: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdN6y6XoC5GvezYQ1EupYuo4H2vWAt7UFiqA&usqp=CAU"
+            InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfileScreen(),
+                ));
+
+              },
+              child: CustomRewardsContainer(
+                  textDetails: "Create Profile Picture",
+                  imageUrls: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdN6y6XoC5GvezYQ1EupYuo4H2vWAt7UFiqA&usqp=CAU"
+              ),
             ),
-            CustomRewardsContainer(
-                textDetails: "Add Favourite Player",
-                imageUrls: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_TGqdhkOQQOIo36UlehfzB715tjXQOOZwkA&usqp=CAU"
+            InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => FriendsListScreen(),
+                ));
+
+              },
+              child: CustomRewardsContainer(
+                  textDetails: "Add Favourite Player",
+                  imageUrls: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_TGqdhkOQQOIo36UlehfzB715tjXQOOZwkA&usqp=CAU"
+              ),
             ),
-            CustomRewardsContainer(
-                textDetails: "Refer A Friend",
-                imageUrls: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRptgO7XS-AuN5F78IVPC84H9y95nix4xG64A&usqp=CAU"
+            InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => FriendsListScreen(),
+                ));
+
+              },
+
+              child: CustomRewardsContainer(
+                  textDetails: "Refer A Friend",
+                  imageUrls: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRptgO7XS-AuN5F78IVPC84H9y95nix4xG64A&usqp=CAU"
+              ),
             ),
             Container(
               margin: const EdgeInsets.all(AppSizes.dimen12),
@@ -52,6 +85,7 @@ class _RewardScreenState extends State<RewardScreen> {
                 borderRadius: BorderRadius.circular(AppSizes.dimen8),
                   child: Image.asset("assets/images/fanex-logo.png",fit: BoxFit.cover,)),
             ),
+
             Container(
               margin: const EdgeInsets.all(AppSizes.dimen12),
               width: MediaQuery.of(context).size.width,
@@ -68,7 +102,7 @@ class _RewardScreenState extends State<RewardScreen> {
                       borderRadius: BorderRadius.circular(AppSizes.dimen8),
                   ),
                   SizedBox(width: AppSizes.dimen55,),
-                  Text("Share a Promotion",style: TextStyle(fontSize: AppSizes.dimen16,fontWeight: FontWeight.w600),)
+                  Text("Share a Promotion",style: TextStyle(fontSize: AppSizes.dimen13,fontWeight: FontWeight.w600),)
                 ],
               ),
             ),
@@ -89,33 +123,41 @@ class _RewardScreenState extends State<RewardScreen> {
                 ],
               ),
             ),
-            Container(
-              height: AppSizes.dimen60,
-              margin: const EdgeInsets.all(AppSizes.dimen12),
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius),
-              color: AppColors.grey.withOpacity(0.3),
+            InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => CreateContestScreen(),
+                ));
+
+              },
+
+              child: Container(
+                height: AppSizes.dimen60,
+                margin: const EdgeInsets.all(AppSizes.dimen12),
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius),
+                color: AppColors.grey.withOpacity(0.3),
           ),
 
-                child: Padding(
-                  padding: EdgeInsets.all(AppSizes.dimen8),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                   children: [
-                       ClipRRect(
-                          borderRadius: BorderRadius.circular(AppSizes.dimen8),
-                          child: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBRQ535XFTMxqdfD_HF9V3l4yMvMlZ1MP0A&usqp=CAU',
-                            fit: BoxFit.cover,),
-                ),
-                   Text("Create Contest",style: TextStyle(fontSize: AppSizes.dimen16,fontWeight: FontWeight.w600),),
-                    IconButton(
-                     icon: Icon(Icons.arrow_forward_ios),
-                      color: AppColors.green,
-                      onPressed: () {},
-                ),
-              ],
-            ),
+                  child: Padding(
+                    padding: EdgeInsets.all(AppSizes.dimen8),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                     children: [
+                         ClipRRect(
+                            borderRadius: BorderRadius.circular(AppSizes.dimen8),
+                            child: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBRQ535XFTMxqdfD_HF9V3l4yMvMlZ1MP0A&usqp=CAU',
+                              fit: BoxFit.cover,),
+                  ),
+                     Text("Create Contest",style: TextStyle(fontSize: AppSizes.dimen13,fontWeight: FontWeight.w600),),
+                      IconButton(
+                       icon: Icon(Icons.arrow_forward_ios),
+                        color: AppColors.green,
+                        onPressed: () {},
+                  ),
+                ],
+              ),
           ),
         ),
+            ),
           ],
         ),
       ),
