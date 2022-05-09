@@ -21,7 +21,15 @@ class _UserBaseScreenState extends State<UserBaseScreen> {
         },
         child: SingleChildScrollView(
           child: Column(
-            children: [SearchBar(onPressed: () {}),BuildList(IsTwoButton: true,ItemCount:friendsName.length,title1: 'Send Request',title2: 'Block',)],
+            children: [
+              SearchBar(onPressed: () {}),
+              BuildList(
+                IsTwoButton: true,
+                ItemCount: friendsName.length,
+                title1: 'Send Request',
+                title2: 'Block',
+              )
+            ],
           ),
         ),
       ),
