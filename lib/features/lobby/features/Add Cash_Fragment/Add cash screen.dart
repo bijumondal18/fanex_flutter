@@ -146,23 +146,48 @@ class _AddCashFragmentState extends State<AddCashFragment> {
   }
 }
 
-bool isChecked = false;
 
-Widget _CheckBoxContain(BuildContext context, String title) {
-  return Row(
-    children: [
-      Checkbox(
-        checkColor: Colors.green,
-        value: isChecked,
-        onChanged: null,
-      ),
-      Text(
-        title,
-        style: Theme.of(context).textTheme.bodyText1,
-      )
-    ],
-  );
+
+
+class CustomCheckBox extends StatefulWidget {
+  final String title;
+  const CustomCheckBox({Key? key, required this.title}) : super(key: key);
+
+  @override
+  State<CustomCheckBox> createState() => _CustomCheckBoxState();
 }
+
+class _CustomCheckBoxState extends State<CustomCheckBox> {
+  bool isChecked = false;
+  @override
+  Widget build(BuildContext context) {
+    Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+      };
+      return AppColors.green;
+    }
+    return Row(
+      children: [
+        Checkbox(
+      checkColor: AppColors.white,
+      fillColor: MaterialStateProperty.resolveWith(getColor),
+      value: isChecked,
+      onChanged: (bool? value) {
+        setState(() {
+          isChecked = value!;
+        });
+      },
+        ),
+        Text(
+          widget.title,
+          style: Theme.of(context).textTheme.bodyText1,
+        )
+      ],
+    );
+  }
+}
+
 
 Widget _checkBoxContainers(BuildContext context) {
   return Container(
@@ -172,49 +197,10 @@ Widget _checkBoxContainers(BuildContext context) {
         borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius)),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        _CheckBoxContain(context, 'text1'),
-        _CheckBoxContain(context, 'text1'),
-        _CheckBoxContain(context, 'text1'),
-      ],
-    ),
-  );
-}
-
-Widget _moneyButtons(
-    BuildContext context, Function()? buttonOnPressed(String)) {
-  return Padding(
-
-    padding: const EdgeInsets.all(AppSizes.dimen12),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        CommonBlockButton(
-            titleColor: AppColors.black,
-            title: '₹100',
-            buttonRadius: AppSizes.cardCornerRadius,
-            buttonHeight: AppSizes.buttonHeight,
-            buttonWidth: MediaQuery.of(context).size.width * 0.28,
-            buttonOnPressed: buttonOnPressed('100')!,
-            buttonColor: AppColors.white),
-        //const SizedBox(width: AppSizes.dimen12,),
-        CommonBlockButton(
-            titleColor: AppColors.black,
-            title: '₹200',
-            buttonRadius: AppSizes.cardCornerRadius,
-            buttonHeight: AppSizes.buttonHeight,
-            buttonWidth: MediaQuery.of(context).size.width * 0.28,
-            buttonOnPressed: buttonOnPressed('200')!,
-            buttonColor: AppColors.white),
-        //const SizedBox(width: AppSizes.dimen12,),
-        CommonBlockButton(
-            titleColor: AppColors.black,
-            title: '₹500',
-            buttonRadius: AppSizes.cardCornerRadius,
-            buttonHeight: AppSizes.buttonHeight,
-            buttonWidth: MediaQuery.of(context).size.width * 0.28,
-            buttonOnPressed: buttonOnPressed('500')!,
-            buttonColor: AppColors.white),
+      children: const [
+        CustomCheckBox(title: 'text1'),
+        CustomCheckBox(title:  'text1'),
+        CustomCheckBox(title:  'text1'),
       ],
     ),
   );
