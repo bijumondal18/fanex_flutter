@@ -1,6 +1,7 @@
 import 'package:fanex_flutter/common/common.dart';
 import 'package:flutter/material.dart';
-import '../models/models.dart';
+import '../Models/models.dart';
+
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({Key? key}) : super(key: key);

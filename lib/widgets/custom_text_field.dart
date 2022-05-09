@@ -41,3 +41,43 @@ class CustomTextField extends StatelessWidget {
     );
   }
 }
+class CustomTextField1 extends StatefulWidget {
+  final String hintText;
+  final Icon icon;
+  final TextEditingController controller;
+  const CustomTextField1({Key? key,
+    required this.hintText,
+    required this.controller,
+    required this.icon}) : super(key: key);
+
+  @override
+  State<CustomTextField1> createState() => _CustomTextField1State();
+}
+class _CustomTextField1State extends State<CustomTextField1> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(top: AppSizes.dimen8),
+      width: MediaQuery.of(context).size.width,
+      height: AppSizes.textFieldHeight,
+      child: TextField(
+        controller: widget.controller,
+        obscureText: false,
+       keyboardType: TextInputType.number,
+        cursorColor: AppColors.black,
+        decoration: InputDecoration(
+          prefixIcon: widget.icon,
+          iconColor: AppColors.lightGrey,
+          prefixIconColor: AppColors.lightGrey,
+          hintText: widget.hintText,
+          hintStyle: Theme.of(context).textTheme.bodyText1,
+          filled: true,
+          fillColor: AppColors.textFieldBg,
+          border: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius)),
+        ),
+      ),
+    );
+  }
+}

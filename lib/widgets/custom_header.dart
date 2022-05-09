@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../common/route.dart';
+import '../features/Notification/UI/Notification_Screen.dart';
 import '../features/Notification/Ui/Notification_screen.dart';
+import '../features/lobby/features/Add Cash_Fragment/Add cash screen.dart';
 
 class CustomHeader extends StatefulWidget implements PreferredSizeWidget {
   const CustomHeader({Key? key}) : super(key: key);
@@ -94,28 +96,35 @@ class _CustomHeaderState extends State<CustomHeader> {
   }
 
   Widget addCashButton() {
-    return Container(
-      padding: const EdgeInsets.symmetric(
-          horizontal: AppSizes.dimen8, vertical: AppSizes.dimen4),
-      decoration: BoxDecoration(
-          color: AppColors.green.withOpacity(0.8),
-          borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius)),
-      child: Row(
-        children: const [
-          Icon(
-            Icons.add,
-            color: AppColors.white,
-            size: 19,
-          ),
-          SizedBox(
-            width: AppSizes.dimen4,
-          ),
-          Text(
-            'Add Cash',
-            style:
-            TextStyle(color: AppColors.white, fontSize: AppSizes.bodyText2),
-          ),
-        ],
+    return InkWell(
+      onTap: (){Navigator.push(
+    context,
+    CustomPageRoute(
+    widget: const AddCashFragment()),
+    );},
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+            horizontal: AppSizes.dimen8, vertical: AppSizes.dimen4),
+        decoration: BoxDecoration(
+            color: AppColors.green.withOpacity(0.8),
+            borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius)),
+        child: Row(
+          children: const [
+            Icon(
+              Icons.add,
+              color: AppColors.white,
+              size: 19,
+            ),
+            SizedBox(
+              width: AppSizes.dimen4,
+            ),
+            Text(
+              'Add Cash',
+              style:
+              TextStyle(color: AppColors.white, fontSize: AppSizes.bodyText2),
+            ),
+          ],
+        ),
       ),
     );
   }
