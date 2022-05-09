@@ -35,6 +35,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 size: 20,
               )),
         ],
+        title: Text("My Profile"),
       ),
       body: SingleChildScrollView(
         child: Column(
