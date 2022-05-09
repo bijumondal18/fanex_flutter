@@ -26,57 +26,57 @@ class _CustomHeaderState extends State<CustomHeader> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-        InkWell(
-        onTap:() {
-          Navigator.push(
-            context,
-            CustomPageRoute(
-                widget: const ProfileScreen()),
-          );
-        },
-        child: const CircleAvatar(
-          backgroundColor: AppColors.orange,
-        ),
-      ),
-      const SizedBox(width: AppSizes.dimen8),
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [coins(), coins(), addCashButton()],
-          ),
-          const SizedBox(
-            height: AppSizes.dimen4,
-          ),
-          Row(
-            children: [
-              Text(
-                'Kart07'.toUpperCase(),
-                style: const TextStyle(
-                    color: AppColors.white, fontSize: AppSizes.headline5),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  CustomPageRoute(
+                      widget: const ProfileScreen()),
+                );
+              },
+              child: const CircleAvatar(
+                backgroundColor: AppColors.orange,
               ),
-              const SizedBox(
-                width: AppSizes.dimen4,
-              ),
-              addCashButton()
-            ],
-          ),
-        ],
-      ),
-      IconButton(onPressed: () {
-        Navigator.push(
-          context,
-          CustomPageRoute(
-              widget: const NotificationScreen()),
-        );
-      },
-          icon: const Icon(
-            Icons.notification_important, color: AppColors.orange,))
-      ],
-    ),)
-    ,
+            ),
+            const SizedBox(width: AppSizes.dimen8),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [coins(), coins(), addCashButton()],
+                ),
+                const SizedBox(
+                  height: AppSizes.dimen4,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'Kart07'.toUpperCase(),
+                      style: const TextStyle(
+                          color: AppColors.white, fontSize: AppSizes.headline5),
+                    ),
+                    const SizedBox(
+                      width: AppSizes.dimen4,
+                    ),
+                    addCashButton()
+                  ],
+                ),
+              ],
+            ),
+            IconButton(onPressed: () {
+              Navigator.push(
+                context,
+                CustomPageRoute(
+                    widget: const NotificationScreen()),
+              );
+            },
+                icon: const Icon(
+                  Icons.notification_important, color: AppColors.orange,))
+          ],
+        ),)
+      ,
     );
   }
 
