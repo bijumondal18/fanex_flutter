@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 
 import '../common/dimens.dart';
 import '../common/palette.dart';
 import '../common/strings.dart';
 
-class CustomContainerLinearProgressIndicator extends StatelessWidget {
+class CustomContainerLinearPercentIndicator extends StatelessWidget {
 
   final double value;
 
-  const CustomContainerLinearProgressIndicator({ required this.value});
+
+  const CustomContainerLinearPercentIndicator({ required this.value});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 100,
         width: MediaQuery.of(context).size.width,
         child: Card(
           child: Padding(
@@ -30,15 +31,15 @@ class CustomContainerLinearProgressIndicator extends StatelessWidget {
                         style: TextStyle(fontSize: AppSizes.bodyText1,),textAlign: TextAlign.center,
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(AppSizes.dimen8),
+                        padding: const EdgeInsets.all(AppSizes.dimen16),
                         child: SizedBox(
                             child: Column(
                               children: [
-                                LinearProgressIndicator(
-                                  backgroundColor: AppColors.grey,
-                                  value: value,
-                                  minHeight: AppSizes.dimen8,
-                                  color: AppColors.orange,
+                                LinearPercentIndicator(
+                                  percent: value,
+                                  progressColor: AppColors.orange,
+                                  lineHeight: AppSizes.dimen12,
+                                  center: Text((value*100).toString(), style: TextStyle(fontSize: AppSizes.caption,),),
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -48,7 +49,8 @@ class CustomContainerLinearProgressIndicator extends StatelessWidget {
                                   ],
                                 )
                               ],
-                            )),
+                            )
+                        ),
                       ),
                     ],
                   ),

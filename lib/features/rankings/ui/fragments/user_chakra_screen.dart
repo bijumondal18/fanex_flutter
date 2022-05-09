@@ -1,4 +1,4 @@
-import 'package:fanex_flutter/widgets/custom_container_with_LinearProgressIndicator.dart';
+import 'package:fanex_flutter/widgets/custom_container_with_LinearPercentIndicator.dart';
 import 'package:fanex_flutter/widgets/custom_rankings_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -140,7 +140,9 @@ class _UserChakraScreenState extends State<UserChakraScreen> {
                   ),
                 )
             ),
-            CustomContainerLinearProgressIndicator(value: 0.90),
+            CustomContainerLinearPercentIndicator(
+                value: 0.90,
+            ),
             CustomRankingsContainer(
                 textDetails: AppStrings.coinsWonText,
                 countDetails: AppStrings.prizeAmount,
