@@ -28,24 +28,26 @@ class CustomContainerLinearPercentIndicator extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(AppStrings.averageFinishingPositionText,
-                        style: TextStyle(fontSize: AppSizes.bodyText1,),textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodyText1,textAlign: TextAlign.center,
                       ),
                       Padding(
                         padding: const EdgeInsets.all(AppSizes.dimen16),
-                        child: SizedBox(
+                        child: Container(
                             child: Column(
                               children: [
                                 LinearPercentIndicator(
                                   percent: value,
+                                  barRadius: Radius.circular(AppSizes.cardCornerRadius),
                                   progressColor: AppColors.orange,
                                   lineHeight: AppSizes.dimen12,
-                                  center: Text((value*100).toString(), style: TextStyle(fontSize: AppSizes.caption,),),
+                                  center: Text((value*100).toString() + " % ",
+                                      style:Theme.of(context).textTheme.caption),
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text("0%", style: TextStyle(fontSize: AppSizes.bodyText2,)),
-                                    Text("100%", style: TextStyle(fontSize: AppSizes.bodyText2,)),
+                                    Text("0%", style:Theme.of(context).textTheme.bodyText2),
+                                    Text("100%", style:Theme.of(context).textTheme.bodyText2),
                                   ],
                                 )
                               ],

@@ -116,20 +116,26 @@ class _ChakraScreenState extends State<ChakraScreen> {
                       children: [
                         Row(
                           children: [
-                            SvgPicture.asset(
-                              'assets/icons/coins-icon.svg',
-                              width: AppSizes.headline4,
-                              height: AppSizes.headline4,
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: AppSizes.dimen4),
+                              child: SvgPicture.asset(
+                                'assets/icons/coins-icon.svg',
+                                width: AppSizes.headline4,
+                                height: AppSizes.headline4,
+                              ),
                             ),
                             Text(AppStrings.coinsWonText, style: Theme.of(context).textTheme.headline6,),
                           ],
                         ),
                         Row(
                           children: [
-                            SvgPicture.asset(
-                              'assets/icons/coins-icon.svg',
-                              width: AppSizes.headline6,
-                              height: AppSizes.headline6,
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: AppSizes.dimen4),
+                              child: SvgPicture.asset(
+                                'assets/icons/coins-icon.svg',
+                                width: AppSizes.headline6,
+                                height: AppSizes.headline6,
+                              ),
                             ),
                             Text(AppStrings.prizeAmount,style: TextStyle(fontSize: AppSizes.headline6,color: AppColors.orange),)
                           ],
@@ -139,7 +145,9 @@ class _ChakraScreenState extends State<ChakraScreen> {
                   ),
                 )
             ),
-            CustomContainerLinearPercentIndicator(value: 0.27,),
+            CustomContainerLinearPercentIndicator(
+              value: 0.27,
+            ),
             CustomRankingsContainer(
                 textDetails: AppStrings.coinsWonText,
                 countDetails: AppStrings.prizeAmount,

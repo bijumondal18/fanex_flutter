@@ -18,7 +18,7 @@ class CustomRewardsContainer extends StatelessWidget{
       margin: EdgeInsets.all(AppSizes.dimen12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius),
-        color: AppColors.grey.withOpacity(0.3),
+        color: AppColors.textFieldBg,
       ),
       child: Padding(
         padding: EdgeInsets.all(AppSizes.dimen8),
