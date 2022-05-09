@@ -40,6 +40,7 @@ class _LobbyScreenState extends State<LobbyScreen> {
                       slivers: <Widget>[
                         ///image slider
                         const SliverToBoxAdapter(child: CarouselSlider()),
+
                         ///tabbar
                         const SteakyTabBar(),
                         _tabBarView(context),
@@ -56,10 +57,10 @@ class _LobbyScreenState extends State<LobbyScreen> {
   }
 }
 
-
 Widget _tabBarView(context) {
   return SliverToBoxAdapter(
-    child: SizedBox(
+    child: Container(
+      color: AppColors.white,
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       child: const TabBarView(
@@ -85,29 +86,39 @@ class SteakyTabBar extends StatelessWidget {
 
 class Delegate extends SliverPersistentHeaderDelegate {
   @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return  const TabBar(
-      labelColor: AppColors.white,
-      indicator: BoxDecoration(
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return Container(
+      decoration: BoxDecoration(color: AppColors.white, boxShadow: [
+        BoxShadow(
+            color: AppColors.black.withOpacity(0.1),
+            blurRadius: 1,
+            spreadRadius: 2)
+      ]),
+      child: TabBar(
+        labelColor: AppColors.white,
+        isScrollable: false,
+        indicator: BoxDecoration(
           color: AppColors.orange,
+        ),
+        unselectedLabelColor: AppColors.lightGrey,
+        indicatorSize: TabBarIndicatorSize.tab,
+        indicatorColor: AppColors.orange,
+        tabs: [
+          Tab(
+            text: 'Lobby',
+          ),
+          Tab(
+            text: 'Upcoming',
+          ),
+          Tab(
+            text: 'Live',
+          ),
+          Tab(
+            text: 'History',
+          )
+        ],
       ),
-      unselectedLabelColor: AppColors.lightGrey,
-      indicatorSize: TabBarIndicatorSize.tab,
-      indicatorColor: AppColors.orange,
-      tabs: [
-        Tab(
-          text: 'Lobby',
-        ),
-        Tab(
-          text: 'Upcoming',
-        ),
-        Tab(
-          text: 'Live',
-        ),
-        Tab(
-          text: 'History',
-        )
-      ],
     );
   }
 
@@ -119,6 +130,6 @@ class Delegate extends SliverPersistentHeaderDelegate {
 
   @override
   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
-    return true;
+    return false;
   }
 }

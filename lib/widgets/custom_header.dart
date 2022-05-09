@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../common/route.dart';
 import '../features/Notification/UI/notification_screen.dart';
-import '../features/lobby/features/Add Cash_Fragment/Add cash screen.dart';
+import '../features/lobby/features/add_cash_fragment/Add cash screen.dart';
 import '../features/screens.dart';
 
 class CustomHeader extends StatefulWidget implements PreferredSizeWidget {
