@@ -1,6 +1,7 @@
 import 'package:fanex_flutter/common/common.dart';
 import 'package:fanex_flutter/features/more/account/features/friends/Common/Common.dart';
 import 'package:fanex_flutter/widgets/custom_add_friend_button.dart';
+import 'package:fanex_flutter/widgets/custom_container_with_LinearProgressIndicator.dart';
 import 'package:fanex_flutter/widgets/custom_rankings_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -138,34 +139,7 @@ class _ChakraScreenState extends State<ChakraScreen> {
                   ),
                 )
             ),
-            Container(
-                height: AppSizes.mainHeaderHeight,
-                width: MediaQuery.of(context).size.width,
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(AppSizes.dimen4),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Icon(Icons.percent_rounded,color: AppColors.green,),
-                        Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(AppStrings.averageFinishingPositionText,
-                                style: TextStyle(fontSize: AppSizes.bodyText2,),textAlign: TextAlign.center,
-                              ),
-                             SizedBox(
-                                 child: LinearProgressIndicator(value: 0.27,minHeight: AppSizes.dimen8,color: AppColors.orange,)
-                             ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-            ),
+            CustomContainerLinearProgressIndicator(value: 0.27,),
             CustomRankingsContainer(
                 textDetails: AppStrings.coinsWonText,
                 countDetails: AppStrings.prizeAmount,
