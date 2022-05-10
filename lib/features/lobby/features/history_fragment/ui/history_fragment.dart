@@ -1,4 +1,4 @@
-import 'package:fanex_flutter/features/lobby/features/history_fragment/model.dart';
+import 'package:fanex_flutter/features/lobby/features/history_fragment/models/model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -21,23 +21,30 @@ class _HistoryFragmentState extends State<HistoryFragment> {
       body: ListView.builder(
         itemCount: teamFirst.length,
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context,index){
-            return Container(
-              height: 120,
-              width: MediaQuery.of(context).size.width,
-              child: Card(
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: AppSizes.dimen8, vertical: AppSizes.dimen4),
+              child: Container(
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        offset: const Offset(
+                          1.0,
+                          1.0,
+                        ),
+                        color: AppColors.lightGrey.withOpacity(0.6),
+                        spreadRadius: 2,
+                        blurRadius: 20,
+                      )
+                    ],
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius)),
+                width: MediaQuery.of(context).size.width,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Icon(Icons.rocket, size: AppSizes.caption,),
-                        Text(teamFirst[index] + " vs " + teamSecond[index]),
-                        Icon(Icons.attach_money_rounded, size: AppSizes.caption,),
-                      ],
-                    ),
+                    Text("🚀" + teamFirst[index] + " vs " + teamSecond[index]+ "💰"),
                     Padding(
                       padding: const EdgeInsets.all(AppSizes.dimen8),
                       child: Column(
@@ -58,62 +65,63 @@ class _HistoryFragmentState extends State<HistoryFragment> {
                         ],
                       ),
                     ),
-                    Divider(
-                      height: 1,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Column(
-                          children: [
-                            Text("ENTRY FEE", style: Theme.of(context).textTheme.caption),
-                            Row(
-                              children: [
-                                SvgPicture.asset(
-                                  'assets/icons/coins-icon.svg',
-                                  width: AppSizes.caption,
-                                  height: AppSizes.caption,
-                                ),
-                                Text(entryFee[index], style: Theme.of(context).textTheme.caption),
-                              ],
-                            )
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Text("WON", style: Theme.of(context).textTheme.caption),
-                            Row(
-                              children: [
-                                Icon(Icons.currency_rupee, size: AppSizes.caption,),
-                                Text(wonAmount[index],style: Theme.of(context).textTheme.caption),
-                              ],
-                            )
-                          ],
-                        ),
-                        Container(
-                          height: 30,
-                          width: 65,
-                          child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                elevation: 0,
-                                primary: AppColors.green,
-                              ),
-                              onPressed: () {},
-                                child: Text("VIEW",
-                                    style: TextStyle(
-                                        fontSize: AppSizes.caption,
-                                        color: AppColors.white
-                                    )
-                                )
+                    Divider(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen8),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Column(
+                            children: [
+                              Text("ENTRY FEE", style: Theme.of(context).textTheme.caption),
+                              Row(
+                                children: [
+                                  SvgPicture.asset(
+                                    'assets/icons/coins-icon.svg',
+                                    width: AppSizes.caption,
+                                    height: AppSizes.caption,
+                                  ),
+                                  Text(entryFee[index], style: Theme.of(context).textTheme.caption),
+                                ],
+                              )
+                            ],
                           ),
-                        ),
-                        Column(
-                          children: [
-                            Text("COMPLETED"),
-                            Text("04-05-2022"),
-                          ],
-                        )
-                      ],
+                          Column(
+                            children: [
+                              Text("WON", style: Theme.of(context).textTheme.caption),
+                              Row(
+                                children: [
+                                  Icon(Icons.currency_rupee, size: AppSizes.caption,),
+                                  Text(wonAmount[index],style: Theme.of(context).textTheme.caption),
+                                ],
+                              )
+                            ],
+                          ),
+                          Container(
+                            height: 30,
+                            width: 65,
+                            child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  elevation: 0,
+                                  primary: AppColors.green,
+                                ),
+                                onPressed: () {},
+                                  child: Text("VIEW",
+                                      style: TextStyle(
+                                          fontSize: AppSizes.caption,
+                                          color: AppColors.white
+                                      )
+                                  )
+                            ),
+                          ),
+                          Column(
+                            children: [
+                              Text("COMPLETED", style: Theme.of(context).textTheme.caption),
+                              Text("04-05-2022", style: Theme.of(context).textTheme.caption),
+                            ],
+                          )
+                        ],
+                      ),
                     )
                   ],
                 ),

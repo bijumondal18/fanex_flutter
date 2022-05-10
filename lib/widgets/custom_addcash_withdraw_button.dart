@@ -15,14 +15,14 @@ class CustomAddCashWithdrawButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: AppSizes.buttonHeight,
-      width: AppSizes.dimen127,
+      width: AppSizes.dimen125,
       child: ElevatedButton(
           onPressed: () {},
           style: ElevatedButton.styleFrom(
             primary: AppColors.green,
           ),
           child:  Text(
-            hintText
+            hintText,style: TextStyle(fontSize: AppSizes.dimen13),
           )),
     );
   }

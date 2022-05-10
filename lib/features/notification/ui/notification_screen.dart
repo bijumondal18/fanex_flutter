@@ -67,9 +67,9 @@ Widget _readAllButton() {
 }
 
 Widget _cardItem(
-  BuildContext context,
-  int index,
-) {
+    BuildContext context,
+    int index,
+    ) {
   return Card(
     color: AppColors.grey.withOpacity(0.1),
     child: Padding(
