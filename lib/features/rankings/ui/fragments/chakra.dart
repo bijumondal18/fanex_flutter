@@ -1,7 +1,7 @@
 import 'package:fanex_flutter/common/common.dart';
 import 'package:fanex_flutter/features/more/account/features/friends/Common/Common.dart';
 import 'package:fanex_flutter/widgets/custom_add_friend_button.dart';
-import 'package:fanex_flutter/widgets/custom_container_with_LinearPercentIndicator.dart';
+import 'package:fanex_flutter/widgets/custom_container_with_linear_percent_indicator.dart';
 import 'package:fanex_flutter/widgets/custom_rankings_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

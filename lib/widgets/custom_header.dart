@@ -2,9 +2,9 @@ import 'package:fanex_flutter/common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../common/route.dart';
-import '../features/Notification/UI/notification_screen.dart';
 import '../features/lobby/features/add_cash_fragment/Add cash screen.dart';
 import '../features/more/account/features/my_profile/ui/profile_screen.dart';
+import '../features/notification/ui/notification_screen.dart';
 
 class CustomHeader extends StatefulWidget implements PreferredSizeWidget {
   const CustomHeader({Key? key}) : super(key: key);

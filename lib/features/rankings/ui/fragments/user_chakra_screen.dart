@@ -1,4 +1,4 @@
-import 'package:fanex_flutter/widgets/custom_container_with_LinearPercentIndicator.dart';
+import 'package:fanex_flutter/widgets/custom_container_with_linear_percent_indicator.dart';
 import 'package:fanex_flutter/widgets/custom_rankings_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
