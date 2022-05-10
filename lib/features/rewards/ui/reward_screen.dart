@@ -1,6 +1,7 @@
 import 'package:fanex_flutter/features/create_contest/ui/create_contest_screen.dart';
 import 'package:fanex_flutter/features/more/account/features/friends/ui/friends_screen.dart';
 import 'package:fanex_flutter/features/more/account/features/my_profile/ui/profile_screen.dart';
+import 'package:fanex_flutter/widgets/custom__reward_contest.dart';
 import 'package:fanex_flutter/widgets/custom_default_appbar.dart';
 import 'package:fanex_flutter/widgets/custom_rewards_container.dart';
 import 'package:flutter/material.dart';
@@ -65,9 +66,7 @@ class _RewardScreenState extends State<RewardScreen> {
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => FriendsListScreen(),
                 ));
-
-              },
-
+                },
               child: CustomRewardsContainer(
                   textDetails: "Refer A Friend",
                   imageUrls: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRptgO7XS-AuN5F78IVPC84H9y95nix4xG64A&usqp=CAU"
@@ -124,40 +123,12 @@ class _RewardScreenState extends State<RewardScreen> {
               ),
             ),
             InkWell(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => CreateContestScreen(),
-                ));
+              onTap: () {},
+              child: CustomRewardContest(
+                  imageUrls: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBRQ535XFTMxqdfD_HF9V3l4yMvMlZ1MP0A&usqp=CAU",
+                  textTitle: "Create Contest"),
+            )
 
-              },
-
-              child: Container(
-                height: AppSizes.dimen60,
-                margin: const EdgeInsets.all(AppSizes.dimen12),
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius),
-                color: AppColors.textFieldBg,
-          ),
-
-                  child: Padding(
-                    padding: EdgeInsets.all(AppSizes.dimen8),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                     children: [
-                         ClipRRect(
-                            borderRadius: BorderRadius.circular(AppSizes.dimen8),
-                            child: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbBRQ535XFTMxqdfD_HF9V3l4yMvMlZ1MP0A&usqp=CAU',
-                              fit: BoxFit.cover,),
-                  ),
-                     Text("Create Contest",style: TextStyle(fontSize: AppSizes.dimen13,fontWeight: FontWeight.w600),),
-                      IconButton(
-                       icon: Icon(Icons.arrow_forward_ios),
-                        color: AppColors.green,
-                        onPressed: () {},
-                  ),
-                ],
-              ),
-          ),
-        ),
-            ),
           ],
         ),
       ),
