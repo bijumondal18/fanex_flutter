@@ -1,7 +1,7 @@
 import 'package:fanex_flutter/features/create_contest/ui/create_contest_screen.dart';
 import 'package:fanex_flutter/features/more/account/features/friends/ui/friends_screen.dart';
 import 'package:fanex_flutter/features/more/account/features/my_profile/ui/profile_screen.dart';
-import 'package:fanex_flutter/widgets/custom__reward_contest.dart';
+import 'package:fanex_flutter/widgets/custom_reward_contest.dart';
 import 'package:fanex_flutter/widgets/custom_default_appbar.dart';
 import 'package:fanex_flutter/widgets/custom_rewards_container.dart';
 import 'package:flutter/material.dart';
