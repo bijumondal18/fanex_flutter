@@ -1,4 +1,4 @@
-import 'package:fanex_flutter/features/lobby/features/history_fragment/model.dart';
+import 'package:fanex_flutter/features/lobby/features/history_fragment/models/model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
