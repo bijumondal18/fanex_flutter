@@ -42,11 +42,9 @@ class CustomTextField extends StatelessWidget {
   }
 }
 class CustomTextField1 extends StatefulWidget {
-  final String hintText;
   final Icon icon;
   final TextEditingController controller;
   const CustomTextField1({Key? key,
-    required this.hintText,
     required this.controller,
     required this.icon}) : super(key: key);
 
@@ -69,7 +67,6 @@ class _CustomTextField1State extends State<CustomTextField1> {
           prefixIcon: widget.icon,
           iconColor: AppColors.lightGrey,
           prefixIconColor: AppColors.lightGrey,
-          hintText: widget.hintText,
           hintStyle: Theme.of(context).textTheme.bodyText1,
           filled: true,
           fillColor: AppColors.textFieldBg,
