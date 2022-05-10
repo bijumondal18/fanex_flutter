@@ -19,7 +19,7 @@ class CustomAddCashWithdrawButton extends StatelessWidget {
       child: ElevatedButton(
           onPressed: () {},
           style: ElevatedButton.styleFrom(
-            primary: AppColors.lightGrey,
+            primary: AppColors.green,
           ),
           child:  Text(
             hintText

@@ -1,3 +1,4 @@
+import 'package:fanex_flutter/features/more/account/features/my_profile/ui/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../common/dimens.dart';
@@ -17,7 +18,7 @@ class CustomRewardsContainer extends StatelessWidget{
       margin: EdgeInsets.all(AppSizes.dimen12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius),
-        color: AppColors.grey.withOpacity(0.3),
+        color: AppColors.textFieldBg,
       ),
       child: Padding(
         padding: EdgeInsets.all(AppSizes.dimen8),
@@ -30,15 +31,18 @@ class CustomRewardsContainer extends StatelessWidget{
               borderRadius: BorderRadius.circular(AppSizes.dimen8),
             ),
 
-            Text(textDetails,style: TextStyle(fontSize: AppSizes.dimen16,fontWeight: FontWeight.w600),),
+            Text(textDetails,style: TextStyle(fontSize: AppSizes.dimen13,fontWeight: FontWeight.w600),),
             IconButton(
                 icon: Icon(Icons.arrow_forward_ios),
                 color: AppColors.green,
                 onPressed: () {},
             ),
+
+
           ],
         ),
       ),
+
     );
   }
 

@@ -20,10 +20,25 @@ class CustomRankingsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: AppSizes.appBarHeight,
-      width: MediaQuery.of(context).size.width,
-      child: Card(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: AppSizes.dimen8, vertical: AppSizes.dimen4),
+      child: Container(
+        decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                offset: const Offset(
+                  1.0,
+                  1.0,
+                ),
+                color: AppColors.lightGrey.withOpacity(0.6),
+                spreadRadius: 2,
+                blurRadius: 20,
+              )
+            ],
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius)),
+        height: AppSizes.appBarHeight,
+        width: MediaQuery.of(context).size.width,
         child: Padding(
           padding: const EdgeInsets.all(AppSizes.dimen4),
           child: Row(

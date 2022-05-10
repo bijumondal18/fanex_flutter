@@ -1,6 +1,6 @@
 import 'package:fanex_flutter/common/common.dart';
 import 'package:flutter/material.dart';
-import '../Models/models.dart';
+import '../models/models.dart';
 
 
 class NotificationScreen extends StatefulWidget {

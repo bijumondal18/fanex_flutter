@@ -1,5 +1,6 @@
 import 'package:fanex_flutter/common/common.dart';
 import 'package:fanex_flutter/common/strings.dart';
+import 'package:fanex_flutter/features/more/account/features/transaction_history/ui/transaction_history_screen.dart';
 import 'package:fanex_flutter/widgets/custom_addcash_withdraw_button.dart';
 import 'package:flutter/material.dart';
 
@@ -126,7 +127,7 @@ class _WalletScreenState extends State<WalletScreen> {
               margin: const EdgeInsets.all(AppSizes.dimen12),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius),
-                color: AppColors.lightGrey,
+                color: AppColors.textFieldBg,
               ),
               child: Column(
                 children: [
@@ -138,7 +139,7 @@ class _WalletScreenState extends State<WalletScreen> {
                         child: Text(
                           AppStrings.textWithdrawLimit,
                           style: TextStyle(
-                              fontSize: AppSizes.headline5,
+                              fontSize: AppSizes.dimen16,
                               color: AppColors.black),
                         ),
                       ),
@@ -154,7 +155,7 @@ class _WalletScreenState extends State<WalletScreen> {
                             child: Text(
                               AppStrings.minimumWithdrawCount,
                               style: TextStyle(
-                                  fontSize: AppSizes.headline5,
+                                  fontSize: AppSizes.dimen16,
                                   //fontWeight: FontWeight.bold,
                                   color: Colors.black),
                             ),
@@ -177,7 +178,7 @@ class _WalletScreenState extends State<WalletScreen> {
                         child: Text(
                           AppStrings.textMaximumLimit,
                           style: TextStyle(
-                              fontSize: AppSizes.headline5,
+                              fontSize: AppSizes.dimen16,
                               //fontWeight: FontWeight.bold,
                               color: AppColors.black),
                         ),
@@ -194,7 +195,7 @@ class _WalletScreenState extends State<WalletScreen> {
                             child: Text(
                               AppStrings.maximumLimitCount,
                               style: TextStyle(
-                                  fontSize: AppSizes.headline5,
+                                  fontSize: AppSizes.dimen16,
                                   //fontWeight: FontWeight.bold,
                                   color: AppColors.black),
                             ),
@@ -211,7 +212,7 @@ class _WalletScreenState extends State<WalletScreen> {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius),
-                color: AppColors.lightGrey,
+                color: AppColors.textFieldBg,
               ),
               child: Padding(
                 padding: const EdgeInsets.all(AppSizes.dimen8),
@@ -235,69 +236,78 @@ class _WalletScreenState extends State<WalletScreen> {
   }
 
   Widget _buttonTransactionHistory(){
-    return Container(
-      height: AppSizes.dimen55,
-      margin: const EdgeInsets.all(AppSizes.dimen12),
-      decoration: BoxDecoration(
-        color: AppColors.lightGrey,
-        borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius),
-      ),
-      padding: const EdgeInsets.all(AppSizes.dimen8),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            AppStrings.transactionHistoryText,
-            style: TextStyle(
-                color: AppColors.black,
-                fontSize: AppSizes.headline5,
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => TransactionHistoryScreen(),
+        ));
+      },
+      child: Container(
+        height: AppSizes.dimen55,
+        margin: const EdgeInsets.all(AppSizes.dimen12),
+        decoration: BoxDecoration(
+          color: AppColors.textFieldBg,
+          borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius),
+        ),
+        padding: const EdgeInsets.all(AppSizes.dimen8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              AppStrings.transactionHistoryText,
+              style: TextStyle(
+                  color: AppColors.black,
+                  fontSize: AppSizes.dimen16,
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(AppSizes.dimen8),
-            child: Icon(Icons.arrow_forward_ios),
-          ),
-        ],
+            Padding(
+              padding: EdgeInsets.all(AppSizes.dimen8),
+              child: Icon(Icons.arrow_forward_ios),
+            ),
+          ],
+        ),
       ),
     );
 
   }
   Widget _buttonVerifyYourAccount(){
-    return Container(
-      margin: const EdgeInsets.all(AppSizes.dimen12),
-      decoration: BoxDecoration(
-        color: AppColors.green,
-        borderRadius: BorderRadius.circular(6),
-      ),
-      height: AppSizes.dimen55,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Padding(
-            padding: EdgeInsets.all(AppSizes.dimen8),
-            child: Text(
-              AppStrings.verifyAccountText,
-              style: TextStyle(
-                  color: AppColors.white,
-                  fontSize: AppSizes.headline5,
+    return InkWell(
+      onTap: () {},
+      child: Container(
+        margin: const EdgeInsets.all(AppSizes.dimen12),
+        decoration: BoxDecoration(
+          color: AppColors.lightGreen,
+          borderRadius: BorderRadius.circular(6),
+        ),
+        height: AppSizes.dimen55,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: EdgeInsets.all(AppSizes.dimen8),
+              child: Text(
+                AppStrings.verifyAccountText,
+                style: TextStyle(
+                    color: AppColors.white,
+                    fontSize: AppSizes.dimen16,
+                    ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: AppSizes.dimen9),
+              child: Row(
+                children: [
+                  Text(
+                    AppStrings.notCompletedText,
+                    style: TextStyle(
+                        fontSize: AppSizes.dimen16,
+                        color: AppColors.white),
                   ),
+                  Icon(Icons.arrow_forward_ios),
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: AppSizes.dimen9),
-            child: Row(
-              children: [
-                Text(
-                  AppStrings.notCompletedText,
-                  style: TextStyle(
-                      fontSize: AppSizes.dimen16,
-                      color: AppColors.white),
-                ),
-                Icon(Icons.arrow_forward_ios),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

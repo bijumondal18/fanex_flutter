@@ -40,7 +40,10 @@ class _UserChakraScreenState extends State<UserChakraScreen> {
                                   width: AppSizes.dimen12,
                                   height: AppSizes.dimen12,
                                 ),
-                                Text(AppStrings.prizeAmount, style: TextStyle(fontSize: AppSizes.bodyText2,color: AppColors.orange),),
+                                Text(
+                                  AppStrings.prizeAmount,
+                                  style:Theme.of(context).textTheme.bodyText2,
+                                ),
                               ],
                             )
                           ],
@@ -63,8 +66,8 @@ class _UserChakraScreenState extends State<UserChakraScreen> {
                                       fit: BoxFit.cover,),
                                   ),
                                   Spacer(),
-                                  Text(AppStrings.usernameHint, style: Theme.of(context).textTheme.headline6,),
-                                  Text("Since:"+ AppStrings.dateText, style: Theme.of(context).textTheme.headline6,)
+                                  Text(AppStrings.usernameHint, style: Theme.of(context).textTheme.bodyText2,),
+                                  Text("Since:"+ AppStrings.dateText, style: Theme.of(context).textTheme.bodyText2,)
                                 ],
                               ),
                             ),
@@ -75,10 +78,10 @@ class _UserChakraScreenState extends State<UserChakraScreen> {
                       Container(
                         child: Column(
                           children: [
-                            Text(AppStrings.chakraStartText,),
-                            Text(AppStrings.dateText, style: Theme.of(context).textTheme.headline6,),
-                            Text(AppStrings.chakraEndText),
-                            Text(AppStrings.dateText,style: Theme.of(context).textTheme.headline6,),
+                            Text(AppStrings.chakraStartText,style: Theme.of(context).textTheme.bodyText2,),
+                            Text(AppStrings.dateText, style: Theme.of(context).textTheme.bodyText2,),
+                            Text(AppStrings.chakraEndText,style: Theme.of(context).textTheme.bodyText2,),
+                            Text(AppStrings.dateText,style: Theme.of(context).textTheme.bodyText2,),
                           ],
                         ),
                       )
@@ -86,15 +89,16 @@ class _UserChakraScreenState extends State<UserChakraScreen> {
                   ),
                 ),
                 Positioned(
-                  left: 60,
+                  left: 70,
                   top: 70,
                   child: CircleAvatar(
                     backgroundColor: AppColors.orange,
-                    radius: 32,
+                    radius: 30,
                     child: CircleAvatar(
+                      backgroundColor: AppColors.white,
                       backgroundImage: NetworkImage(
                           "https://www.openmindnetworks.com/wp-content/uploads/2018/01/1-award.png"), //NetworkImage
-                      radius: 30,
+                      radius: 28,
                     ), //CircleAvatar
                   ),
                 ),
@@ -106,10 +110,25 @@ class _UserChakraScreenState extends State<UserChakraScreen> {
               iconTrailing: Icons.currency_rupee,
               iconLeading: Icons.attach_money_rounded,
             ),
-            Container(
-                height: AppSizes.appBarHeight,
-                width: MediaQuery.of(context).size.width,
-                child: Card(
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: AppSizes.dimen8, vertical: AppSizes.dimen4),
+              child: Container(
+                  height: AppSizes.appBarHeight,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          offset: const Offset(
+                            1.0,
+                            1.0,
+                          ),
+                          color: AppColors.lightGrey.withOpacity(0.6),
+                          spreadRadius: 2,
+                          blurRadius: 20,
+                        )
+                      ],
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius)),
                   child: Padding(
                     padding: const EdgeInsets.all(AppSizes.dimen4),
                     child: Row(
@@ -143,8 +162,8 @@ class _UserChakraScreenState extends State<UserChakraScreen> {
                         )
                       ],
                     ),
-                  ),
-                )
+                  )
+              ),
             ),
             CustomContainerLinearPercentIndicator(
                 value: 0.90,
