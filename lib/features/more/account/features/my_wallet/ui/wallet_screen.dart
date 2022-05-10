@@ -1,4 +1,5 @@
 import 'package:fanex_flutter/common/common.dart';
+import 'package:fanex_flutter/common/palette.dart';
 import 'package:fanex_flutter/common/strings.dart';
 import 'package:fanex_flutter/features/more/account/features/transaction_history/ui/transaction_history_screen.dart';
 import 'package:fanex_flutter/widgets/custom_addcash_withdraw_button.dart';
@@ -261,7 +262,7 @@ class _WalletScreenState extends State<WalletScreen> {
             ),
             Padding(
               padding: EdgeInsets.all(AppSizes.dimen8),
-              child: Icon(Icons.arrow_forward_ios),
+              child: Icon(Icons.arrow_forward_ios,color: AppColors.green,),
             ),
           ],
         ),
@@ -302,7 +303,7 @@ class _WalletScreenState extends State<WalletScreen> {
                         fontSize: AppSizes.dimen16,
                         color: AppColors.white),
                   ),
-                  Icon(Icons.arrow_forward_ios),
+                  Icon(Icons.arrow_forward_ios,color: AppColors.white,),
                 ],
               ),
             ),
