@@ -1,4 +1,5 @@
 import 'package:fanex_flutter/features/lobby/features/history_fragment/models/model.dart';
+import 'package:fanex_flutter/widgets/custom_view_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -97,23 +98,7 @@ class _HistoryFragmentState extends State<HistoryFragment> {
                               )
                             ],
                           ),
-                          Container(
-                            height: 30,
-                            width: 65,
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  primary: AppColors.green,
-                                ),
-                                onPressed: () {},
-                                  child: Text("VIEW",
-                                      style: TextStyle(
-                                          fontSize: AppSizes.caption,
-                                          color: AppColors.white
-                                      )
-                                  )
-                            ),
-                          ),
+                          CustomViewButton(hintText: 'VIEW',),
                           Column(
                             children: [
                               Text("COMPLETED", style: Theme.of(context).textTheme.caption),
