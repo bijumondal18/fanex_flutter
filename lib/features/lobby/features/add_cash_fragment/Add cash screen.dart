@@ -14,8 +14,13 @@ class AddCashFragment extends StatefulWidget {
 
 class _AddCashFragmentState extends State<AddCashFragment> {
   final TextEditingController _controller = TextEditingController();
-
   @override
+  void initState() {
+    super.initState();
+    setState(() {
+      _controller.text ='100';
+    });
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -72,7 +77,6 @@ class _AddCashFragmentState extends State<AddCashFragment> {
                             color: AppColors.green,
                             fontWeight: FontWeight.bold)),
                     CustomTextField1(
-                      hintText: '100',
                       controller: _controller,
                       icon: const Icon(Icons.currency_rupee,
                           size: 18, color: AppColors.black),

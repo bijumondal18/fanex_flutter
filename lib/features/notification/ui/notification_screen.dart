@@ -71,7 +71,7 @@ Widget _cardItem(
   int index,
 ) {
   return Card(
-    color: AppColors.grey.withOpacity(0.1),
+    color: AppColors.white.withOpacity(0.6),
     child: Padding(
       padding: const EdgeInsets.all(AppSizes.dimen8),
       child: Column(
@@ -79,9 +79,9 @@ Widget _cardItem(
         children: [
           Text(
             notificationTitle[index],
-            style: const TextStyle(
+            style:  TextStyle(
                 fontSize: AppSizes.headline5,
-                color: AppColors.white,
+                color: AppColors.orange.withOpacity(0.9),
                 fontWeight: FontWeight.bold),
           ),
           _space(),
@@ -92,7 +92,10 @@ Widget _cardItem(
           _space(),
           Text(
             timeDate[index],
-            style: Theme.of(context).textTheme.bodyText2,
+            style:  TextStyle(
+                fontSize: AppSizes.bodyText2,
+                color: AppColors.grey,
+            ),
           ),
         ],
       ),
