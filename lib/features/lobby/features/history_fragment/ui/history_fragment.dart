@@ -21,7 +21,7 @@ class _HistoryFragmentState extends State<HistoryFragment> {
       body: ListView.builder(
         itemCount: teamFirst.length,
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+
           itemBuilder: (context,index){
             return Container(
               height: 120,
@@ -33,9 +33,9 @@ class _HistoryFragmentState extends State<HistoryFragment> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.rocket, size: AppSizes.caption,),
-                        Text(teamFirst[index] + " vs " + teamSecond[index]),
-                        Icon(Icons.attach_money_rounded, size: AppSizes.caption,),
+                        //Icon(Icons.rocket, size: AppSizes.caption,),
+                        Text("🚀" + teamFirst[index] + " vs " + teamSecond[index]+ "💰"),
+                        //Icon(Icons.attach_money_rounded, size: AppSizes.caption,),
                       ],
                     ),
                     Padding(
@@ -58,9 +58,7 @@ class _HistoryFragmentState extends State<HistoryFragment> {
                         ],
                       ),
                     ),
-                    Divider(
-                      height: 1,
-                    ),
+                    Divider(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
