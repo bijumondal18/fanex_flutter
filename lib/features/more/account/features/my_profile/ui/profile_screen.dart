@@ -23,7 +23,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           Navigator.pop(context);
           },
             icon: const Icon(
-              Icons.arrow_back_ios_rounded,
+              Icons.clear,
               color: AppColors.white,
               size: 20,
             )),

@@ -1,10 +1,11 @@
 import 'package:fanex_flutter/common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../common/route.dart';
-import '../features/Notification/UI/Notification_Screen.dart';
-import '../features/lobby/features/Add Cash_Fragment/Add cash screen.dart';
+import '../features/lobby/features/add_cash_fragment/Add cash screen.dart';
+import '../features/more/account/features/my_profile/ui/profile_screen.dart';
+import '../features/notification/ui/notification_screen.dart';
+
 
 class CustomHeader extends StatefulWidget implements PreferredSizeWidget {
   const CustomHeader({Key? key}) : super(key: key);
@@ -26,8 +27,17 @@ class _CustomHeaderState extends State<CustomHeader> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            const CircleAvatar(
-              backgroundColor: AppColors.orange,
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  CustomPageRoute(
+                      widget: const ProfileScreen()),
+                );
+              },
+              child: const CircleAvatar(
+                backgroundColor: AppColors.orange,
+              ),
             ),
             const SizedBox(width: AppSizes.dimen8),
             Column(
@@ -56,14 +66,18 @@ class _CustomHeaderState extends State<CustomHeader> {
                 ),
               ],
             ),
-            IconButton(onPressed: (){Navigator.push(
-              context,
-              CustomPageRoute(
-                  widget: const NotificationScreen()),
-            );}, icon: const Icon(Icons.notification_important,color: AppColors.orange,))
+            IconButton(onPressed: () {
+              Navigator.push(
+                context,
+                CustomPageRoute(
+                    widget: const NotificationScreen()),
+              );
+            },
+                icon: const Icon(
+                  Icons.notification_important, color: AppColors.orange,))
           ],
-        ),
-      ),
+        ),)
+      ,
     );
   }
 
@@ -96,11 +110,13 @@ class _CustomHeaderState extends State<CustomHeader> {
 
   Widget addCashButton() {
     return InkWell(
-      onTap: (){Navigator.push(
-    context,
-    CustomPageRoute(
-    widget: const AddCashFragment()),
-    );},
+      onTap: () {
+        Navigator.push(
+          context,
+          CustomPageRoute(
+              widget: const AddCashFragment()),
+        );
+      },
       child: Container(
         padding: const EdgeInsets.symmetric(
             horizontal: AppSizes.dimen8, vertical: AppSizes.dimen4),
