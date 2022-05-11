@@ -16,80 +16,99 @@ class LobbyScreen extends StatefulWidget {
   State<LobbyScreen> createState() => _LobbyScreenState();
 }
 
-class _LobbyScreenState extends State<LobbyScreen> {
-  @override
-  final ScrollController _controller= ScrollController();
-  var  _isVisible=true;
-  void initState(){
+class _LobbyScreenState extends State<LobbyScreen>
+    with SingleTickerProviderStateMixin {
+  final ScrollController _scrollController = ScrollController();
+  late TabController _tabController;
+  var _isVisibleForScrollView = true;
+  //var _isVisibleForTabBarIndex0 = true;
+  final int index = 0;
+
+  void initState() {
     super.initState();
-    _controller.addListener(() {
-      if(_controller.position.atEdge)
-        {
-          if(_controller.position.pixels> 0)
-            if(_isVisible)
-              setState(() {
-                _isVisible = false;
-              });
-        }
-      else{
-        if(!_isVisible)
+    _tabController = TabController(length: 4, vsync: this);
+    /*WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+      _tabController.addListener(() {
+        print(_tabController.index);
+        if (_tabController.index < 1) {
           setState(() {
-            _isVisible=true;
+            _isVisibleForTabBarIndex0=true;
+          });
+        } else {
+          setState(() {
+            _isVisibleForTabBarIndex0=false;
+          });
+            }
+          });
+  });*/
+    _scrollController.addListener(() {
+      if (_scrollController.position.atEdge) {
+        if (_scrollController.position.pixels > 0) if (_isVisibleForScrollView)
+          setState(() {
+            _isVisibleForScrollView = false;
+          });
+      } else {
+        if (!_isVisibleForScrollView)
+          setState(() {
+            _isVisibleForScrollView = true;
           });
       }
     });
   }
+
   Widget build(BuildContext context) {
+    print(_isVisibleForScrollView);
     return NotificationListener<OverscrollIndicatorNotification>(
       onNotification: (overScroll) {
         overScroll.disallowIndicator();
         return false;
       },
-      child: DefaultTabController(
-        length: 4,
-        child: Container(
-          color: AppColors.header,
-          child: SafeArea(
-            child: Scaffold(
-              appBar: const CustomHeader(),
-              body: Stack(
-                children: [LayoutBuilder(
-                  builder: (BuildContext context, BoxConstraints constraints) {
-                    return NotificationListener<OverscrollIndicatorNotification>(
-                      onNotification: (overScroll) {
-                        overScroll.disallowIndicator();
-                        return false;
-                      },
-                      child: CustomScrollView(
-                        controller: _controller,
-                        slivers: <Widget>[
-                          ///image slider
-                          const SliverToBoxAdapter(child: CarouselSlider()),
+      child: Container(
+        color: AppColors.header,
+        child: SafeArea(
+          child: Scaffold(
+            appBar: const CustomHeader(),
+            body: Stack(children: [
+              LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints constraints) {
+                  return NotificationListener<OverscrollIndicatorNotification>(
+                    onNotification: (overScroll) {
+                      overScroll.disallowIndicator();
+                      return false;
+                    },
+                    child: CustomScrollView(
+                      controller: _scrollController,
+                      slivers: <Widget>[
+                        ///image slider
+                        const SliverToBoxAdapter(child: CarouselSlider()),
 
-                          ///tabbar
-                          const SteakyTabBar(),
-                          _tabBarView(context),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-                Visibility(visible: _isVisible,
-                  child: Padding(
-                    padding: const EdgeInsets.all(AppSizes.dimen8),
-                    child: Container(
-                      alignment: Alignment.bottomCenter,
-                      child: CustomFullButton(onPressed: (){Navigator.push(
-                        context,
-                        CustomPageRoute(
-                            widget: const CreateContestScreen()),
-                      );},title: 'Creat Contest',),
+                        ///tabbar
+                        StickyTabBar(_tabController),
+                        _tabBarView(context, _tabController),
+                      ],
+                    ),
+                  );
+                },
+              ),
+              Visibility(
+                visible: _tabController.index==0?_isVisibleForScrollView:false,
+                child: Padding(
+                  padding: const EdgeInsets.all(AppSizes.dimen8),
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    child: CustomFullButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          CustomPageRoute(widget: const CreateContestScreen()),
+                        );
+                      },
+                      title: 'Create Contest',
                     ),
                   ),
-                )]
-              ),
-
-            ),
+                ),
+              )
+            ]),
           ),
         ),
       ),
@@ -97,13 +116,14 @@ class _LobbyScreenState extends State<LobbyScreen> {
   }
 }
 
-Widget _tabBarView(context) {
+Widget _tabBarView(context, TabController tabController) {
   return SliverToBoxAdapter(
     child: Container(
       color: AppColors.white,
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
-      child: const TabBarView(
+      child: TabBarView(
+        controller: tabController,
         children: [
           LobbyFragment(),
           UpcomingFragment(),
@@ -115,16 +135,27 @@ Widget _tabBarView(context) {
   );
 }
 
-class SteakyTabBar extends StatelessWidget {
-  const SteakyTabBar({Key? key}) : super(key: key);
+class StickyTabBar extends StatelessWidget {
+  late TabController tabController;
+
+  StickyTabBar(TabController tabController, {Key? key}) : super(key: key) {
+    this.tabController = tabController;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SliverPersistentHeader(pinned: true, delegate: Delegate());
+    return SliverPersistentHeader(
+        pinned: true, delegate: Delegate(tabController));
   }
 }
 
 class Delegate extends SliverPersistentHeaderDelegate {
+  late TabController tabController;
+
+  Delegate(TabController tabController) {
+    this.tabController = tabController;
+  }
+
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
@@ -138,6 +169,7 @@ class Delegate extends SliverPersistentHeaderDelegate {
       child: TabBar(
         labelColor: AppColors.white,
         isScrollable: false,
+        controller: tabController,
         indicator: BoxDecoration(
           color: AppColors.orange,
         ),
