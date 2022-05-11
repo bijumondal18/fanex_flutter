@@ -6,12 +6,7 @@ import 'package:fanex_flutter/widgets/custom_default_appbar.dart';
 import 'package:fanex_flutter/widgets/custom_rewards_container.dart';
 import 'package:flutter/material.dart';
 import 'package:fanex_flutter/common/common.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
-
 class RewardScreen extends StatefulWidget {
-
-
-
   const RewardScreen({Key? key}) : super(key: key);
 
   @override
@@ -116,8 +111,12 @@ class _RewardScreenState extends State<RewardScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe_8LgbSgdtd9CV7geEhpeBJdL5RZouXCDog&usqp=CAU",fit: BoxFit.cover,height: 40,),
-                  Image.network("https://img.icons8.com/fluency/344/twitter.png",fit: BoxFit.cover,),
-                  Image.network("https://www.freepnglogos.com/uploads/logo-ig-png/logo-ig-instagram-windows-phone-all-you-need-know-9.png",fit: BoxFit.cover,),
+                  InkWell(
+                    onTap: () {},
+                      child: Image.network("https://img.icons8.com/fluency/344/twitter.png",fit: BoxFit.cover,)),
+                  InkWell(
+                    onTap: () {},
+                      child: Image.network("https://www.freepnglogos.com/uploads/logo-ig-png/logo-ig-instagram-windows-phone-all-you-need-know-9.png",fit: BoxFit.cover,)),
 
                 ],
               ),
