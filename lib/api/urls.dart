@@ -1,6 +1,6 @@
 class FanexURLs {
-  static const String baseUrl = 'https://api.staging.fanex.in/'; //staging url
-//static const String baseUrl = 'https://api.fanex.in/'; //live url
+  //static const String baseUrl = 'https://api.staging.fanex.in/'; //staging url
+  static const String baseUrl = 'https://api.fanex.in/'; //live url
 
 //---------------------------------------------------//
   static const String userRegistration = baseUrl + "accounts/";
@@ -19,4 +19,5 @@ class FanexURLs {
   static const String rulesScoreUrl = "https://fanex.in/rules-score";
   static const String howToPlayUrl = "https://fanex.in/how-to-play";
   static const String rulesScoreUrlForInfoVIew = "https://fanex.in/rules";
+  static const String sBannerImageList = baseUrl + "extras/banners/";
 }

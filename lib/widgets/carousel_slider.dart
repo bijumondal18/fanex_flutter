@@ -1,15 +1,18 @@
+import 'package:fanex_flutter/features/lobby/models/BannersModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import '../common/common.dart';
 
 class CarouselSlider extends StatefulWidget {
-  const CarouselSlider({Key? key}) : super(key: key);
+  final List<BannersModel> BannerList;
+   CarouselSlider({Key? key,required this.BannerList}) : super(key: key);
 
   @override
   State<CarouselSlider> createState() => _CarouselSliderState();
 }
 
 class _CarouselSliderState extends State<CarouselSlider> {
+
   int _current = 0;
 
   final List<String> imageList = [
@@ -31,6 +34,7 @@ class _CarouselSliderState extends State<CarouselSlider> {
 
   @override
   Widget build(BuildContext context) {
+    print(widget.BannerList[0].url);
     return Container(
       alignment: Alignment.centerLeft,
       width: MediaQuery.of(context).size.width,
@@ -47,14 +51,14 @@ class _CarouselSliderState extends State<CarouselSlider> {
               },
               autoplay: true,
               layout: SwiperLayout.DEFAULT,
-              itemCount: imageList.length,
+              itemCount: widget.BannerList.length,
               itemBuilder: (BuildContext context, index) {
                 return Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.zero,
                       image: DecorationImage(
                           image: NetworkImage(
-                            imageList[index],
+                            widget.BannerList[index].url,
                           ),
                           fit: BoxFit.cover)),
                 );
@@ -65,7 +69,7 @@ class _CarouselSliderState extends State<CarouselSlider> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
               children: map(
-            imageList,
+            widget.BannerList,
             (index, image) {
               return Container(
                 margin: const EdgeInsets.all(AppSizes.dimen4),

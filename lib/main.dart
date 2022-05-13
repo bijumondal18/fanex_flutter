@@ -1,9 +1,14 @@
 import 'package:fanex_flutter/common/common.dart';
+import 'package:fanex_flutter/features/lobby/bloc/banner_slider_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:fanex_flutter/features/screens.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'features/lobby/bannerRepo/banner_repo.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -21,7 +26,12 @@ class MyApp extends StatelessWidget {
       title: 'Fanex App',
       theme: AppTheme.lightTheme,
       themeMode: ThemeMode.light,
-      home: const WelcomeScreen(),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider<BannerSliderBloc>(
+          create:(context)=> BannerSliderBloc(BannerRepo()))
+        ],
+          child: const WelcomeScreen()),
     );
   }
 }
