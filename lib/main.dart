@@ -10,6 +10,7 @@ import 'features/lobby/bannerRepo/banner_repo.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
+
 }
 
 class MyApp extends StatelessWidget {
