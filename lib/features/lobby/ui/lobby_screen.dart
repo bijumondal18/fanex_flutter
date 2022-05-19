@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../common/route.dart';
-import '../../../common/utils/utils.dart';
+import '../../../utils/device_info.dart';
 import '../../screens.dart';
 import '../bannerRepo/banner_repo.dart';
 
@@ -89,7 +89,6 @@ class _LobbyScreenState extends State<LobbyScreen>
                                     child: CircularProgressIndicator());
                               } else if (state is BannerIsLoaded) {
                                 print(DeviceInfo.getOperatingSystem().toString());
-                                DeviceInfo.PhoneInfo().then((value) => print(value));
                                 return CarouselSlider(
                                     BannerList: state.bannersList);
                               } else

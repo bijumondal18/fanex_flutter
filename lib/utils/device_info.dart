@@ -8,30 +8,19 @@ class DeviceInfo {
 
   static String getOperatingSystem() => Platform.operatingSystem;
 
-  static Future PhoneInfo() async {
+  static Future<String> PhoneInfo()  async{
+    var id;
     if (Platform.isAndroid) {
       final info = await _deviceInfo.androidInfo;
+      id='${info.androidId}';
       return '${info.androidId}';
     } else if (Platform.isIOS) {
-      final info = await _deviceInfo.iosInfo;
+      final info =await  _deviceInfo.iosInfo;
+      id='${info.model}';
       return '${info.model}';
     } else {
       "Error";
     }
-  }
-}
-
-class InternetConnection extends StatelessWidget {
-  InternetConnection({Key? key}) : super(key: key);
-
-  Future<bool> hasConnection = InternetConnectionChecker().hasConnection;
-  final text = 'No Internet';
-
-  Widget build(BuildContext context) {
-    if (hasConnection == true) {
-      return Text('Internet');
-    } else {
-      return Text('No internet');
-    }
+    return id;
   }
 }
