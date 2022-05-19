@@ -1,5 +1,7 @@
 import 'package:fanex_flutter/common/common.dart';
 import 'package:fanex_flutter/features/lobby/bloc/banner_slider_bloc.dart';
+import 'package:fanex_flutter/features/lobby/models/BannersModel.dart';
+import 'package:fanex_flutter/utils/app_helper.dart';
 import 'package:fanex_flutter/widgets/carousel_slider.dart';
 import 'package:fanex_flutter/widgets/custom_full_button.dart';
 import 'package:fanex_flutter/widgets/custom_header.dart';
@@ -7,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../common/route.dart';
-import '../../../utils/device_info.dart';
 import '../../screens.dart';
 import '../bannerRepo/banner_repo.dart';
 
@@ -44,7 +45,8 @@ class _LobbyScreenState extends State<LobbyScreen>
       }
     });
   }
-
+late bool flag = false;
+  late List<BannersModel> demoBannerModel;
   Widget build(BuildContext context) {
     print(_isVisibleForScrollView);
     return BlocProvider<BannerSliderBloc>(
@@ -74,10 +76,11 @@ class _LobbyScreenState extends State<LobbyScreen>
                         slivers: <Widget>[
                           ///image slider
                           SliverToBoxAdapter(
-                            child: BlocBuilder<BannerSliderBloc,
+                            child: flag==false?BlocBuilder<BannerSliderBloc,
                                     BannerSliderState>(
                                 builder: (BuildContext context, state) {
                               if (state is BannerSliderIsNotLoad) {
+                                flag=true;
                                 return Center(
                                     child: Text(
                                   'Initial State',
@@ -88,7 +91,8 @@ class _LobbyScreenState extends State<LobbyScreen>
                                 return Center(
                                     child: CircularProgressIndicator());
                               } else if (state is BannerIsLoaded) {
-                                print(DeviceInfo.getOperatingSystem().toString());
+                                print(AppHelper.getOperatingSystem().toString());
+                                demoBannerModel=state.bannersList;
                                 return CarouselSlider(
                                     BannerList: state.bannersList);
                               } else
@@ -98,7 +102,7 @@ class _LobbyScreenState extends State<LobbyScreen>
                                   style:
                                       Theme.of(context).textTheme.headline1,
                                 ));
-                            }),
+                            }):CarouselSlider(BannerList: demoBannerModel)
                           ),
 
                           ///tabbar

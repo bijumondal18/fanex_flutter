@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fanex_flutter/features/lobby/models/BannersModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -52,11 +53,11 @@ class _CarouselSliderState extends State<CarouselSlider> {
                 return Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.zero,
-                      image: DecorationImage(
-                          image: NetworkImage(
-                            widget.BannerList[index].url,
-                          ),
-                          fit: BoxFit.cover)),
+                    ),
+                  child: CachedNetworkImage(
+                    imageUrl: widget.BannerList[index].url,
+                    fit: BoxFit.cover,
+                  ),
                 );
               },
             ),

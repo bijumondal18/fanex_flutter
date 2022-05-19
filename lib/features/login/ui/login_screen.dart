@@ -3,13 +3,13 @@ import 'dart:collection';
 import 'package:fanex_flutter/bottom_navigation_bar.dart';
 import 'package:fanex_flutter/features/login/features/forget_password/ui/forget_password_screen.dart';
 import 'package:fanex_flutter/features/login/features/signup/ui/signup_screen.dart';
+import 'package:fanex_flutter/utils/app_helper.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:fanex_flutter/common/common.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../common/route.dart';
-import '../../../utils/device_info.dart';
 import '../login_bloc/login_bloc.dart';
 
 /// ----------Login Screen-------------------- ///
@@ -22,14 +22,32 @@ class LoginScreen extends StatelessWidget {
     TextEditingController usernameController = TextEditingController(text: '9874379052');
     TextEditingController passwordController = TextEditingController(text: 'Arpan80133@');
     return Scaffold(
-      body: BlocBuilder<LoginBloc, LoginState>(
+      appBar:  AppBar(
+        backgroundColor: AppColors.white,
+        elevation: AppSizes.elevation0,
+      ),
+      body: BlocConsumer<LoginBloc, LoginState>(
+        listener:(context, state){
+           if (state is LoginLoadedState) {
+          if (state.loginResponseModel.ack.toString() != '0') {
+          print(state.loginResponseModel.msg
+              .toString());
+          Navigator.pushReplacement(
+                context,
+                CustomPageRoute(
+                    widget: const CustomBottomNavigationBar()),
+              );
+          } else {
+            print(state.loginResponseModel.msg
+                .toString());
+         AppHelper.showBasicFlash(context, state.loginResponseModel.msg.toString());
+          }
+          } else if (state is LoginFailedState) {
+          }
+        } ,
         builder: (context, state) {
           if (state is LoginInitialState) {
             return Scaffold(
-              appBar:  AppBar(
-            backgroundColor: AppColors.white,
-            elevation: AppSizes.elevation0,
-            ),
               body: SafeArea(
                 child: SingleChildScrollView(
                   child: Container(
@@ -140,37 +158,9 @@ class LoginScreen extends StatelessWidget {
           }
           else if (state is LoginLoadingState) {
             return Center(child: CircularProgressIndicator());
-          } else if (state is LoginLoadedState) {
-            if (state.loginResponseModel.ack.toString() != '0') {
-              print(state.loginResponseModel.msg
-                  .toString());
-              /*Navigator.pushReplacement(
-                context,
-                CustomPageRoute(
-                    widget: const CustomBottomNavigationBar()),
-              );*/
-            } else {
-              return Center(child: Text(state.loginResponseModel.msg.toString()));
-            }
-          } else if (state is LoginFailedState) {
-            return Center(
-                child: Text(
-                  'LoginFailed !!!!!',
-                  style: Theme
-                      .of(context)
-                      .textTheme
-                      .headline1,
-                ));
+
           }
-          return CustomBottomNavigationBar();
-            /*Center(
-              child: Text(
-                'Error2',
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .headline1,
-              ));*/
+          return Container();
 
         },
       ),
@@ -183,6 +173,6 @@ Map<String, dynamic> buildParams(String userName,
   params['email'] = userName.toString();
   params['password'] = password.toString();
   params['deviceId'] = 'fc1b5fbc236da463';
-  params['deviceType'] = DeviceInfo.getOperatingSystem().toString();
+  params['deviceType'] = AppHelper.getOperatingSystem().toString();
   return params;
 }
