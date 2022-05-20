@@ -76,7 +76,7 @@ late bool flag = false;
                         slivers: <Widget>[
                           ///image slider
                           SliverToBoxAdapter(
-                            child: flag==false?BlocBuilder<BannerSliderBloc,
+                            child:BlocBuilder<BannerSliderBloc,
                                     BannerSliderState>(
                                 builder: (BuildContext context, state) {
                               if (state is BannerSliderIsNotLoad) {
@@ -102,7 +102,7 @@ late bool flag = false;
                                   style:
                                       Theme.of(context).textTheme.headline1,
                                 ));
-                            }):CarouselSlider(BannerList: demoBannerModel)
+                            }),
                           ),
 
                           ///tabbar

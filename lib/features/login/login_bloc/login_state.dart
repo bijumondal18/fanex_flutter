@@ -22,7 +22,6 @@ class LoginLoadedState extends LoginState{
   @override
   // TODO: implement props
   List<Object?> get props => [loginResponseModel];
-
 }
 class LoginFailedState extends LoginState{
   final String msg;

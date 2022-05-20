@@ -25,11 +25,21 @@ class AppHelper
     }
     return id;
   }
+  static phoneType(){
+    if(Platform.isAndroid)
+      {
+        return true;
+      }
+    else if(Platform.isIOS)
+      {
+        return false;
+      }
+  }
   static showBasicFlash(BuildContext context, String msg
   ) {
     showFlash(
       context: context,
-      duration: Duration(seconds: 1),
+      duration: Duration(seconds: 3),
       builder: (context, controller) {
         return Flash(
           backgroundColor: AppColors.orange,

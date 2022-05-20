@@ -1,6 +1,8 @@
+import 'package:fanex_flutter/bottom_navigation_bar.dart';
 import 'package:fanex_flutter/common/common.dart';
 import 'package:fanex_flutter/features/lobby/bloc/banner_slider_bloc.dart';
 import 'package:fanex_flutter/features/login/login_repo/login_repo.dart';
+import 'package:fanex_flutter/utils/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:fanex_flutter/features/screens.dart';
 import 'package:flutter/services.dart';
@@ -10,12 +12,31 @@ import 'features/login/login_bloc/login_bloc.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+   MyApp({Key? key}) : super(key: key);
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  void initState() {
+    super.initState();
+    getValidationData();
+  }
+  late bool flag=false;
+   getValidationData() async{
+    FanxPreferance pref = FanxPreferance();
+    final data= await pref.isLoggedIn();
+    print('befjbwvbjvwb$data');
+    setState(() {
+      flag=data;
+      print('@@@$flag');
+    });
+  }
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -32,7 +53,7 @@ class MyApp extends StatelessWidget {
             create: (context) => LoginBloc(LogInRepo())),
         BlocProvider<BannerSliderBloc>(
             create: (context) => BannerSliderBloc(BannerRepo())),
-      ], child: const WelcomeScreen()),
+      ], child: flag!=true? WelcomeScreen():CustomBottomNavigationBar()),
     );
   }
 }
