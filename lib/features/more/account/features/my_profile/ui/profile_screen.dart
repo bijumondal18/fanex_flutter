@@ -35,57 +35,79 @@ class _ProfileScreenState extends State<ProfileScreen> {
           if (state is MyProfileLoadingState) {
             return CustomCircleIndicator();
           } else if (state is MyProfileLoadedState) {
-            return Scaffold(
-              appBar: AppBar(
-                leading: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(
-                      Icons.clear,
-                      color: AppColors.white,
-                      size: 20,
-                    )),
-                actions: [
-                  IconButton(
-                      onPressed: () {},
+            List<String> title = [
+              AppStrings.cashWonText,
+              AppStrings.coinsEarnedText,
+              AppStrings.coinsEarnedText,
+                state.profileResponseModel.user?.firstName +
+                    ' ' +
+                    state.profileResponseModel.user?.lastName,
+              AppStrings.addEmailText,
+              AppStrings.mobileNumberHint,
+              'My Referral Code',
+              AppStrings.favouritePlayerText,
+              AppStrings.pushNotificationsText,
+            ];
+            return NotificationListener<OverscrollIndicatorNotification>(
+              onNotification: (overScroll) {
+                overScroll.disallowIndicator();
+                return false;
+              },
+              child: Scaffold(
+                appBar: AppBar(
+                  leading: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       icon: const Icon(
-                        Icons.refresh_rounded,
+                        Icons.clear,
                         color: AppColors.white,
                         size: 20,
                       )),
-                ],
-                title: Text("My Profile"),
-              ),
-              body: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          _buildProfileImage(state),
-                          _buildProfileName(state)
-                        ],
-                      ),
-                    ),
-                    ListView.separated(
-                        itemCount: 9,
-                        physics: ClampingScrollPhysics(),
-                        shrinkWrap: true,
-                        itemBuilder: (BuildContext context, int index) {
-                          return CustomListTiles(
-                            state: state,
-                            index: index,
-                            title: title[index],
-                            isSwitched: false,
-                          );
+                  actions: [
+                    IconButton(
+                        onPressed: () {
+                          BlocProvider.of<MyProfileBloc>(context).add(FetchProfileData('447'));
                         },
-                        separatorBuilder: (BuildContext context, int index) {
-                          return const Divider();
-                        })
+                        icon: const Icon(
+                          Icons.refresh_rounded,
+                          color: AppColors.white,
+                          size: 20,
+                        )),
                   ],
+                  title: Text("My Profile"),
+                ),
+                body: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            _buildProfileImage(state),
+                            _buildProfileName(state)
+                          ],
+                        ),
+                      ),
+                      const Divider(),
+                      ListView.separated(
+                          itemCount: 9,
+                          physics: ClampingScrollPhysics(),
+                          shrinkWrap: true,
+                          itemBuilder: (BuildContext context, int index) {
+                            return CustomListTiles(
+                              state: state,
+                              index: index,
+                              title: title[index],
+                              isSwitched: false,
+                            );
+                          },
+                          separatorBuilder: (BuildContext context, int index) {
+                            return const Divider();
+                          })
+                    ],
+                  ),
                 ),
               ),
             );
@@ -99,18 +121,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget _buildProfileImage(MyProfileLoadedState state) {
     return Container(
         width: MediaQuery.of(context).size.width,
-        height: 90,
         child: Stack(
           alignment: AlignmentDirectional.center,
           children: [
-            CircleAvatar(
-              backgroundImage:
-                  NetworkImage('${state.profileResponseModel.imageURL}'),
-              radius: 40,
+            Container(margin: EdgeInsets.symmetric(vertical: AppSizes.dimen8),
+              width: 100.0,
+              height: 100.0,
+              decoration: BoxDecoration(
+                color: const Color(0xff7c94b6),
+                image: DecorationImage(
+                  image: NetworkImage('${state.profileResponseModel.imageURL}'),
+                  fit: BoxFit.cover,
+                ),
+                borderRadius: BorderRadius.all( Radius.circular(50.0)),
+                border: Border.all(
+                  color: AppColors.grey,
+                  width: 1.0,
+                ),
+              ),
             ),
             Positioned(
               bottom: 0,
-              right: 125,
+              right: 130,
               child: Transform.scale(
                 scale: 0.9,
                 child: FloatingActionButton(
@@ -124,7 +156,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ],
         ));
   }
-
   Widget _buildProfileName(MyProfileLoadedState state) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen8),
@@ -133,78 +164,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ' ' +
             state.profileResponseModel.user?.lastName,
         style: Theme.of(context).textTheme.bodyText1,
-      ),
-    );
-  }
-
-  Widget _buildCashSection(String title, String header, bool isCash) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(
-                vertical: AppSizes.dimen12, horizontal: AppSizes.dimen12),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  header,
-                  style: Theme.of(context).textTheme.bodyText1,
-                ),
-                Row(
-                  children: [
-                    isCash
-                        ? Icon(
-                            Icons.currency_rupee,
-                            color: AppColors.orange,
-                            size: AppSizes.bodyText1,
-                          )
-                        : SvgPicture.asset(
-                            'assets/icons/coins-icon.svg',
-                            width: 12,
-                            height: 12,
-                          ),
-                    Text(
-                      title,
-                      style: TextStyle(
-                          fontSize: AppSizes.bodyText1,
-                          color: AppColors.orange),
-                    )
-                  ],
-                )
-              ],
-            ),
-          ),
-          const Divider()
-        ],
-      ),
-    );
-  }
-
-  Widget _buildNameBarWithEditButton(String title) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(
-                vertical: AppSizes.dimen8, horizontal: AppSizes.dimen12),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  title,
-                  style: Theme.of(context).textTheme.bodyText1,
-                ),
-                const CustomEditAddButton(
-                  hintText: "Edit",
-                )
-              ],
-            ),
-          ),
-          const Divider()
-        ],
       ),
     );
   }
@@ -290,24 +249,12 @@ class CustomListTiles extends StatelessWidget {
       );
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text('${title}'),
+      title: Text("${title}"),
       trailing: GetIndex(context),
     );
   }
 }
 
-List<String> title = [
-  AppStrings.cashWonText,
-  AppStrings.coinsEarnedText,
-  AppStrings.coinsEarnedText,
-  AppStrings.cashWonText,
-  AppStrings.addEmailText,
-  AppStrings.mobileNumberHint,
-  'My Referral Code',
-  AppStrings.favouritePlayerText,
-  AppStrings.pushNotificationsText,
-];

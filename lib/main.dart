@@ -58,7 +58,6 @@ class MainApp extends StatefulWidget {
   @override
   State<MainApp> createState() => _MainAppState();
 }
-
 class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
@@ -75,9 +74,9 @@ class _MainAppState extends State<MainApp> {
             BlocProvider<BannerSliderBloc>(
                 create: (context) => BannerSliderBloc(BannerRepo())),
           ],
-          child: widget.flag != true
-              ? WelcomeScreen()
-              : CustomBottomNavigationBar()),
+          child: widget.flag == true
+              ? CustomBottomNavigationBar()
+              : WelcomeScreen()),
     );
   }
 }

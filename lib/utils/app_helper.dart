@@ -6,6 +6,9 @@ import 'package:flutter/cupertino.dart';
 
 class AppHelper
 {
+  static void showLog(String msg){
+    print(msg);
+  }
   static final _deviceInfo = DeviceInfoPlugin();
 
   static String getOperatingSystem() => Platform.operatingSystem;
