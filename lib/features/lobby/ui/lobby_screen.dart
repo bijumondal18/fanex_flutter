@@ -1,7 +1,5 @@
 import 'package:fanex_flutter/common/common.dart';
 import 'package:fanex_flutter/features/lobby/bloc/banner_slider_bloc.dart';
-import 'package:fanex_flutter/features/lobby/models/BannersModel.dart';
-import 'package:fanex_flutter/utils/app_helper.dart';
 import 'package:fanex_flutter/widgets/carousel_slider.dart';
 import 'package:fanex_flutter/widgets/custom_full_button.dart';
 import 'package:fanex_flutter/widgets/custom_header.dart';
@@ -45,8 +43,6 @@ class _LobbyScreenState extends State<LobbyScreen>
       }
     });
   }
-late bool flag = false;
-  late List<BannersModel> demoBannerModel;
   Widget build(BuildContext context) {
     print(_isVisibleForScrollView);
     return BlocProvider<BannerSliderBloc>(
@@ -80,7 +76,6 @@ late bool flag = false;
                                     BannerSliderState>(
                                 builder: (BuildContext context, state) {
                               if (state is BannerSliderIsNotLoad) {
-                                flag=true;
                                 return Center(
                                     child: Text(
                                   'Initial State',
@@ -91,17 +86,10 @@ late bool flag = false;
                                 return Center(
                                     child: CircularProgressIndicator());
                               } else if (state is BannerIsLoaded) {
-                                print(AppHelper.getOperatingSystem().toString());
-                                demoBannerModel=state.bannersList;
                                 return CarouselSlider(
                                     BannerList: state.bannersList);
                               } else
-                                return Center(
-                                    child: Text(
-                                  'Error',
-                                  style:
-                                      Theme.of(context).textTheme.headline1,
-                                ));
+                                return Container();
                             }),
                           ),
 

@@ -99,7 +99,7 @@ class LoginScreen extends StatelessWidget {
                     buildParams(usernameController.text,
                         passwordController.text));
                 BlocProvider.of<LoginBloc>(context).add(
-                    FatchLoginData(
+                    FetchLoginData(
                         buildParams(usernameController.text,
                             passwordController.text)));
               }),
@@ -159,6 +159,7 @@ class LoginScreen extends StatelessWidget {
                     AppHelper.showBasicFlash(context, state.loginResponseModel.msg.toString());
                   }
                 } else if (state is LoginFailedState) {
+                  AppHelper.showBasicFlash(context, 'Something went wrong');
                 }
               } ,
               builder: (context, state) {
