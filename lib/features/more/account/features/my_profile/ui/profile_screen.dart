@@ -23,8 +23,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-      MyProfileBloc(MyProfileRepo())
-        ..add(FetchProfileData('447')),
+          MyProfileBloc(MyProfileRepo())..add(FetchProfileData('447')),
       child: BlocConsumer<MyProfileBloc, MyProfileState>(
         listener: (context, state) {
           // TODO: implement listener
@@ -62,10 +61,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Column(
                   children: [
                     Container(
-                      width: MediaQuery
-                          .of(context)
-                          .size
-                          .width,
+                      width: MediaQuery.of(context).size.width,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -102,17 +98,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Widget _buildProfileImage(MyProfileLoadedState state) {
     return Container(
-        width: MediaQuery
-            .of(context)
-            .size
-            .width,
+        width: MediaQuery.of(context).size.width,
         height: 90,
         child: Stack(
           alignment: AlignmentDirectional.center,
           children: [
             CircleAvatar(
               backgroundImage:
-              NetworkImage('${state.profileResponseModel.imageURL}'),
+                  NetworkImage('${state.profileResponseModel.imageURL}'),
               radius: 40,
             ),
             Positioned(
@@ -139,20 +132,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
         state.profileResponseModel.user?.firstName +
             ' ' +
             state.profileResponseModel.user?.lastName,
-        style: Theme
-            .of(context)
-            .textTheme
-            .bodyText1,
+        style: Theme.of(context).textTheme.bodyText1,
       ),
     );
   }
 
   Widget _buildCashSection(String title, String header, bool isCash) {
     return Container(
-      width: MediaQuery
-          .of(context)
-          .size
-          .width,
+      width: MediaQuery.of(context).size.width,
       child: Column(
         children: [
           Padding(
@@ -163,24 +150,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
               children: [
                 Text(
                   header,
-                  style: Theme
-                      .of(context)
-                      .textTheme
-                      .bodyText1,
+                  style: Theme.of(context).textTheme.bodyText1,
                 ),
                 Row(
                   children: [
                     isCash
                         ? Icon(
-                      Icons.currency_rupee,
-                      color: AppColors.orange,
-                      size: AppSizes.bodyText1,
-                    )
+                            Icons.currency_rupee,
+                            color: AppColors.orange,
+                            size: AppSizes.bodyText1,
+                          )
                         : SvgPicture.asset(
-                      'assets/icons/coins-icon.svg',
-                      width: 12,
-                      height: 12,
-                    ),
+                            'assets/icons/coins-icon.svg',
+                            width: 12,
+                            height: 12,
+                          ),
                     Text(
                       title,
                       style: TextStyle(
@@ -200,10 +184,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Widget _buildNameBarWithEditButton(String title) {
     return Container(
-      width: MediaQuery
-          .of(context)
-          .size
-          .width,
+      width: MediaQuery.of(context).size.width,
       child: Column(
         children: [
           Padding(
@@ -214,10 +195,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               children: [
                 Text(
                   title,
-                  style: Theme
-                      .of(context)
-                      .textTheme
-                      .bodyText1,
+                  style: Theme.of(context).textTheme.bodyText1,
                 ),
                 const CustomEditAddButton(
                   hintText: "Edit",
@@ -235,25 +213,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
 class CustomListTiles extends StatelessWidget {
   MyProfileLoadedState state;
   String? title;
-  String? trailingText;
   int index;
   bool? isSwitched;
 
-  CustomListTiles({Key? key,
-    required this.state,
-    this.title,
-    this.trailingText,
-    required this.index,
-    this.isSwitched})
+  CustomListTiles(
+      {Key? key,
+      required this.state,
+      this.title,
+      required this.index,
+      this.isSwitched})
       : super(key: key);
 
   GetIndex(context) {
     if (index == 0) {
       return Container(
-        width: MediaQuery
-            .of(context)
-            .size
-            .width * 0.1,
+        width: MediaQuery.of(context).size.width * 0.1,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -272,10 +246,7 @@ class CustomListTiles extends StatelessWidget {
       );
     } else if (index == 1 || index == 2) {
       return Container(
-          width: MediaQuery
-              .of(context)
-              .size
-              .width * 0.1,
+          width: MediaQuery.of(context).size.width * 0.1,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -285,21 +256,23 @@ class CustomListTiles extends StatelessWidget {
                 height: 12,
               ),
               Text(
-                index == 2 ? state.profileResponseModel.coinsEarned
-                    .toString() : state.profileResponseModel.coinsEarnedInContest
-                    .toString(),
+                index == 2
+                    ? state.profileResponseModel.coinsEarned.toString()
+                    : state.profileResponseModel.coinsEarnedInContest
+                        .toString(),
                 style: TextStyle(
                     fontSize: AppSizes.bodyText1, color: AppColors.orange),
               )
             ],
-          )
-      );
+          ));
     } else if (index == 3 || index == 4) {
       return const CustomEditAddButton(
         hintText: "Edit",
       );
     } else if (index == 5 || index == 6) {
-      return Text('${trailingText}');
+      return Text(index == 5
+          ? '${state.profileResponseModel.phone.toString()}'
+          : '${state.profileResponseModel.user?.username.toString()}');
     } else if (index == 7) {
       return InkWell(
           onTap: () {},
@@ -326,7 +299,8 @@ class CustomListTiles extends StatelessWidget {
     );
   }
 }
-List<String> title =[
+
+List<String> title = [
   AppStrings.cashWonText,
   AppStrings.coinsEarnedText,
   AppStrings.coinsEarnedText,
