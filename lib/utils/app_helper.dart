@@ -58,3 +58,7 @@ class AppHelper
     );
   }
 }
+class AllStaticVariables {
+  static  String userId='';
+
+}

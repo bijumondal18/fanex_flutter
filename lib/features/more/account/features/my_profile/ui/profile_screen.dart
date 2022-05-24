@@ -8,6 +8,8 @@ import 'package:fanex_flutter/widgets/custom_edit_add_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import '../../../../../../utils/shared_preferences.dart';
+import '../../favourite_player/ui/favourite_player_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -16,14 +18,29 @@ class ProfileScreen extends StatefulWidget {
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
+
 class _ProfileScreenState extends State<ProfileScreen> {
+  MyProfileBloc myProfileBloc = MyProfileBloc(MyProfileRepo());
   bool isSwitched = false;
+  String id = '';
+
+  void getID() async {
+    FanxPreferance pref = FanxPreferance();
+    await pref.getUserId().then((value) => id = value);
+  }
+
+  void initState() {
+    print('id:   ' + id);
+    getID();
+    myProfileBloc.add(FetchProfileData('447'));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    print('id:  8  ' + id);
     return BlocProvider(
-      create: (context) =>
-          MyProfileBloc(MyProfileRepo())..add(FetchProfileData('447')),
+      create: (context) => myProfileBloc,
       child: BlocConsumer<MyProfileBloc, MyProfileState>(
         listener: (context, state) {
           // TODO: implement listener
@@ -35,13 +52,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
           if (state is MyProfileLoadingState) {
             return CustomCircleIndicator();
           } else if (state is MyProfileLoadedState) {
+            print('id:  ' + id);
             List<String> title = [
               AppStrings.cashWonText,
               AppStrings.coinsEarnedText,
               AppStrings.coinsEarnedText,
-                state.profileResponseModel.user?.firstName +
-                    ' ' +
-                    state.profileResponseModel.user?.lastName,
+              state.profileResponseModel.user?.firstName +
+                  ' ' +
+                  state.profileResponseModel.user?.lastName,
               AppStrings.addEmailText,
               AppStrings.mobileNumberHint,
               'My Referral Code',
@@ -67,7 +85,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   actions: [
                     IconButton(
                         onPressed: () {
-                          BlocProvider.of<MyProfileBloc>(context).add(FetchProfileData('447'));
+                          BlocProvider.of<MyProfileBloc>(context)
+                              .add(FetchProfileData('447'));
                         },
                         icon: const Icon(
                           Icons.refresh_rounded,
@@ -90,8 +109,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ],
                         ),
                       ),
-                      const Divider(),
+                      Padding(
+                        padding: const EdgeInsets.only(top: AppSizes.dimen24),
+                        child: const Divider(
+                          height: 0,
+                        ),
+                      ),
                       ListView.separated(
+                          padding: EdgeInsets.zero,
                           itemCount: 9,
                           physics: ClampingScrollPhysics(),
                           shrinkWrap: true,
@@ -100,11 +125,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               state: state,
                               index: index,
                               title: title[index],
-                              isSwitched: false,
                             );
                           },
                           separatorBuilder: (BuildContext context, int index) {
-                            return const Divider();
+                            return const Divider(
+                              height: 0,
+                            );
                           })
                     ],
                   ),
@@ -124,7 +150,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Stack(
           alignment: AlignmentDirectional.center,
           children: [
-            Container(margin: EdgeInsets.symmetric(vertical: AppSizes.dimen8),
+            Container(
+              margin: EdgeInsets.only(top: AppSizes.dimen30),
               width: 100.0,
               height: 100.0,
               decoration: BoxDecoration(
@@ -133,7 +160,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   image: NetworkImage('${state.profileResponseModel.imageURL}'),
                   fit: BoxFit.cover,
                 ),
-                borderRadius: BorderRadius.all( Radius.circular(50.0)),
+                borderRadius: BorderRadius.all(Radius.circular(50.0)),
                 border: Border.all(
                   color: AppColors.grey,
                   width: 1.0,
@@ -143,6 +170,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Positioned(
               bottom: 0,
               right: 130,
+              top: 90,
               child: Transform.scale(
                 scale: 0.9,
                 child: FloatingActionButton(
@@ -156,6 +184,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ],
         ));
   }
+
   Widget _buildProfileName(MyProfileLoadedState state) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: AppSizes.dimen8),
@@ -173,15 +202,14 @@ class CustomListTiles extends StatelessWidget {
   MyProfileLoadedState state;
   String? title;
   int index;
-  bool? isSwitched;
 
-  CustomListTiles(
-      {Key? key,
-      required this.state,
-      this.title,
-      required this.index,
-      this.isSwitched})
-      : super(key: key);
+  CustomListTiles({
+    Key? key,
+    required this.state,
+    this.title,
+    required this.index,
+  }) : super(key: key);
+  var isSwitched = false;
 
   GetIndex(context) {
     if (index == 0) {
@@ -233,28 +261,43 @@ class CustomListTiles extends StatelessWidget {
           ? '${state.profileResponseModel.phone.toString()}'
           : '${state.profileResponseModel.user?.username.toString()}');
     } else if (index == 7) {
-      return InkWell(
-          onTap: () {},
-          child: const Icon(
-            Icons.arrow_forward_ios_outlined,
-            color: AppColors.grey,
-          ));
+      return const Icon(
+        Icons.arrow_forward_ios_outlined,
+        color: AppColors.grey,
+      );
     } else {
       return Transform.scale(
         scale: 0.8,
         child: CustomSwitch(
+          onChanged: onChange(),
           value: isSwitched,
           activeColor: AppColors.green,
         ),
       );
     }
   }
+
+  onChange() {
+    isSwitched != isSwitched;
+  }
+
+  onTap(context) {
+    if (index == 7) {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (BuildContext context) => FavouritePlayerScreen()));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: () {
+        onTap(context);
+      },
       title: Text("${title}"),
       trailing: GetIndex(context),
     );
   }
 }
-

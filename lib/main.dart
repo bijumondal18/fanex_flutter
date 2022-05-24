@@ -30,9 +30,9 @@ class _MyAppState extends State<MyApp> {
     getValidationData();
   }
 
-  late bool flag = false;
+  late bool? flag = false;
 
-  getValidationData() async {
+  Future<void>getValidationData() async {
     FanxPreferance pref = FanxPreferance();
     final data = await pref.isLoggedIn();
     setState(() {
@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
 }
 
 class MainApp extends StatefulWidget {
-  final bool flag;
+  final bool? flag;
 
   const MainApp({Key? key, required this.flag}) : super(key: key);
 
@@ -74,7 +74,7 @@ class _MainAppState extends State<MainApp> {
             BlocProvider<BannerSliderBloc>(
                 create: (context) => BannerSliderBloc(BannerRepo())),
           ],
-          child: widget.flag == true
+          child: widget.flag != false
               ? CustomBottomNavigationBar()
               : WelcomeScreen()),
     );

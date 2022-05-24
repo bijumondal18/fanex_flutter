@@ -77,8 +77,7 @@ class _MoreScreenState extends State<MoreScreen> {
                                         )),
                                     TextButton(
                                         onPressed: () async{
-                                          SharedPreferences pref =await SharedPreferences.getInstance();
-                                          pref.remove('isLogin');
+
                                           Navigator.pop(context);
                                         },
                                         child: Text(

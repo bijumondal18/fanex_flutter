@@ -9,7 +9,6 @@ import '../features/Notification/UI/notification_screen.dart';
 import '../features/lobby/features/add_cash_fragment/Add cash screen.dart';
 import '../features/more/account/features/my_profile/ui/profile_screen.dart';
 import '../utils/app_helper.dart';
-import 'custom_circleindicator.dart';
 
 class CustomHeader extends StatefulWidget implements PreferredSizeWidget {
   const CustomHeader({Key? key}) : super(key: key);
@@ -47,7 +46,7 @@ class _CustomHeaderState extends State<CustomHeader> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          CustomPageRoute(widget: const ProfileScreen()),
+                          CustomPageRoute(widget:  ProfileScreen()),
                         );
                       },
                       child: Container(margin: EdgeInsets.symmetric(vertical: AppSizes.dimen8),

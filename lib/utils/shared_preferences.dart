@@ -1,18 +1,19 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FanxPreferance {
-   Future <void> setIsLoggedIn(bool status) async {
+  static String logKey="LOGWAITKEY";
+   Future <bool> setIsLoggedIn(bool status) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('isLogin', status);
+    return await prefs.setBool(logKey, status);
   }
-   Future <bool> isLoggedIn() async {
+   Future <bool?> isLoggedIn() async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
-    print('=====${pref.getBool('isLogin')!}');
-    return pref.getBool('isLogin')!;
+    print('=====${pref.getBool(logKey)!}');
+    return await pref.getBool(logKey)!;
   }
-   Future <void> setLoggedOut(bool status) async {
+   Future <bool> setLoggedOut() async {
      final SharedPreferences prefs = await SharedPreferences.getInstance();
-     prefs.setBool('isLogin', status);
+     return await prefs.remove(logKey);
    }
   Future <void> setUserId(String id)async{
     final SharedPreferences prefs = await SharedPreferences.getInstance();
