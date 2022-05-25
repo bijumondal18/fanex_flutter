@@ -18,7 +18,9 @@ import '../login_bloc/login_bloc.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
-
+  // static Route route() {
+  //   return MaterialPageRoute<void>(builder: (_) => LoginScreen());
+  // }
   @override
   Widget build(BuildContext context) {
     TextEditingController usernameController =

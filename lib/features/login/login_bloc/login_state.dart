@@ -31,3 +31,9 @@ class LoginFailedState extends LoginState{
   List<Object?> get props =>[msg];
 
 }
+class IsLoginState extends LoginState{
+  @override
+  // TODO: implement props
+  List<Object?> get props => [];
+
+}

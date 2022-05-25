@@ -16,3 +16,9 @@ class ResetData extends LoginEvent{
   List<Object?> get props => [];
 
 }
+class IsLogin extends LoginEvent{
+  @override
+  // TODO: implement props
+  List<Object?> get props => [];
+
+}

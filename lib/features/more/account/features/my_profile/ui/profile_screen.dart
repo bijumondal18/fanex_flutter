@@ -20,7 +20,7 @@ class ProfileScreen extends StatefulWidget {
 
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  MyProfileBloc myProfileBloc = MyProfileBloc(MyProfileRepo());
+  MyProfileBloc myProfileBloc = MyProfileBloc();
   bool isSwitched = false;
   String id = '';
 
@@ -32,7 +32,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void initState() {
     print('id:   ' + id);
     getID();
-    myProfileBloc.add(FetchProfileData('447'));
+    myProfileBloc.add(FetchProfileData());
     super.initState();
   }
 
@@ -86,7 +86,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     IconButton(
                         onPressed: () {
                           BlocProvider.of<MyProfileBloc>(context)
-                              .add(FetchProfileData('447'));
+                              .add(FetchProfileData());
                         },
                         icon: const Icon(
                           Icons.refresh_rounded,

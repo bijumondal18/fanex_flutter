@@ -10,9 +10,10 @@ import '../../login/login_bloc/login_bloc.dart';
 /// ----------Welcome Screen-------------------- ///
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
+   WelcomeScreen({Key? key}) : super(key: key);
 
   @override
+  Map<String ,dynamic>params=Map();
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

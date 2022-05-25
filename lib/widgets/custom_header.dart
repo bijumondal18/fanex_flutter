@@ -25,7 +25,7 @@ class _CustomHeaderState extends State<CustomHeader> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          MyProfileBloc(MyProfileRepo())..add(FetchProfileData('447')),
+          MyProfileBloc()..add(FetchProfileData()),
       child: BlocConsumer<MyProfileBloc, MyProfileState>(
         listener: (context, state) {
           // TODO: implement listener

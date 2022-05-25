@@ -25,58 +25,59 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  void initState() {
-    super.initState();
-    getValidationData();
-  }
-
-  late bool? flag = false;
-
-  Future<void>getValidationData() async {
-    FanxPreferance pref = FanxPreferance();
-    final data = await pref.isLoggedIn();
-    setState(() {
-      flag = data;
-    });
-  }
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext ctx) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
         statusBarColor: AppColors.transparent, // status bar color
         systemNavigationBarColor: AppColors.white //navigation bar color
         ));
-    return MainApp(flag: flag);
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Fanex App',
+        theme: AppTheme.lightTheme,
+        themeMode: ThemeMode.light,
+        home:BlocProvider<LoginBloc>(
+        create: (context) => LoginBloc(LogInRepo())..add(IsLogin()),
+        child: BlocListener<LoginBloc, LoginState>(
+          listener: (context, state) {
+            // TODO: implement listener
+            if (state is IsLoginState) {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          CustomBottomNavigationBar()));
+            }
+            else{
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          MainApp()));
+            }
+          },
+         child: Container(),
+        ),
+      ),
+    );
   }
 }
 
 class MainApp extends StatefulWidget {
-  final bool? flag;
-
-  const MainApp({Key? key, required this.flag}) : super(key: key);
+  const MainApp({Key? key}) : super(key: key);
 
   @override
   State<MainApp> createState() => _MainAppState();
 }
+
 class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Fanex App',
-      theme: AppTheme.lightTheme,
-      themeMode: ThemeMode.light,
-      home: MultiBlocProvider(
-          providers: [
-            BlocProvider<LoginBloc>(
-                create: (context) => LoginBloc(LogInRepo())),
-            BlocProvider(create: (context) => MyProfileBloc(MyProfileRepo())),
-            BlocProvider<BannerSliderBloc>(
-                create: (context) => BannerSliderBloc(BannerRepo())),
-          ],
-          child: widget.flag != false
-              ? CustomBottomNavigationBar()
-              : WelcomeScreen()),
-    );
+    return MultiBlocProvider(providers: [
+      BlocProvider<LoginBloc>(create: (context) => LoginBloc(LogInRepo())),
+      BlocProvider(create: (context) => MyProfileBloc()),
+      BlocProvider<BannerSliderBloc>(
+          create: (context) => BannerSliderBloc(BannerRepo())),
+    ], child: WelcomeScreen());
   }
 }
