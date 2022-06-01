@@ -9,7 +9,7 @@ class ForgetPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController numberController = TextEditingController();
+    TextEditingController emailController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Forget Password'),
@@ -31,9 +31,9 @@ class ForgetPasswordScreen extends StatelessWidget {
 
               ///Registered Mobile Number TextField
               CustomTextField(
-                hintText: AppStrings.registeredMobileNumberHint,
+                hintText: AppStrings.registeredEmailIdHint,
                 obscureText: false,
-                controller: numberController,
+                controller: emailController,
                 icon: const Icon(Icons.person),
               ),
               const SizedBox(height: AppSizes.dimen30),

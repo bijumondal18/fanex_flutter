@@ -1,5 +1,7 @@
 import 'package:fanex_flutter/common/common.dart';
+import 'package:fanex_flutter/utils/shared_preferences.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../common/route.dart';
 import '../account/ui/account_screen.dart';
@@ -74,7 +76,8 @@ class _MoreScreenState extends State<MoreScreen> {
                                               .headline6,
                                         )),
                                     TextButton(
-                                        onPressed: () {
+                                        onPressed: () async{
+
                                           Navigator.pop(context);
                                         },
                                         child: Text(

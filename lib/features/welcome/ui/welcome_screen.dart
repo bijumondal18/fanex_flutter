@@ -1,16 +1,19 @@
 import 'package:fanex_flutter/common/common.dart';
+import 'package:fanex_flutter/features/login/login_repo/login_repo.dart';
 import 'package:fanex_flutter/features/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:fanex_flutter/widgets/widgets.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../common/route.dart';
+import '../../login/login_bloc/login_bloc.dart';
 
 /// ----------Welcome Screen-------------------- ///
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
+   WelcomeScreen({Key? key}) : super(key: key);
 
   @override
+  Map<String ,dynamic>params=Map();
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -33,13 +36,18 @@ class WelcomeScreen extends StatelessWidget {
                 child: Image.asset('assets/images/fanex-logo.png',
                     fit: BoxFit.contain),
               ),
+
               ///Get Started Button
               CustomFullButton(
                   title: AppStrings.getStartedButtonText.toUpperCase(),
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      CustomPageRoute(widget: const LoginScreen()),
+                      CustomPageRoute(
+                          widget: BlocProvider<LoginBloc>(
+                        create: (context) => LoginBloc(LogInRepo()),
+                        child: LoginScreen(),
+                      )),
                     );
                   })
             ],

@@ -1,13 +1,28 @@
 import 'package:fanex_flutter/api/urls.dart';
+import 'package:fanex_flutter/widgets/custom_circleindicator.dart';
 import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:io';
 
-class MoreDetailsScreen extends StatelessWidget {
-  const MoreDetailsScreen({Key? key, required int index}) : super(key: key);
+class MoreDetailsScreen extends StatefulWidget {
+  final int index;
+   MoreDetailsScreen({Key? key, required this.index}) : super(key: key);
 
-  String initialUrl(index) {
+  @override
+  State<MoreDetailsScreen> createState() => _MoreDetailsScreenState();
+}
+
+class _MoreDetailsScreenState extends State<MoreDetailsScreen> {
+List<String> title =[
+  'How to play/FAQ',
+  'Help/Contact us',
+  'Rules & Scoring',
+  'Terms of use',
+  'Privacy policy',
+];
+
+  String initialUrl(int index) {
     String initialUrl = '';
     switch (index) {
       case 1:
@@ -29,13 +44,25 @@ class MoreDetailsScreen extends StatelessWidget {
     return initialUrl;
   }
 
+bool isFinished=true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomDefaultAppBar(title: 'More Details'),
-      body: WebView(
-        initialUrl: initialUrl(1),
-        javascriptMode: JavascriptMode.unrestricted,
+      appBar:  CustomDefaultAppBar(title: title[widget.index-1]),
+      body: Stack(
+        children: [
+          WebView(
+          onPageFinished: (finish){
+            setState(() {
+              isFinished=false;
+            });
+          },
+          initialUrl: initialUrl(widget.index),
+          javascriptMode: JavascriptMode.unrestricted,
+        ),
+          Visibility(visible: isFinished,
+              child: CustomCircleIndicator()),]
       ),
     );
   }

@@ -1,11 +1,14 @@
 import 'package:fanex_flutter/common/common.dart';
+import 'package:fanex_flutter/features/lobby/bloc/banner_slider_bloc.dart';
 import 'package:fanex_flutter/widgets/carousel_slider.dart';
 import 'package:fanex_flutter/widgets/custom_full_button.dart';
 import 'package:fanex_flutter/widgets/custom_header.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../common/route.dart';
 import '../../screens.dart';
+import '../bannerRepo/banner_repo.dart';
 
 ///------------Lobby screen--------- ///
 
@@ -21,26 +24,11 @@ class _LobbyScreenState extends State<LobbyScreen>
   final ScrollController _scrollController = ScrollController();
   late TabController _tabController;
   var _isVisibleForScrollView = true;
-  //var _isVisibleForTabBarIndex0 = true;
   final int index = 0;
 
   void initState() {
     super.initState();
     _tabController = TabController(length: 4, vsync: this);
-    /*WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
-      _tabController.addListener(() {
-        print(_tabController.index);
-        if (_tabController.index < 1) {
-          setState(() {
-            _isVisibleForTabBarIndex0=true;
-          });
-        } else {
-          setState(() {
-            _isVisibleForTabBarIndex0=false;
-          });
-            }
-          });
-  });*/
     _scrollController.addListener(() {
       if (_scrollController.position.atEdge) {
         if (_scrollController.position.pixels > 0) if (_isVisibleForScrollView)
@@ -55,60 +43,87 @@ class _LobbyScreenState extends State<LobbyScreen>
       }
     });
   }
-
   Widget build(BuildContext context) {
     print(_isVisibleForScrollView);
-    return NotificationListener<OverscrollIndicatorNotification>(
-      onNotification: (overScroll) {
-        overScroll.disallowIndicator();
-        return false;
-      },
-      child: Container(
-        color: AppColors.header,
-        child: SafeArea(
-          child: Scaffold(
-            appBar: const CustomHeader(),
-            body: Stack(children: [
-              LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints) {
-                  return NotificationListener<OverscrollIndicatorNotification>(
-                    onNotification: (overScroll) {
-                      overScroll.disallowIndicator();
-                      return false;
-                    },
-                    child: CustomScrollView(
-                      controller: _scrollController,
-                      slivers: <Widget>[
-                        ///image slider
-                        const SliverToBoxAdapter(child: CarouselSlider()),
-
-                        ///tabbar
-                        StickyTabBar(_tabController),
-                        _tabBarView(context, _tabController),
-                      ],
-                    ),
-                  );
-                },
-              ),
-              Visibility(
-                visible: _tabController.index==0?_isVisibleForScrollView:false,
-                child: Padding(
-                  padding: const EdgeInsets.all(AppSizes.dimen8),
-                  child: Container(
-                    alignment: Alignment.bottomCenter,
-                    child: CustomFullButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          CustomPageRoute(widget: const CreateContestScreen()),
-                        );
+    return BlocProvider<BannerSliderBloc>(
+      create: (context) => BannerSliderBloc(BannerRepo())..add(GetBanner()),
+      child: NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (overScroll) {
+          overScroll.disallowIndicator();
+          return false;
+        },
+        child: Container(
+          color: AppColors.header,
+          child: SafeArea(
+            child: Scaffold(
+              appBar: const CustomHeader(),
+              body: Stack(children: [
+                LayoutBuilder(
+                  builder:
+                      (BuildContext context, BoxConstraints constraints) {
+                    return NotificationListener<
+                        OverscrollIndicatorNotification>(
+                      onNotification: (overScroll) {
+                        overScroll.disallowIndicator();
+                        return false;
                       },
-                      title: 'Create Contest',
+                      child: CustomScrollView(
+                        controller: _scrollController,
+                        slivers: <Widget>[
+                          ///image slider
+                          SliverToBoxAdapter(
+                            child:BlocBuilder<BannerSliderBloc,
+                                    BannerSliderState>(
+                                builder: (BuildContext context, state) {
+                              if (state is BannerSliderIsNotLoad) {
+                                return Center(
+                                    child: Text(
+                                  'Initial State',
+                                  style:
+                                      Theme.of(context).textTheme.headline1,
+                                ));
+                              } else if (state is BannerSliderIsLoading) {
+                                return Center(
+                                    child: CircularProgressIndicator());
+                              } else if (state is BannerIsLoaded) {
+                                return CarouselSlider(
+                                    BannerList: state.bannersList);
+                              } else
+                                return Container();
+                            }),
+                          ),
+
+                          ///tabbar
+                          StickyTabBar(_tabController),
+                          _tabBarView(context, _tabController),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+                Visibility(
+                  visible: _tabController.index == 0
+                      ? _isVisibleForScrollView
+                      : false,
+                  child: Padding(
+                    padding: const EdgeInsets.all(AppSizes.dimen8),
+                    child: Container(
+                      alignment: Alignment.bottomCenter,
+                      child: CustomFullButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            CustomPageRoute(
+                                widget: const CreateContestScreen()),
+                          );
+                        },
+                        title: 'Create Contest',
+                      ),
                     ),
                   ),
-                ),
-              )
-            ]),
+                )
+              ]),
+            ),
           ),
         ),
       ),

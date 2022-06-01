@@ -6,6 +6,7 @@ class AppStrings {
   static const String firstNameHint = "First Name";
   static const String lastNameHint = "Last Name";
   static const String registeredMobileNumberHint = "Registered Mobile Number";
+  static const String registeredEmailIdHint = "Registered Email Id";
   static const String passwordHint = "Password";
   static const String referralCodeHint = "Referral Code (optional)";
   static const String createPasswordHint = "Create Password";

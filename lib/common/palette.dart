@@ -9,7 +9,8 @@ class AppColors {
   static const lightGrey = Color(0xFFC2C1C1);
   static const grey = Color(0xFF8E8D8D);
   static const textFieldBg = Color(0xFFF3F3F3);
-  static const transparent = Color(0xFFFFFFF);
+  static const transparent = Color(0xFFFFF);
+  static const shimmer = Color(0xFFF1F3F5);
   static const orange = Color(0xF7FC7732);
   static const amber = Color(0xF7E8A73E);
   static const green = Color(0xFF23842D);
