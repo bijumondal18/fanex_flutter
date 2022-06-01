@@ -39,6 +39,9 @@ class AppStrings {
   static const String networkError = "No internet connection.";
   static const String verificationAadhar = "You must upload your Aadhar card to complete\nverification.";
   static const String serverError = "Server not responding! Please try later.";
+  static const String otpHint = "Enter OTP";
+  static const String verifyHint = "Verify";
+  static const String resendHint = "Resend Otp";
 
   static const String requestingWithdrawalText = "All deposits must be wagered \nbefore requesting a withdrawal";
   static const String transactionHistoryText = "Transaction History";
