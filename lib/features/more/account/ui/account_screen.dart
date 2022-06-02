@@ -47,7 +47,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           switch (index) {
                             case 0:
                               Navigator.push(context,
-                                  CustomPageRoute(widget: const ProfileScreen()));
+                                  CustomPageRoute(widget:  ProfileScreen()));
                               break;
 
                             case 1:
