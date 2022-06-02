@@ -13,6 +13,9 @@ class AppStrings {
   static const String rememberPasswordText = "Remember me";
   static const String forgetPasswordButtonText = "Forget password ?";
   static const String resetPasswordButtonText = "Reset password";
+  static const String savePasswordButtonText = "Save password";
+  static const String newPasswordText = "New password";
+  static const String confirmPasswordText = "Confirm password";
   static const String changePasswordButtonText = "Change password";
   static const String signupButtonText = "Sign Up";
   static const String notAMemberButtonText = "Not a member yet? Sign Up";

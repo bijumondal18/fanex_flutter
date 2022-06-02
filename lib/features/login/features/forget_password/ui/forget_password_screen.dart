@@ -23,7 +23,7 @@ class ForgetPasswordScreen extends StatefulWidget {
 }
 
 class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
-  final emailController = TextEditingController();
+  final phoneController = TextEditingController();
 
   @override
   void initState() {
@@ -37,66 +37,68 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
         title: const Text('Forget Password'),
       ),
       // body: BlocProvider(
-        // create: (context) => ForgetPasswordBloc(
-        //     forgetPasswordRepository:
-        //         RepositoryProvider.of<ForgetPasswordRepository>(context)),
-        // child: BlocListener<ForgetPasswordBloc, ForgetPasswordState>(
-        //   listener: (context, state) {
-            // if (state is ForgetPasswordSuccess) {
-            //   if (state.forgetPasswordResponseModel.ack.toString() != '0') {
-            //     Navigator.pushReplacement(
-            //       context,
-            //       CustomPageRoute(widget: const CustomBottomNavigationBar()),
-            //     );
-            //   } else {
-            //     print(state.forgetPasswordResponseModel.msg.toString());
-            //     emailController.text = "";
-            //     AppHelper.showBasicFlash(
-            //         context, state.forgetPasswordResponseModel.msg.toString());
-            //   }
-            // } else if (state is ForgetPasswordFailed) {
-            //   AppHelper.showBasicFlash(context, 'Something went wrong');
-            // }
-          // },
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                ///Fanex Logo
-                SizedBox(
-                  width: 250,
-                  height: 160,
-                  child: Image.asset('assets/images/fanex-logo.png',
-                      fit: BoxFit.contain),
-                ),
+      // create: (context) => ForgetPasswordBloc(
+      //     forgetPasswordRepository:
+      //         RepositoryProvider.of<ForgetPasswordRepository>(context)),
+      // child: BlocListener<ForgetPasswordBloc, ForgetPasswordState>(
+      //   listener: (context, state) {
+      // if (state is ForgetPasswordSuccess) {
+      //   if (state.forgetPasswordResponseModel.ack.toString() != '0') {
+      //     Navigator.pushReplacement(
+      //       context,
+      //       CustomPageRoute(widget: const CustomBottomNavigationBar()),
+      //     );
+      //   } else {
+      //     print(state.forgetPasswordResponseModel.msg.toString());
+      //     phoneController.text = "";
+      //     AppHelper.showBasicFlash(
+      //         context, state.forgetPasswordResponseModel.msg.toString());
+      //   }
+      // } else if (state is ForgetPasswordFailed) {
+      //   AppHelper.showBasicFlash(context, 'Something went wrong');
+      // }
+      // },
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
 
-                ///Registered Mobile Number TextField
-                Padding(
-                  padding: const EdgeInsets.all(AppSizes.dimen8),
-                  child: CustomTextField(
-                    hintText: AppStrings.registeredMobileNumberHint,
-                    obscureText: false,
-                    controller: emailController,
-                    icon: const Icon(Icons.person),
-                  ),
-                ),
-                const SizedBox(height: AppSizes.dimen30),
-
-                ///Reset Password Button
-                Padding(
-                  padding: const EdgeInsets.all(AppSizes.dimen8),
-                  child: CustomFullButton(
-                      title: AppStrings.resetPasswordButtonText.toUpperCase(),
-                      onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const OtpScreen()));
-                        // BlocProvider.of<ForgetPasswordBloc>(context)
-                        //   ..add(FetchForgetPasswordData(
-                        //       buildParams(emailController.text)));
-                      }),
-                ),
-              ],
+            ///Fanex Logo
+            SizedBox(
+              width: 250,
+              height: 160,
+              child: Image.asset('assets/images/fanex-logo.png',
+                  fit: BoxFit.contain),
             ),
-          ),
-        );
+
+            ///Registered Mobile Number TextField
+            Padding(
+              padding: const EdgeInsets.all(AppSizes.dimen8),
+              child: CustomTextField(
+                hintText: AppStrings.registeredMobileNumberHint,
+                obscureText: false,
+                controller: phoneController,
+                icon: const Icon(Icons.phone),
+              ),
+            ),
+            const SizedBox(height: AppSizes.dimen30),
+
+            ///Reset Password Button
+            Padding(
+              padding: const EdgeInsets.all(AppSizes.dimen8),
+              child: CustomFullButton(
+                  title: AppStrings.resetPasswordButtonText.toUpperCase(),
+                  onPressed: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(
+                        builder: (context) => const OtpScreen()));
+                    // BlocProvider.of<ForgetPasswordBloc>(context)
+                    //   ..add(FetchForgetPasswordData(
+                    //       buildParams(phoneController.text)));
+                  }),
+            ),
+          ],
+        ),
+      ),
+    );
     //   ),
     // );
   }
