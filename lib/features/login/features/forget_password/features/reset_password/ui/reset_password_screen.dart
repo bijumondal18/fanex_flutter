@@ -15,8 +15,8 @@ class ResetPasswordScreen extends StatefulWidget {
 
 class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
 
-  final pass1Controller = TextEditingController();
-  final pass2Controller = TextEditingController();
+  final newPasswordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               child: CustomTextField(
                 hintText: AppStrings.newPasswordText,
                 obscureText: false,
-                controller: pass1Controller,
+                controller: newPasswordController,
                 icon: const Icon(Icons.lock),
               ),
             ),
@@ -52,7 +52,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               child: CustomTextField(
                 hintText: AppStrings.confirmPasswordText,
                 obscureText: false,
-                controller: pass2Controller,
+                controller: confirmPasswordController,
                 icon: const Icon(Icons.lock),
               ),
             ),
