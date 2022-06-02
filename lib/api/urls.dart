@@ -10,8 +10,7 @@ class FanexURLs {
   static const String userResetPassword = baseUrl + "accounts/resetPassword/";
   static const String userChangePassword = baseUrl + "accounts/changePassword/";
   static const String userDetails = baseUrl + "accounts/"; //accountid=4
-  static const String checkUsername =
-      baseUrl + "accounts/checkUsername/"; //username=test
+  static const String checkUsername = baseUrl + "accounts/checkUsername/"; //username=test
 
   static const String privacyPolicyUrl = "https://fanex.in/privacy_policy";
   static const String termsServiceUrl = "https://fanex.in/terms";
