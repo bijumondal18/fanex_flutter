@@ -9,8 +9,8 @@ part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LogInRepo logInRepo;
+
   LoginBloc(this.logInRepo) : super(LoginInitialState()) {
-    bool? flag=false;
     on<FetchLoginData>((event, emit) async{
       emit (LoginLoadingState());
       try {
@@ -18,8 +18,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
               event.params);
           emit(LoginLoadedState(loginResponseModel));
       }
-      catch(_){
-        print(_);
+      catch(e){
+        print(e);
         emit (LoginFailedState('error'));
       }
     }
@@ -31,13 +31,13 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(LoginLoadingState());
       try{
         FanxPreferance pref = FanxPreferance();
-        flag = await pref.isLoggedIn();
-        if(flag==true){
+        bool? flag = await pref.isLoggedIn();
+        if(flag??false){
           emit(IsLoginState());
         }
       }
-      catch(_){
-        print(_);
+      catch(e){
+        print(e);
         emit (LoginFailedState('error'));
       }
 

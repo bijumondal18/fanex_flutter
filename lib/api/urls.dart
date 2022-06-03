@@ -1,6 +1,6 @@
 class FanexURLs {
-  //static const String baseUrl = 'https://api.staging.fanex.in/'; //staging url
-  static const String baseUrl = 'https://api.fanex.in/'; //live url
+  static const String baseUrl = 'https://api.staging.fanex.in/'; //staging url
+  //static const String baseUrl = 'https://api.fanex.in/'; //live url
 
 //-----------------User Login & User Details URL's-------------------------//
   static const String userRegistration = baseUrl + "accounts/";

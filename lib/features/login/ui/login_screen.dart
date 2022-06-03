@@ -1,5 +1,4 @@
 import 'dart:collection';
-
 import 'package:fanex_flutter/bottom_navigation_bar.dart';
 import 'package:fanex_flutter/features/login/features/forget_password/ui/forget_password_screen.dart';
 import 'package:fanex_flutter/features/login/features/signup/ui/signup_screen.dart';
@@ -18,15 +17,12 @@ import '../login_bloc/login_bloc.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
-  // static Route route() {
-  //   return MaterialPageRoute<void>(builder: (_) => LoginScreen());
-  // }
   @override
   Widget build(BuildContext context) {
     TextEditingController usernameController =
-        TextEditingController(text: '9874379052');
+    TextEditingController();
     TextEditingController passwordController =
-        TextEditingController(text: 'Arpan80133@');
+    TextEditingController();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.white,
@@ -49,7 +45,6 @@ class LoginScreen extends StatelessWidget {
                       child: Image.asset('assets/images/fanex-logo.png',
                           fit: BoxFit.contain),
                     ),
-
                     ///Username TextField
                     CustomTextField(
                       hintText: AppStrings.usernameHint,
@@ -58,7 +53,6 @@ class LoginScreen extends StatelessWidget {
                       icon: const Icon(Icons.person),
                     ),
                     const SizedBox(height: AppSizes.dimen8),
-
                     ///Password TextField
                     CustomTextField(
                         hintText: AppStrings.passwordHint,
@@ -74,7 +68,7 @@ class LoginScreen extends StatelessWidget {
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) =>
-                                  const ForgetPasswordScreen()));
+                              const ForgetPasswordScreen()));
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(AppSizes.dimen8),
@@ -168,10 +162,12 @@ class LoginScreen extends StatelessWidget {
   }
 }
 
+
+
 Map<String, dynamic> buildParams(
-  String userName,
-  String password,
-) {
+    String userName,
+    String password,
+    ) {
   Map<String, dynamic> params = new HashMap<String, dynamic>();
   params['email'] = userName.toString();
   params['password'] = password.toString();
