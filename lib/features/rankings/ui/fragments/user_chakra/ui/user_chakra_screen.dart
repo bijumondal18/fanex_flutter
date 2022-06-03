@@ -3,9 +3,9 @@ import 'package:fanex_flutter/widgets/custom_rankings_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../common/dimens.dart';
-import '../../../../common/palette.dart';
-import '../../../../common/strings.dart';
+import '../../../../../../common/dimens.dart';
+import '../../../../../../common/palette.dart';
+import '../../../../../../common/strings.dart';
 
 class UserChakraScreen extends StatefulWidget {
   const UserChakraScreen({Key? key}) : super(key: key);

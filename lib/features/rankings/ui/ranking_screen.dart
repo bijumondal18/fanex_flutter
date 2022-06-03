@@ -1,6 +1,6 @@
 import 'package:fanex_flutter/common/common.dart';
-import 'package:fanex_flutter/features/rankings/ui/fragments/chakra.dart';
-import 'package:fanex_flutter/features/rankings/ui/fragments/user_chakra_screen.dart';
+import 'package:fanex_flutter/features/rankings/ui/fragments/chakra/ui/chakra.dart';
+import 'package:fanex_flutter/features/rankings/ui/fragments/user_chakra/ui/user_chakra_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/dimens.dart';

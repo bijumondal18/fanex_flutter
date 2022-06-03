@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../common/dimens.dart';
 import '../common/palette.dart';
-import '../common/strings.dart';
+
 
 class CustomRankingsContainer extends StatelessWidget {
 

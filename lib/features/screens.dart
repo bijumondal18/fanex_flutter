@@ -4,7 +4,6 @@ export 'welcome/ui/welcome_screen.dart';
 ///----------///
 
 export 'login/ui/login_screen.dart';
-export 'login/features/forget_password/ui/forget_password_screen.dart';
 export 'login/features/signup/ui/signup_screen.dart';
 
 ///-----lobby screen-----///

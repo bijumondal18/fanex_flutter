@@ -6,12 +6,16 @@ class AppStrings {
   static const String firstNameHint = "First Name";
   static const String lastNameHint = "Last Name";
   static const String registeredMobileNumberHint = "Registered Mobile Number";
+  static const String registeredEmailIdHint = "Registered Email Id";
   static const String passwordHint = "Password";
   static const String referralCodeHint = "Referral Code (optional)";
   static const String createPasswordHint = "Create Password";
   static const String rememberPasswordText = "Remember me";
   static const String forgetPasswordButtonText = "Forget password ?";
   static const String resetPasswordButtonText = "Reset password";
+  static const String savePasswordButtonText = "Save password";
+  static const String newPasswordText = "New password";
+  static const String confirmPasswordText = "Confirm password";
   static const String changePasswordButtonText = "Change password";
   static const String signupButtonText = "Sign Up";
   static const String notAMemberButtonText = "Not a member yet? Sign Up";
@@ -38,6 +42,9 @@ class AppStrings {
   static const String networkError = "No internet connection.";
   static const String verificationAadhar = "You must upload your Aadhar card to complete\nverification.";
   static const String serverError = "Server not responding! Please try later.";
+  static const String otpHint = "Enter OTP";
+  static const String verifyHint = "Verify";
+  static const String resendHint = "Resend Otp";
 
   static const String requestingWithdrawalText = "All deposits must be wagered \nbefore requesting a withdrawal";
   static const String transactionHistoryText = "Transaction History";
