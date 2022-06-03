@@ -36,32 +36,30 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
       appBar: AppBar(
         title: const Text('Forget Password'),
       ),
-      // body: BlocProvider(
-      // create: (context) => ForgetPasswordBloc(
-      //     forgetPasswordRepository:
-      //         RepositoryProvider.of<ForgetPasswordRepository>(context)),
-      // child: BlocListener<ForgetPasswordBloc, ForgetPasswordState>(
-      //   listener: (context, state) {
-      // if (state is ForgetPasswordSuccess) {
-      //   if (state.forgetPasswordResponseModel.ack.toString() != '0') {
-      //     Navigator.pushReplacement(
-      //       context,
-      //       CustomPageRoute(widget: const CustomBottomNavigationBar()),
-      //     );
-      //   } else {
-      //     print(state.forgetPasswordResponseModel.msg.toString());
-      //     phoneController.text = "";
-      //     AppHelper.showBasicFlash(
-      //         context, state.forgetPasswordResponseModel.msg.toString());
-      //   }
-      // } else if (state is ForgetPasswordFailed) {
-      //   AppHelper.showBasicFlash(context, 'Something went wrong');
-      // }
-      // },
-      body: SingleChildScrollView(
+      body: BlocProvider(
+      create: (context) => ForgetPasswordBloc(
+          forgetPasswordRepository:ForgetPasswordRepository()),
+      child: BlocListener<ForgetPasswordBloc, ForgetPasswordState>(
+        listener: (context, state) {
+      if (state is ForgetPasswordSuccess) {
+        if (state.forgetPasswordResponseModel.ack.toString() != '0') {
+          Navigator.pushReplacement(
+            context,
+            CustomPageRoute(widget: const OtpScreen()),
+          );
+        } else {
+          print(state.forgetPasswordResponseModel.msg.toString());
+          phoneController.text = "";
+          AppHelper.showBasicFlash(
+              context, state.forgetPasswordResponseModel.msg.toString());
+        }
+      } else if (state is ForgetPasswordFailed) {
+        AppHelper.showBasicFlash(context, 'Something went wrong');
+      }
+      },
+      child: SingleChildScrollView(
         child: Column(
           children: [
-
             ///Fanex Logo
             SizedBox(
               width: 250,
@@ -83,31 +81,35 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
             const SizedBox(height: AppSizes.dimen30),
 
             ///Reset Password Button
-            Padding(
-              padding: const EdgeInsets.all(AppSizes.dimen8),
-              child: CustomFullButton(
-                  title: AppStrings.resetPasswordButtonText.toUpperCase(),
-                  onPressed: () {
-                    Navigator.pushReplacement(context, MaterialPageRoute(
-                        builder: (context) => const OtpScreen()));
-                    // BlocProvider.of<ForgetPasswordBloc>(context)
-                    //   ..add(FetchForgetPasswordData(
-                    //       buildParams(phoneController.text)));
-                  }),
+            Builder(
+              builder: (context) {
+                return Padding(
+                  padding: const EdgeInsets.all(AppSizes.dimen8),
+                  child: CustomFullButton(
+                      title: AppStrings.resetPasswordButtonText.toUpperCase(),
+                      onPressed: () {
+                        Navigator.pushReplacement(context, MaterialPageRoute(
+                            builder: (context) => const OtpScreen()));
+                        BlocProvider.of<ForgetPasswordBloc>(context)
+                          ..add(FetchForgetPasswordData(
+                              buildParams(phoneController.text)));
+                      }),
+                );
+              }
             ),
           ],
         ),
       ),
+    ),
+      ),
     );
-    //   ),
-    // );
   }
 }
 
-// Map<String, dynamic> buildParams(
-//   String email,
-// ) {
-//   Map<String, dynamic> params = new HashMap<String, dynamic>();
-//   params['email'] = email.toString();
-//   return params;
-// }
+Map<String, dynamic> buildParams(
+  String email,
+) {
+  Map<String, dynamic> params = new HashMap<String, dynamic>();
+  params['email'] = email.toString();
+  return params;
+}
