@@ -55,11 +55,33 @@ class ChangePasswordScreen extends StatelessWidget {
                   ),
 
                   ///confirm password field
-                  CustomTextField(
-                      hintText: 'Confirm Password',
-                      obscureText: true,
-                      controller: confirmPasswordController,
-                      icon: const Icon(Icons.vpn_key_rounded)),
+                  // CustomTextField(
+                  //     hintText: 'Confirm Password',
+                  //     obscureText: true,
+                  //     controller: confirmPasswordController,
+                  //     icon: const Icon(Icons.vpn_key_rounded)),
+              Container(
+                margin: const EdgeInsets.only(top: AppSizes.dimen8),
+                width: MediaQuery.of(context).size.width,
+                height: AppSizes.textFieldHeight,
+                child: TextField(
+                  controller: confirmPasswordController,
+                  obscureText: true,
+                  cursorColor: AppColors.black,
+                  decoration: InputDecoration(
+                    prefixIcon:  Icon(Icons.vpn_key_rounded),
+                    iconColor: AppColors.lightGrey,
+                    prefixIconColor: AppColors.lightGrey,
+                    hintText: 'Confirm Password',
+                    hintStyle: Theme.of(context).textTheme.bodyText1,
+                    filled: true,
+                    fillColor: AppColors.textFieldBg,
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius)),
+                  ),
+                ),
+              ),
                   const SizedBox(
                     height: AppSizes.dimen30,
                   ),

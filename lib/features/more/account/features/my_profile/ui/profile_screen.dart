@@ -1,14 +1,12 @@
 import 'package:custom_switch/custom_switch.dart';
 import 'package:fanex_flutter/common/common.dart';
 import 'package:fanex_flutter/features/more/account/features/my_profile/my_profile_bloc/my_profile_bloc.dart';
-import 'package:fanex_flutter/features/more/account/features/my_profile/my_profile_repo/my_profile_repo.dart';
 import 'package:fanex_flutter/utils/app_helper.dart';
 import 'package:fanex_flutter/widgets/custom_circleindicator.dart';
 import 'package:fanex_flutter/widgets/custom_edit_add_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../../../../utils/shared_preferences.dart';
 import '../../favourite_player/ui/favourite_player_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -18,27 +16,16 @@ class ProfileScreen extends StatefulWidget {
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-
 class _ProfileScreenState extends State<ProfileScreen> {
   MyProfileBloc myProfileBloc = MyProfileBloc();
   bool isSwitched = false;
-  String id = '';
-
-  void getID() async {
-    FanxPreferance pref = FanxPreferance();
-    await pref.getUserId().then((value) => id = value);
-  }
 
   void initState() {
-    print('id:   ' + id);
-    getID();
     myProfileBloc.add(FetchProfileData());
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
-    print('id:  8  ' + id);
     return BlocProvider(
       create: (context) => myProfileBloc,
       child: BlocConsumer<MyProfileBloc, MyProfileState>(
@@ -52,7 +39,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
           if (state is MyProfileLoadingState) {
             return CustomCircleIndicator();
           } else if (state is MyProfileLoadedState) {
-            print('id:  ' + id);
             List<String> title = [
               AppStrings.cashWonText,
               AppStrings.coinsEarnedText,
@@ -97,6 +83,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   title: Text("My Profile"),
                 ),
                 body: SingleChildScrollView(
+                  physics: BouncingScrollPhysics(),
                   child: Column(
                     children: [
                       Container(
@@ -143,7 +130,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
     );
   }
-
   Widget _buildProfileImage(MyProfileLoadedState state) {
     return Container(
         width: MediaQuery.of(context).size.width,
@@ -216,7 +202,7 @@ class CustomListTiles extends StatelessWidget {
       return Container(
         width: MediaQuery.of(context).size.width * 0.1,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Icon(
               Icons.currency_rupee,
@@ -235,7 +221,7 @@ class CustomListTiles extends StatelessWidget {
       return Container(
           width: MediaQuery.of(context).size.width * 0.1,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               SvgPicture.asset(
                 'assets/icons/coins-icon.svg',
@@ -257,13 +243,19 @@ class CustomListTiles extends StatelessWidget {
         hintText: "Edit",
       );
     } else if (index == 5 || index == 6) {
-      return Text(index == 5
-          ? '${state.profileResponseModel.phone.toString()}'
-          : '${state.profileResponseModel.user?.username.toString()}');
+      return Align(
+        alignment: Alignment.centerRight,
+        child: Text(index == 5
+            ? '${state.profileResponseModel.phone.toString()}'
+            : '${state.profileResponseModel.user?.username.toString()}'),
+      );
     } else if (index == 7) {
-      return const Icon(
-        Icons.arrow_forward_ios_outlined,
-        color: AppColors.grey,
+      return Align(
+        alignment: Alignment.centerRight,
+        child: const Icon(
+          Icons.arrow_forward_ios_outlined,
+          color: AppColors.grey,
+        ),
       );
     } else {
       return Transform.scale(
@@ -292,12 +284,28 @@ class CustomListTiles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
+    return InkWell(
       onTap: () {
         onTap(context);
       },
-      title: Text("${title}"),
-      trailing: GetIndex(context),
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: AppSizes.dimen12),
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height * 0.08,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("${title}"),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.20,
+                child: GetIndex(context),
+              )
+            ],
+          ),
+        ),
+        // title: Text("${title}"),
+        // trailing: GetIndex(context),
+      ),
     );
   }
 }

@@ -4,15 +4,16 @@ import 'package:fanex_flutter/features/login/models/login_models.dart';
 import 'package:fanex_flutter/utils/app_helper.dart';
 import 'package:http/http.dart' as http;
 
-class LogInRepo {
+class NotificationRepo {
 
-  Future<LoginResponseModel> doLogin(Map<String, dynamic> params) async {
+
+  Future<String> getNotificationData( String token) async {
     final response =
-        await http.Client().post(Uri.parse(FanexURLs.userLogin), body: params);
+    await http.Client().get(Uri.parse('${FanexURLs.sListofNotification}$token'));
     if (response.statusCode == 200) {
       AppHelper.showLog(response.toString());
       print(response.body);
-      return LoginResponseModel.fromJson(json.decode(response.body));
+      return response.body;
     } else {
       throw Exception('error');
     }
