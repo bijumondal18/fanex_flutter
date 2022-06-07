@@ -3,6 +3,7 @@ import 'package:fanex_flutter/common/common.dart';
 import 'package:fanex_flutter/features/lobby/bloc/banner_slider_bloc.dart';
 import 'package:fanex_flutter/features/login/features/forget_password/bloc/forget_password_bloc.dart';
 import 'package:fanex_flutter/features/login/features/forget_password/features/reset_password/bloc/reset_password_bloc.dart';
+import 'package:fanex_flutter/features/login/features/forget_password/features/reset_password/repository/reset_password_repository.dart';
 import 'package:fanex_flutter/features/login/login_repo/login_repo.dart';
 import 'package:fanex_flutter/utils/shared_preferences.dart';
 import 'package:fanex_flutter/widgets/custom_circleindicator.dart';
@@ -100,7 +101,7 @@ class _MainAppState extends State<MainApp> {
       BlocProvider(create: (context) => MyProfileBloc()),
       BlocProvider<BannerSliderBloc>(
           create: (context) => BannerSliderBloc(BannerRepo())),
-      //BlocProvider<ResetPasswordBloc>(create: (context) => ResetPasswordBloc(resetPasswordRepository: null))),
+      BlocProvider<ResetPasswordBloc>(create: (context) => ResetPasswordBloc(resetPasswordRepository: ResetPasswordRepository())),
       //BlocProvider<ForgetPasswordBloc>(create: (context) => ForgetPasswordBloc(forgetPasswordRepository: forgetPasswordRepository)),
     ], child: WelcomeScreen());
   }

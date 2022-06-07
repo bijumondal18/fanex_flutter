@@ -31,27 +31,27 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // body: BlocProvider(
-      //   create: (context) => ResetPasswordBloc(
-      //   resetPasswordRepository:ResetPasswordRepository()),
-      //     child: BlocListener<ResetPasswordBloc, ResetPasswordState>(
-      //       listener: (context, state) {
-      //       if (state is ResetPasswordSuccess) {
-      //       if (state.resetPasswordResponseModel.detail.toString() != '0') {
-      //          Navigator.pushReplacement(context,
-      //       CustomPageRoute(widget: const LobbyScreen()));
-      //       } else {
-      //         print(state.resetPasswordResponseModel.detail.toString());
-      //         AppHelper.showBasicFlash(
-      //         context, state.resetPasswordResponseModel.detail.toString());
-      //       }
-      //       } else if (state is ResetPasswordFailed) {
-      //       AppHelper.showBasicFlash(context, 'Something went wrong');
-      //       }
-      //       },
-           body:   Stack(
-             children: [
-               SingleChildScrollView(
+      body: BlocProvider(
+        create: (context) => ResetPasswordBloc(
+        resetPasswordRepository:ResetPasswordRepository()),
+          child: BlocListener<ResetPasswordBloc, ResetPasswordState>(
+            listener: (context, state) {
+            if (state is ResetPasswordSuccess) {
+            if (state.resetPasswordResponseModel.detail.toString() != '0') {
+               Navigator.pushReplacement(context,
+            CustomPageRoute(widget: const LobbyScreen()));
+            } else {
+              print(state.resetPasswordResponseModel.detail.toString());
+              AppHelper.showBasicFlash(
+              context, state.resetPasswordResponseModel.detail.toString());
+            }
+            } else if (state is ResetPasswordFailed) {
+            AppHelper.showBasicFlash(context, 'Something went wrong');
+            }
+            },
+           ///   Stack(
+             ///children: [
+              child: SingleChildScrollView(
                   child: Column(
                     children: [
 
@@ -96,37 +96,37 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       ),
                     ],
                   ),
-                ),
-               Container(
-                 alignment: Alignment.center,
-                 child: BlocConsumer<ResetPasswordBloc, ResetPasswordState>(
-                   listener: (context, state) {
-                     if (state is ResetPasswordSuccess) {
-                       if (state.resetPasswordResponseModel.detail.toString() != '0') {
-                         Navigator.pushReplacement(
-                           context,
-                           CustomPageRoute(
-                               widget: const LobbyScreen()),
-                         );
-                       } else {
-                         AppHelper.showBasicFlash(
-                             context, state.resetPasswordResponseModel.detail.toString());
-                       }
-                     } else if (state is ResetPasswordFailed) {
-                       AppHelper.showBasicFlash(context, 'Something went wrong');
-                     }
-                   },
-                   builder: (context, state) {
-                     if (state is ResetPasswordLoading) {
-                       return CustomCircleIndicator();
-                     }
-                     return Container();
-                   },
-                 ),
-               ),
-             ],
-           ),
-        );
+                ))));
+               // Container(
+               //   alignment: Alignment.center,
+               //   child: BlocConsumer<ResetPasswordBloc, ResetPasswordState>(
+               //     listener: (context, state) {
+               //       if (state is ResetPasswordSuccess) {
+               //         if (state.resetPasswordResponseModel.detail.toString() != '0') {
+               //           Navigator.pushReplacement(
+               //             context,
+               //             CustomPageRoute(
+               //                 widget: const LobbyScreen()),
+               //           );
+               //         } else {
+               //           AppHelper.showBasicFlash(
+               //               context, state.resetPasswordResponseModel.detail.toString());
+               //         }
+               //       } else if (state is ResetPasswordFailed) {
+               //         AppHelper.showBasicFlash(context, 'Something went wrong');
+               //       }
+               //     },
+               //     builder: (context, state) {
+               //       if (state is ResetPasswordLoading) {
+               //         return CustomCircleIndicator();
+               //       }
+               //       return Container();
+               //     },
+               //   ),
+               // ),
+        //      ],
+        //    ),
+        // );
     }
   }
 
