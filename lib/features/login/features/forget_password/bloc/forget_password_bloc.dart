@@ -33,18 +33,5 @@ class ForgetPasswordBloc
     on<ResetData>((event, emit) {
       emit(ForgetPasswordInitial());
     });
-    on<IsForgetPassword>((event, emit) async {
-      emit(ForgetPasswordLoading());
-      try {
-        FanxPreferance pref = FanxPreferance();
-        flag = await pref.isLoggedIn();
-        if (flag == true) {
-          //emit(IsForgetPasswordState());
-        }
-      } catch (_) {
-        print(_);
-        emit(ForgetPasswordFailed('error'));
-      }
-    });
   }
 }

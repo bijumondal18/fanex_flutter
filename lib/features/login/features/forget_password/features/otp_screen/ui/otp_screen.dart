@@ -2,9 +2,11 @@
 import 'dart:collection';
 
 import 'package:fanex_flutter/common/common.dart';
+import 'package:fanex_flutter/features/login/features/forget_password/features/otp_screen/bloc/otp_screen_bloc.dart';
 import 'package:fanex_flutter/features/login/features/forget_password/features/reset_password/ui/reset_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../common/dimens.dart';
 import '../../../../../../../common/strings.dart';
@@ -67,7 +69,7 @@ class _OtpScreenState extends State<OtpScreen> {
 
             const SizedBox(height: AppSizes.dimen30),
 
-            ///Reset Password Button
+            ///Verify Button
             Padding(
               padding: const EdgeInsets.all(AppSizes.dimen8),
               child: CustomFullButton(
@@ -75,6 +77,9 @@ class _OtpScreenState extends State<OtpScreen> {
                   onPressed: () {
                     Navigator.pushReplacement(context, MaterialPageRoute(
                         builder: (context) => const ResetPasswordScreen()));
+                    BlocProvider.of<OtpScreenBloc>(context)
+                      ..add(FetchOtpScreenData(
+                          buildParams(otpController.toString())));
                   }
               ),
             ),
