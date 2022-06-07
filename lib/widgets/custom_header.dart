@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../common/route.dart';
 import '../features/lobby/features/add_cash_fragment/Add cash screen.dart';
+import '../features/more/account/features/friends/ui/friends_screen.dart';
 import '../features/more/account/features/my_profile/ui/profile_screen.dart';
 
 import '../features/notification/ui/notification_screen.dart';
@@ -76,11 +77,11 @@ class _CustomHeaderState extends State<CustomHeader> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            coins(state.profileResponseModel.coinsEarned
-                                .toString()),
+                            coins(state.profileResponseModel.wallet
+                                .toString(),false),
                             coins(state
-                                .profileResponseModel.coinsEarnedInContest.toString()),
-                            addCashButton()
+                                .profileResponseModel.walletRs.toString(),true),
+                            addCashButton(true,'hjbjbj')
                           ],
                         ),
                         const SizedBox(
@@ -98,7 +99,7 @@ class _CustomHeaderState extends State<CustomHeader> {
                             const SizedBox(
                               width: AppSizes.dimen4,
                             ),
-                            addCashButton()
+                            addCashButton(false,state.profileResponseModel.friendCount.toString())
                           ],
                         ),
                       ],
@@ -125,7 +126,7 @@ class _CustomHeaderState extends State<CustomHeader> {
     );
   }
 
-  Widget coins(String title) {
+  Widget coins(String title,bool isCoin) {
     return Container(
       padding: const EdgeInsets.symmetric(
           horizontal: AppSizes.dimen8, vertical: AppSizes.dimen4),
@@ -134,11 +135,11 @@ class _CustomHeaderState extends State<CustomHeader> {
           borderRadius: BorderRadius.circular(AppSizes.dimen30)),
       child: Row(
         children: [
-          SvgPicture.asset(
+          isCoin?SvgPicture.asset(
             'assets/icons/coins-icon.svg',
             width: 12,
             height: 12,
-          ),
+          ):Icon(Icons.currency_rupee,size: 13.0,color: AppColors.white,),
           const SizedBox(
             width: AppSizes.dimen4,
           ),
@@ -152,12 +153,12 @@ class _CustomHeaderState extends State<CustomHeader> {
     );
   }
 
-  Widget addCashButton() {
+  Widget addCashButton(bool isCashButton,String title) {
     return InkWell(
       onTap: () {
         Navigator.push(
           context,
-          CustomPageRoute(widget: const AddCashFragment()),
+          CustomPageRoute(widget: isCashButton?const AddCashFragment():FriendsListScreen()),
         );
       },
       child: Container(
@@ -167,20 +168,25 @@ class _CustomHeaderState extends State<CustomHeader> {
             color: AppColors.green.withOpacity(0.8),
             borderRadius: BorderRadius.circular(AppSizes.cardCornerRadius)),
         child: Row(
-          children: const [
-            Icon(
+          children:  [
+            isCashButton?Icon(
               Icons.add,
               color: AppColors.white,
               size: 19,
-            ),
+            ):Text(title,style: TextStyle(
+                color: AppColors.white, fontSize: AppSizes.bodyText2),),
             SizedBox(
               width: AppSizes.dimen4,
             ),
-            Text(
+            isCashButton?Text(
               'Add Cash',
               style: TextStyle(
                   color: AppColors.white, fontSize: AppSizes.bodyText2),
-            ),
+            ):Text(
+    'Friends',
+    style: TextStyle(
+    color: AppColors.white, fontSize: AppSizes.bodyText2),
+    ),
           ],
         ),
       ),

@@ -1,6 +1,8 @@
+import 'dart:collection';
+
+import 'package:fanex_flutter/utils/app_helper.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../bottom_navigation_bar.dart';
 import '../../../../../common/common.dart';
 import '../../../../../common/route.dart';
@@ -33,7 +35,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
         backgroundColor: AppColors.header,
       ),
-
       ///main content
       body: SingleChildScrollView(
         child: Container(
@@ -87,6 +88,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(height: AppSizes.dimen8),
 
               ///Password TextField
+              // CustomTextFieldWithOnChange(
+              //     onChanged: ,
+              //     hintText: AppStrings.createPasswordHint,
+              //     controller: _passwordController,
+              //     icon: const Icon(Icons.lock)),
               CustomTextField(
                   hintText: AppStrings.createPasswordHint,
                   obscureText: true,
@@ -113,9 +119,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           widget: const CustomBottomNavigationBar()),
                     );
                   }),
-
               const SizedBox(height: AppSizes.dimen16),
-
               ///login Button
               InkWell(
                 onTap: () {
@@ -132,7 +136,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
               ),
-
               const SizedBox(height: AppSizes.dimen24),
             ],
           ),
@@ -141,3 +144,29 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
+// Map<String, dynamic> buildParams(
+//     String userName,
+//     String password,
+//     String emailOrpPhone,
+//     String firstname,
+//     String lastname,
+//     String countryCodeWithPlus,
+//     String myAddress,
+//     ) {
+//   Map<String, dynamic> params = new HashMap<String, dynamic>();
+//   params["email"]= emailOrPhone;
+//   params["user.first_name"]= firstname;
+//   params["user.last_name"]= lastname;
+//   params["user.username"]= userName;
+//   params["user.password"]= password;
+//   params["about"]= "";
+//   params["phone"]= "";
+//   params["countryCode"]= countryCodeWithPlus;
+//   params["address"]= myAddress;
+//   params["latitude"]= latitude.toString();
+//   params["longitude"]= longitude.toString();
+//   params["deviceId"]= android_id;
+//   params["deviceType"]= "android";
+//
+//   return params;
+// }

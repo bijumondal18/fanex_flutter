@@ -5,10 +5,8 @@ import 'package:fanex_flutter/utils/app_helper.dart';
 import 'package:http/http.dart' as http;
 
 class LogInRepo {
-  Map<String, dynamic> params = Map();
 
-  Future<LoginResponseModel> doLogin(pragma) async {
-    params = pragma;
+  Future<LoginResponseModel> doLogin(Map<String, dynamic> params) async {
     final response =
         await http.Client().post(Uri.parse(FanexURLs.userLogin), body: params);
     if (response.statusCode == 200) {

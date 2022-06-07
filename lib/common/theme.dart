@@ -2,8 +2,6 @@ import 'package:fanex_flutter/common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'dimens.dart';
-
 class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
