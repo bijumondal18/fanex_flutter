@@ -1,11 +1,14 @@
 class ResetPasswordResponseModel {
+  dynamic ack;
   dynamic detail;
 
-  ResetPasswordResponseModel({ this.detail,});
+
+  ResetPasswordResponseModel({ this.ack , this.detail, });
 
   factory ResetPasswordResponseModel.fromJson(Map<dynamic, dynamic> json) {
     return ResetPasswordResponseModel(
-      detail: json.containsKey('msg') ? json['msg'] ?? "" : "",
+      ack: json['ack'],
+     detail: json.containsKey('msg') ? json['msg'] ?? "" : "",
     );
   }
 }
