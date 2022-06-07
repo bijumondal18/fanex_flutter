@@ -1,13 +1,16 @@
 
+import 'dart:collection';
+
 import 'package:fanex_flutter/common/common.dart';
+import 'package:fanex_flutter/features/login/features/forget_password/features/otp_screen/bloc/otp_screen_bloc.dart';
 import 'package:fanex_flutter/features/login/features/forget_password/features/reset_password/ui/reset_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../common/dimens.dart';
 import '../../../../../../../common/strings.dart';
 import '../../../../../../../widgets/custom_full_button.dart';
-import '../../../../../../../widgets/custom_text_field.dart';
 
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
@@ -59,13 +62,14 @@ class _OtpScreenState extends State<OtpScreen> {
                 fieldStyle: FieldStyle.underline,
                 onCompleted: (pin) {
                   print("Completed: " + pin);
+                  // print("check: " + buildParams(pin.toString()).toString());
                 },
               ),
             ),
 
             const SizedBox(height: AppSizes.dimen30),
 
-            ///Reset Password Button
+            ///Verify Button
             Padding(
               padding: const EdgeInsets.all(AppSizes.dimen8),
               child: CustomFullButton(
@@ -73,6 +77,9 @@ class _OtpScreenState extends State<OtpScreen> {
                   onPressed: () {
                     Navigator.pushReplacement(context, MaterialPageRoute(
                         builder: (context) => const ResetPasswordScreen()));
+                    BlocProvider.of<OtpScreenBloc>(context)
+                      ..add(FetchOtpScreenData(
+                          buildParams(otpController.toString())));
                   }
               ),
             ),
@@ -88,4 +95,11 @@ class _OtpScreenState extends State<OtpScreen> {
       ),
     );
   }
+}
+Map<String, dynamic> buildParams(
+  String pin,
+) {
+  Map<String, dynamic> params = new HashMap<String, dynamic>();
+  params['otp'] = pin.toString();
+  return params;
 }
