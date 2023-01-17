@@ -112,7 +112,7 @@ class _CreateContestScreenState extends State<CreateContestScreen> {
               ),
               //const CustomTextField(hintText: 'Invite Friends',obscureText: false,),
               const SizedBox(
-                height: AppSizes.dimen16,
+                height: AppSizes.kDefaultPadding,
               ),
               CustomFullButton(
                   title: AppStrings.finishButtonText, onPressed: () {})

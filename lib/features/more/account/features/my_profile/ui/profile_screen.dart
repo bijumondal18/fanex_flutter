@@ -12,7 +12,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: CustomDefaultAppBar(title: 'My Profile'),
+      appBar: CustomAppbar(title: 'My Profile'),
     );
   }
 }

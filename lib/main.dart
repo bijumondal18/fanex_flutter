@@ -4,6 +4,11 @@ import 'package:fanex_flutter/features/screens.dart';
 import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: AppColors.transparent, // status bar color
+      systemNavigationBarColor: AppColors.white //navigation bar color
+      ));
   runApp(const MyApp());
 }
 
@@ -12,10 +17,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle( const SystemUiOverlayStyle(
-      statusBarColor: AppColors.transparent,// status bar color
-      systemNavigationBarColor: AppColors.white //navigation bar color
-    ));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Fanex App',

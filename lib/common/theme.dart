@@ -2,7 +2,7 @@ import 'package:fanex_flutter/common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'dimens.dart';
+import 'app_sizes.dart';
 
 class AppTheme {
   static ThemeData get lightTheme {
@@ -13,12 +13,12 @@ class AppTheme {
         appBarTheme: AppBarTheme(
             backgroundColor: AppColors.header,
             elevation: AppSizes.elevation1,
-            centerTitle: true,
+            centerTitle: false,
             titleTextStyle: GoogleFonts.lato(
               textStyle: const TextStyle(
                 color: AppColors.white,
                 fontSize: AppSizes.headline5,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
               ),
             ),
             foregroundColor: AppColors.white),
@@ -61,7 +61,7 @@ class AppTheme {
               textStyle: const TextStyle(
                   color: AppColors.darkGrey,
                   fontSize: AppSizes.headline6,
-                  fontWeight: FontWeight.w500)),
+                  fontWeight: FontWeight.w600)),
           bodyText1: GoogleFonts.lato(
               textStyle: const TextStyle(
                   color: AppColors.darkGrey,

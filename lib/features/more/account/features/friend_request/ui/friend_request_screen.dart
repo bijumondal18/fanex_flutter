@@ -7,6 +7,6 @@ class FriendRequestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-        appBar: CustomDefaultAppBar(title: 'Friend Requests'));
+        appBar: CustomAppbar(title: 'Friend Requests'));
   }
 }

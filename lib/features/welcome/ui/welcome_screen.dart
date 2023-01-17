@@ -22,7 +22,7 @@ class WelcomeScreen extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           margin: const EdgeInsets.symmetric(
-              vertical: AppSizes.dimen16, horizontal: AppSizes.dimen16),
+              vertical: AppSizes.kDefaultPadding, horizontal: AppSizes.kDefaultPadding),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

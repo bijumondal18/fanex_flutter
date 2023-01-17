@@ -8,7 +8,7 @@ class AppSizes {
 
   static const double dimen30 = 30.0;
   static const double dimen24 = 24.0;
-  static const double dimen16 = 16.0;
+  static const double kDefaultPadding = 16.0;
   static const double dimen12 = 12.0;
   static const double dimen8 = 8.0;
   static const double dimen4 = 4.0;

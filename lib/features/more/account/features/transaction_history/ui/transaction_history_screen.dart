@@ -10,9 +10,10 @@ class TransactionHistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomDefaultAppBar(title: 'Transaction History'),
+      appBar: const CustomAppbar(title: 'Transaction History'),
       body: ListView.builder(
-          //shrinkWrap: true,
+          shrinkWrap: true,
+          physics: const BouncingScrollPhysics(),
           itemCount: 50,
           itemBuilder: (BuildContext context, int index) {
             return const TransactionHistoryCardItem();

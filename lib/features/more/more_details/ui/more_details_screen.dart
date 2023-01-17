@@ -32,7 +32,7 @@ class MoreDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomDefaultAppBar(title: 'More Details'),
+      appBar: const CustomAppbar(title: 'More Details'),
       body: WebView(
         initialUrl: initialUrl(1),
         javascriptMode: JavascriptMode.unrestricted,

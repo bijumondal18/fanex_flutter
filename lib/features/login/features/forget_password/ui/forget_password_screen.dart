@@ -2,7 +2,7 @@ import 'package:fanex_flutter/common/common.dart';
 import 'package:fanex_flutter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../common/dimens.dart';
+import '../../../../../common/app_sizes.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
   const ForgetPasswordScreen({Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class ForgetPasswordScreen extends StatelessWidget {
       body: Container(
         width: MediaQuery.of(context).size.width,
         margin: const EdgeInsets.symmetric(
-            horizontal: AppSizes.dimen16, vertical: AppSizes.dimen16),
+            horizontal: AppSizes.kDefaultPadding, vertical: AppSizes.kDefaultPadding),
         child: SingleChildScrollView(
           child: Column(
             children: [

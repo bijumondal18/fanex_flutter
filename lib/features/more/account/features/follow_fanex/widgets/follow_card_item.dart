@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../../../common/dimens.dart';
-import '../../../../../../common/palette.dart';
+import '../../../../../../common/app_sizes.dart';
+import '../../../../../../common/app_colors.dart';
 import '../../../../../../common/theme.dart';
 
 class FollowCardItem extends StatelessWidget {
@@ -23,8 +23,8 @@ class FollowCardItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(
-          left: AppSizes.dimen16,
-          right: AppSizes.dimen16,
+          left: AppSizes.kDefaultPadding,
+          right: AppSizes.kDefaultPadding,
           bottom: AppSizes.dimen12),
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(

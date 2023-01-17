@@ -12,7 +12,7 @@ class _WalletScreenState extends State<WalletScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: CustomDefaultAppBar(title: 'My Wallet'),
+      appBar: CustomAppbar(title: 'My Wallet'),
     );
   }
 }

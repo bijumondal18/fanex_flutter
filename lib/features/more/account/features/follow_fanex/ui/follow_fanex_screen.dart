@@ -11,12 +11,12 @@ class FollowFanexScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomDefaultAppBar(title: 'Follow Fanex'),
+      appBar: const CustomAppbar(title: 'Follow Fanex'),
       body: SingleChildScrollView(
         child: Column(
           children: [
             const SizedBox(
-              height: AppSizes.dimen16,
+              height: AppSizes.kDefaultPadding,
             ),
             FollowCardItem(
               title: 'Follow us on Facebook',

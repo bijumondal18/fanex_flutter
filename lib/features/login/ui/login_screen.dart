@@ -27,7 +27,7 @@ class LoginScreen extends StatelessWidget {
           child: Container(
             width: MediaQuery.of(context).size.width,
             margin: const EdgeInsets.symmetric(
-                horizontal: AppSizes.dimen16, vertical: AppSizes.dimen16),
+                horizontal: AppSizes.kDefaultPadding, vertical: AppSizes.kDefaultPadding),
             child: Column(
               children: [
                 ///Fanex Logo
@@ -53,7 +53,7 @@ class LoginScreen extends StatelessWidget {
                     obscureText: true,
                     controller: passwordController,
                     icon: const Icon(Icons.lock)),
-                const SizedBox(height: AppSizes.dimen16),
+                const SizedBox(height: AppSizes.kDefaultPadding),
 
                 ///Forget Password Button
                 Align(
@@ -73,7 +73,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(height: AppSizes.dimen16),
+                const SizedBox(height: AppSizes.kDefaultPadding),
 
                 ///Login Button
                 CustomFullButton(
@@ -86,7 +86,7 @@ class LoginScreen extends StatelessWidget {
                       );
                     }),
                 const SizedBox(
-                  height: AppSizes.dimen16,
+                  height: AppSizes.kDefaultPadding,
                 ),
 
                 ///SignUp Button

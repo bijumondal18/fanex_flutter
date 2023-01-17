@@ -39,7 +39,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: Container(
           width: MediaQuery.of(context).size.width,
           margin: const EdgeInsets.symmetric(
-              horizontal: AppSizes.dimen16, vertical: AppSizes.dimen16),
+              horizontal: AppSizes.kDefaultPadding, vertical: AppSizes.kDefaultPadding),
           child: Column(
             children: [
               ///Fanex Logo
@@ -101,7 +101,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 controller: _referralCodeController,
                 icon: const Icon(Icons.person),
               ),
-              const SizedBox(height: AppSizes.dimen16),
+              const SizedBox(height: AppSizes.kDefaultPadding),
 
               ///Sign up Button
               CustomFullButton(
@@ -114,7 +114,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     );
                   }),
 
-              const SizedBox(height: AppSizes.dimen16),
+              const SizedBox(height: AppSizes.kDefaultPadding),
 
               ///login Button
               InkWell(

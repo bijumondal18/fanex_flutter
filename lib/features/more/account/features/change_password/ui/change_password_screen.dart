@@ -18,13 +18,13 @@ class ChangePasswordScreen extends StatelessWidget {
 
     return Scaffold(
       ///appbar
-      appBar: const CustomDefaultAppBar(title: 'Change Password'),
+      appBar: const CustomAppbar(title: 'Change Password'),
 
       /// main content
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           return Container(
-            margin: const EdgeInsets.all(AppSizes.dimen16),
+            margin: const EdgeInsets.all(AppSizes.kDefaultPadding),
             child: SingleChildScrollView(
               child: Column(
                 children: [

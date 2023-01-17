@@ -3,6 +3,7 @@ import 'dart:ui';
 class AppColors {
   static const white = Color(0xFFFFFFFF);
   static const scaffold = Color(0xFFFFFFFF);
+  static const shimmer = Color(0xFFF1F4F7);
   static const header = Color(0xFF6C6B6B);
   static const black = Color(0xFF000000);
   static const darkGrey = Color(0xFF323232);

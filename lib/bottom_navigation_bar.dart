@@ -6,7 +6,7 @@ import 'package:fanex_flutter/features/rankings/ui/ranking_screen.dart';
 import 'package:fanex_flutter/features/rewards/ui/reward_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'common/palette.dart';
+import 'common/app_colors.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({Key? key}) : super(key: key);
